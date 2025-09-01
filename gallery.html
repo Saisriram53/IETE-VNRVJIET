@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IETE Student Chapter — Event Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+  <style>
+    /* Main container for the gallery section */
+    .gallery-container {
+      padding: 2rem 0;
+    }
+    
+    /* Gallery wrapper for positioning arrows */
+    .gallery-wrapper {
+      position: relative;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+    
+    /* Arrow buttons */
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--text);
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    
+    .gallery-arrow:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .gallery-arrow:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+    
+    .gallery-arrow-left {
+      left: 1rem;
+    }
+    
+    .gallery-arrow-right {
+      right: 1rem;
+    }
+    
+    /* Hide arrows on small screens where touch scrolling is preferred */
+    @media (max-width: 768px) {
+      .gallery-arrow {
+        display: none;
+      }
+    }
+    
+    /* UPDATED Gallery Grid for Horizontal Scrolling */
+    .gallery-grid {
+      display: flex; /* Changed from grid to flex */
+      flex-wrap: nowrap; /* Ensures items stay in a single line */
+      overflow-x: auto; /* Enables horizontal scrolling */
+      gap: 2rem;
+      padding: 2rem 4rem; /* Add padding to see side items */
+      /* This is key for the 3D effect */
+      perspective: 1500px; 
+      /* Hide the scrollbar for a cleaner look */
+      scrollbar-width: none; /* For Firefox */
+      -ms-overflow-style: none;  /* For IE and Edge */
+    }
+    .gallery-grid::-webkit-scrollbar {
+      display: none; /* For Chrome, Safari, and Opera */
+    }
+
+    /* UPDATED Gallery Item for Horizontal Layout */
+    .gallery-item {
+      flex: 0 0 320px; /* Prevents items from shrinking and sets a fixed width */
+      height: 400px; /* Taller items for this effect */
+      background: var(--surface);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      /* Smooth transition for the new 3D transform */
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    }
+
+    .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #fff;
+    }
+
+    .gallery-content {
+      padding: 1rem;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .gallery-content h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .gallery-content p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .gallery-date {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    /* --- Other styles (unchanged) --- */
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; height: 100%; padding: 2rem; position: relative; }
+    .gradient-bg.social { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+    .gradient-bg.talks { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .gradient-bg.projects { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .gradient-bg .emoji { font-size: 3.5rem; margin-bottom: 1rem; animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+    .gradient-bg h3 { color: white !important; margin-bottom: 0.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .gradient-bg p { color: rgba(255,255,255,0.9) !important; text-shadow: 0 1px 5px rgba(0,0,0,0.3); }
+    .filter-buttons { display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; flex-wrap: wrap; }
+    .filter-btn { background: transparent; color: var(--muted); border: 2px solid var(--border); padding: 12px 24px; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; }
+    .filter-btn.active, .filter-btn:hover { background: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 4px 15px rgba(0,150,255,0.3); transform: scale(1.05); }
+    .gallery-header { text-align: center; margin-bottom: 3rem; padding: 3rem 2rem; background: var(--surface); border-radius: 20px; border: 1px solid var(--border); }
+    .gallery-header h1 { font-size: 3rem; color: var(--accent); margin-bottom: 1rem; text-shadow: 0 0 20px rgba(0,150,255,0.5); }
+    .gallery-header p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img class="college-logo" src="assets/vnrvjiet-logo.png" alt="VNR VJIET logo" />
+        <div class="brand-text">
+          <h1>IETE Student Chapter</h1>
+          <div class="dept">VNR VJIET — Department of ECE</div>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="panel.html">Panel</a>
+        <a href="gallery.html" style="color:var(--accent);font-weight:bold;">Event Gallery</a>
+        <a href="contact.html">Contact</a>
+        <span id="nav-underline" class="nav-underline" aria-hidden="true"></span>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌗</button>
+        <img class="iete-logo" src="assets/iete-logo.jpeg" alt="IETE logo" />
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="gallery-container">
+      <div class="container-inner">
+        
+        <div class="gallery-header">
+          <h1>Event Gallery</h1>
+          <p>Explore our vibrant collection of workshops, talks, and project exhibitions. Scroll horizontally to see more.</p>
+        </div>
+
+        <div class="gallery-wrapper">
+          <button class="gallery-arrow gallery-arrow-left" id="arrow-left" aria-label="Scroll left">‹</button>
+          <div class="gallery-grid">
+          <div class="gallery-item" data-category="social">
+            <div class="gallery-date">Jan 31, 2019</div>
+            <img src="assets/TechVision 19-20.jpg" alt="TechVision Quiz 2019-20" />
+            <div class="gallery-content">
+              <h3>TechVision Quiz</h3>
+              <p>Quiz and technical presentation event to encourage communication, interaction, and technical skills among students.</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="social">
+            <div class="gallery-date">Jan 31, 2019</div>
+            <img src="assets/TechVision 19-20(1).jpg" alt="TechVision Quiz 2019-20" />
+            <div class="gallery-content">
+              <h3>TechVision Quiz</h3>
+              <p>Students presenting and participating in the quiz event.</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="workshops">
+            <div class="gallery-date">2019-20</div>
+            <img src="assets/Math Day 19-20.jpg" alt="National Mathematics Day 2019-20" />
+            <div class="gallery-content">
+              <h3>National Mathematics Day</h3>
+              <p>Students presenting posters and slides on the importance of mathematics in engineering.</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="workshops">
+            <div class="gallery-date">2019-20</div>
+            <img src="assets/Math Day 19-20(1).jpg" alt="National Mathematics Day 2019-20" />
+            <div class="gallery-content">
+              <h3>National Mathematics Day</h3>
+              <p>Participants showcasing practical applications and winning awards for their presentations.</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="social">
+            <div class="gallery-date">Jan 26, 2019</div>
+            <img src="assets/Republic Day 18-19.jpg" alt="Republic Day Parade 2018-19" />
+            <div class="gallery-content">
+              <h3>Republic Day Parade</h3>
+              <p>Tribute to Indian Army - Parade and awareness march by IETE Student Chapter.</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="social">
+            <div class="gallery-date">Jan 26, 2019</div>
+            <img src="assets/Republic Day 18-19(1).jpg" alt="Republic Day Parade 2018-19" />
+            <div class="gallery-content">
+              <h3>Republic Day Parade</h3>
+              <p>Students and faculty sharing messages and creativity for Republic Day.</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="workshops">
+            <div class="gallery-date">Dec 22, 2018</div>
+            <img src="assets/Math Day 18-19.jpg" alt="National Mathematics Day 2018-19" />
+            <div class="gallery-content">
+              <h3>National Mathematics Day</h3>
+              <p>Celebrating Sir Ramanujam's birthday with presentations and quiz contests.</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="workshops">
+            <div class="gallery-date">Dec 22, 2018</div>
+            <img src="assets/Math Day 18-19(1).jpg" alt="National Mathematics Day 2018-19" />
+            <div class="gallery-content">
+              <h3>National Mathematics Day</h3>
+              <p>Students presenting math applications and creative challenges.</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="social">
+            <div class="gallery-date">Sep 5, 2017</div>
+            <img src="assets/Teachers Day 18-19.jpg" alt="Teachers Day 2018-19" />
+            <div class="gallery-content">
+              <h3>Teachers' Day</h3>
+              <p>Honoring teachers with gratitude and gifts from the IETE team.</p>
+            </div>
+          </div>
+          <div class="gallery-item" data-category="social">
+            <div class="gallery-date">Sep 5, 2017</div>
+            <img src="assets/Teachers Day 18-19(1).jpg" alt="Teachers Day 2018-19" />
+            <div class="gallery-content">
+              <h3>Teachers' Day</h3>
+              <p>Celebration with faculty and students, expressing thanks for their support.</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-category="social">
+             <div class="gallery-date">Jan 26, 2025</div>
+             <img src="assets/republic-day-2025.webp" alt="Republic Day 2025" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+             <div class="gradient-bg social" style="display:none;">
+               <div class="emoji">🇮🇳</div>
+               <h3>Republic Day Celebration</h3>
+               <p>IETE Chapter Unity & Pride</p>
+             </div>
+             <div class="gallery-content">
+               <h3>Republic Day Celebration 2025</h3>
+               <p>A memorable event showcasing our national pride and chapter unity.</p>
+             </div>
+          </div>
+
+          <div class="gallery-item" data-category="workshops">
+            <div class="gallery-date">Sep 15, 2024</div>
+            <div class="gradient-bg">
+              <div class="emoji">🔧</div>
+              <h3>Embedded Systems Workshop</h3>
+              <p>Arduino & IoT Projects</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="talks">
+            <div class="gallery-date">Oct 8, 2024</div>
+            <div class="gradient-bg talks">
+              <div class="emoji">📡</div>
+              <h3>5G Technology Seminar</h3>
+              <p>Future of Wireless Communication</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="projects">
+            <div class="gallery-date">Nov 30, 2024</div>
+            <div class="gradient-bg projects">
+              <div class="emoji">🏆</div>
+              <h3>Annual Project Showcase</h3>
+              <p>Student Innovation Exhibition</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="workshops">
+            <div class="gallery-date">Aug 22, 2024</div>
+            <div class="gradient-bg">
+              <div class="emoji">⚡</div>
+              <h3>PCB Design Workshop</h3>
+              <p>Circuit Design & Manufacturing</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="social">
+            <div class="gallery-date">Dec 15, 2024</div>
+            <div class="gradient-bg social">
+              <div class="emoji">🧠</div>
+              <h3>Tech Quiz Night</h3>
+              <p>Electronics & Computing Quiz</p>
+            </div>
+          </div>
+        </div>
+        <button class="gallery-arrow gallery-arrow-right" id="arrow-right" aria-label="Scroll right">›</button>
+        </div>
+        
+      </div>
+    </div>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>&copy; <span id="year"></span> IETE Student Chapter — VNR VJIET ECE</div>
+      <div class="small-muted">Built for students</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // --- Arrow Navigation for Gallery ---
+    const galleryGrid = document.querySelector('.gallery-grid');
+    const leftArrow = document.getElementById('arrow-left');
+    const rightArrow = document.getElementById('arrow-right');
+    
+    if (galleryGrid && leftArrow && rightArrow) {
+      const scrollAmount = 340; // Width of gallery item + gap
+      
+      leftArrow.addEventListener('click', () => {
+        galleryGrid.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth'
+        });
+      });
+      
+      rightArrow.addEventListener('click', () => {
+        galleryGrid.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Update arrow visibility based on scroll position
+      const updateArrowVisibility = () => {
+        const isAtStart = galleryGrid.scrollLeft <= 0;
+        const isAtEnd = galleryGrid.scrollLeft >= galleryGrid.scrollWidth - galleryGrid.clientWidth;
+        
+        leftArrow.style.opacity = isAtStart ? '0.3' : '1';
+        rightArrow.style.opacity = isAtEnd ? '0.3' : '1';
+        leftArrow.style.pointerEvents = isAtStart ? 'none' : 'auto';
+        rightArrow.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+      };
+      
+      galleryGrid.addEventListener('scroll', updateArrowVisibility);
+      window.addEventListener('load', updateArrowVisibility);
+      window.addEventListener('resize', updateArrowVisibility);
+    }
+    
+    // --- Horizontal 3D Scroll Animation for Gallery ---
+    if (galleryGrid) {
+      const galleryItems = galleryGrid.querySelectorAll('.gallery-item');
+
+      const applyAnimation = () => {
+        const galleryRect = galleryGrid.getBoundingClientRect();
+        const galleryCenter = galleryRect.left + galleryRect.width / 2;
+
+        galleryItems.forEach(item => {
+          const itemRect = item.getBoundingClientRect();
+          const itemCenter = itemRect.left + itemRect.width / 2;
+          
+          // Calculate item's distance from the gallery's center
+          const distanceFromCenter = itemCenter - galleryCenter;
+          
+          // Normalize the distance to a value between -1 and 1
+          const normalizedDistance = distanceFromCenter / (galleryRect.width / 2);
+
+          // Define the max rotation and scale values
+          const maxRotation = -40; // Max rotation in degrees
+          const minScale = 0.8;    // Minimum scale for items on the edges
+          const minOpacity = 0.7;  // Minimum opacity for items on the edges
+          
+          // Calculate the current transform values
+          const rotateY = normalizedDistance * maxRotation;
+          const scale = 1 - Math.abs(normalizedDistance) * (1 - minScale);
+          const opacity = 1 - Math.abs(normalizedDistance) * (1 - minOpacity);
+          
+          // Apply the transform and opacity
+          item.style.transform = `scale(${scale}) rotateY(${rotateY}deg)`;
+          item.style.opacity = `${opacity}`;
+        });
+      };
+
+      // Listen for scroll events on the gallery itself
+      galleryGrid.addEventListener('scroll', applyAnimation);
+
+      // Apply initial state on load
+      window.addEventListener('load', applyAnimation);
+    }
+  </script>
+  
+  <script src="scripts.js"></script>
+</body>
+</html>

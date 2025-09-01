@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact | IETE Student Chapter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <img
+            class="college-logo"
+            src="assets/vnrvjiet-logo.png"
+            alt="VNR VJIET logo"
+          />
+          <div class="brand-text">
+            <h1>IETE Student Chapter</h1>
+            <div class="dept">VNR VJIET — Department of ECE</div>
+          </div>
+        </div>
+        <nav class="main-nav" id="main-nav">
+          <a href="home.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="panel.html">Panel</a>
+          <a href="gallery.html"> Gallery</a>
+          <a href="contact.html" style="color: var(--accent); font-weight: bold"
+            >Contact</a
+          >
+        </nav>
+        <div class="header-controls">
+          <button
+            id="theme-toggle"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            🌗
+          </button>
+          <img class="iete-logo" src="assets/iete-logo.jpeg" alt="IETE logo" />
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="contact" class="container bg-accent">
+        <div class="container-inner contact-inner">
+          <div>
+            <h3>Get in touch</h3>
+            <ul style="list-style: none; padding-left: 0">
+              <li>
+                <strong>Sameer</strong> —
+                <a href="tel:+918885881835">+91 8885881835</a>
+              </li>
+              <li>
+                <strong>Sowmya</strong> —
+                <a href="tel:+919347275202">+91 9347275202</a>
+              </li>
+            </ul>
+          </div>
+          <form
+            class="contact-form"
+            action="#"
+            onsubmit="alert('Thanks — replace this with a real endpoint to collect submissions'); return false;"
+          >
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <textarea
+              name="message"
+              rows="3"
+              placeholder="Message"
+              required
+            ></textarea>
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- ...existing footer... -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          &copy; <span id="year"></span> IETE Student Chapter — VNR VJIET ECE
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+          <div>
+            &copy; <span id="year"></span> IETE Student Chapter — VNR VJIET ECE
+          </div>
+          <div class="small-muted" style="display:flex;align-items:center;gap:16px;">
+            <div style="text-align:right;">
+              <span style="display:block;font-size:15px;">Follow us on Instagram:</span>
+              <a href="https://instagram.com/iete_vnrvjiet" target="_blank" style="color:#e4405f;font-weight:bold;font-size:16px;">@iete_vnrvjiet</a>
+            </div>
+            <img src="assets/instagram-qr.jpg" alt="Instagram QR code for IETE VNRVJIET" style="width:90px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);" />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

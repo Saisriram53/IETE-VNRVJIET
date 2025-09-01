@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About | IETE Student Chapter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img class="college-logo" src="assets/vnrvjiet-logo.png" alt="VNR VJIET logo" />
+        <div class="brand-text">
+          <h1>IETE Student Chapter</h1>
+          <div class="dept">VNR VJIET — Department of ECE</div>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html" style="color:var(--accent);font-weight:bold;">About</a>
+        <a href="events.html">Events</a>
+        <a href="panel.html">Panel</a>
+        <a href="gallery.html"> Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌗</button>
+        <img class="iete-logo" src="assets/iete-logo.jpeg" alt="IETE logo" />
+      </div>
+    </div>
+  </header>
+  <main>
+    <section id="about" class="container">
+      <div class="container-inner">
+        <h3>About the Chapter</h3>
+        <p>
+          The IETE student chapter at VNR VJIET ECE is a student-driven
+          organisation focused on innovation, professional development and
+          community learning. We host workshops, hackathons, guest lectures
+          and project expos.
+        </p>
+      </div>
+    </section>
+    <section class="container stats">
+      <div class="container-inner">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-value counter" data-target="120">0</div>
+            <div class="stat-label">Active Members</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value counter" data-target="38">0</div>
+            <div class="stat-label">Workshops Held</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value counter" data-target="15">0</div>
+            <div class="stat-label">Industry Talks</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- ...existing footer... -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>&copy; <span id="year"></span> IETE Student Chapter — VNR VJIET ECE</div>
+      <div class="small-muted">Built for students • Add social links to the footer when available</div>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="scripts.js"></script>
+</body>
+</html>

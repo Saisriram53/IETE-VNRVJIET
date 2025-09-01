@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home | IETE Student Chapter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img class="college-logo" src="assets/vnrvjiet-logo.png" alt="VNR VJIET logo" />
+        <div class="brand-text">
+          <h1>IETE Student Chapter</h1>
+          <div class="dept">VNR VJIET — Department of ECE</div>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <a href="home.html" style="color:var(--accent);font-weight:bold;">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="panel.html">Panel</a>
+        <a href="gallery.html"> Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌗</button>
+        <img class="iete-logo" src="assets/iete-logo.jpeg" alt="IETE logo" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Satellite Background Animation -->
+  <div class="satellite-bg" id="satellite-bg">
+    <!-- Satellites -->
+    <div class="satellite-orbit orbit-1">
+      <div class="satellite-container">
+        <div class="satellite">
+          <div class="satellite-body">
+            <div class="body-details"></div>
+          </div>
+          <div class="panel-arm arm-left"></div>
+          <div class="satellite-panel panel-left"></div>
+          <div class="panel-arm arm-right"></div>
+          <div class="satellite-panel panel-right"></div>
+          <div class="satellite-antenna">
+            <div class="antenna-dish"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="satellite-orbit orbit-2">
+      <div class="satellite-container">
+        <div class="satellite">
+          <div class="satellite-body">
+            <div class="body-details"></div>
+          </div>
+          <div class="panel-arm arm-left"></div>
+          <div class="satellite-panel panel-left"></div>
+          <div class="panel-arm arm-right"></div>
+          <div class="satellite-panel panel-right"></div>
+          <div class="satellite-antenna">
+            <div class="antenna-dish"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="satellite-orbit orbit-3">
+      <div class="satellite-container">
+        <div class="satellite">
+          <div class="satellite-body">
+            <div class="body-details"></div>
+          </div>
+          <div class="panel-arm arm-left"></div>
+          <div class="satellite-panel panel-left"></div>
+          <div class="panel-arm arm-right"></div>
+          <div class="satellite-panel panel-right"></div>
+          <div class="satellite-antenna">
+            <div class="antenna-dish"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signal Transmissions -->
+    <div class="signal-wave wave-1"></div>
+    <div class="signal-wave wave-2"></div>
+    <div class="signal-wave wave-3"></div>
+    <div class="signal-wave wave-4"></div>
+    <div class="signal-wave wave-5"></div>
+    
+    <!-- Ground Stations -->
+    <div class="ground-station station-1">
+      <div class="station-dish"></div>
+      <div class="station-base"></div>
+    </div>
+    
+    <div class="ground-station station-2">
+      <div class="station-dish"></div>
+      <div class="station-base"></div>
+    </div>
+  </div>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h2>Building future-ready ECE professionals</h2>
+          <p>We organise hands-on workshops, industry talks and technical events that bridge the gap between classroom learning and industry practice. Join our chapter to learn, lead and network.</p>
+          <div class="hero-meta">
+            <div id="countdown" class="countdown" aria-live="polite">Next event in — loading...</div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="events.html">Upcoming Events</a>
+            <a class="btn ghost" href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="logo-card">
+            <img src="assets/iete-logo.jpeg" alt="IETE emblem" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container stats">
+      <div class="container-inner">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-value counter" data-target="120">0</div>
+            <div class="stat-label">Active Members</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value counter" data-target="38">0</div>
+            <div class="stat-label">Workshops Held</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value counter" data-target="15">0</div>
+            <div class="stat-label">Industry Talks</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- ...existing footer... -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>&copy; <span id="year"></span> IETE Student Chapter — VNR VJIET ECE</div>
+      <div class="small-muted">Built for students • Add social links to the footer when available</div>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="scripts.js"></script>
+  
+  <script>
+    // Interactive Circuit Animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const circuitNodes = document.querySelectorAll('.circuit-node');
+      
+      // Add click sound effect (optional)
+      const playClickSound = () => {
+        // Create a simple beep sound
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.value = 800;
+        oscillator.type = 'sine';
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.1);
+      };
+      
+      circuitNodes.forEach((node, index) => {
+        node.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          console.log('Circuit node clicked:', this.getAttribute('data-type'));
+          
+          // Play sound effect
+          try {
+            playClickSound();
+          } catch(e) {
+            console.log('Audio not supported');
+          }
+          
+          // Add click animation
+          this.classList.add('clicked');
+          
+          // Create ripple effect
+          const ripple = document.createElement('div');
+          ripple.style.position = 'absolute';
+          ripple.style.borderRadius = '50%';
+          ripple.style.background = 'rgba(255, 255, 255, 0.8)';
+          ripple.style.transform = 'scale(0)';
+          ripple.style.animation = 'ripple 0.6s linear';
+          ripple.style.left = '50%';
+          ripple.style.top = '50%';
+          ripple.style.width = '8px';
+          ripple.style.height = '8px';
+          ripple.style.marginLeft = '-4px';
+          ripple.style.marginTop = '-4px';
+          ripple.style.pointerEvents = 'none';
+          ripple.style.zIndex = '15';
+          
+          this.appendChild(ripple);
+          
+          // Remove click class and ripple after animation
+          setTimeout(() => {
+            this.classList.remove('clicked');
+            if (ripple.parentNode) {
+              ripple.parentNode.removeChild(ripple);
+            }
+          }, 600);
+          
+          // Random circuit effect - make nearby lines pulse
+          const allLines = document.querySelectorAll('.circuit-line');
+          allLines.forEach(line => {
+            if (Math.random() > 0.5) {
+              line.style.animation = 'none';
+              line.style.opacity = '1';
+              line.style.boxShadow = '0 0 12px rgba(255, 215, 0, 1)';
+              setTimeout(() => {
+                line.style.animation = 'circuit-pulse 3s ease-in-out infinite';
+                line.style.opacity = '';
+                line.style.boxShadow = '';
+              }, 500);
+            }
+          });
+        });
+        
+        // Add hover effect
+        node.addEventListener('mouseenter', function() {
+          console.log('Hovering over:', this.getAttribute('data-type'));
+        });
+      });
+    });
+    
+    // Add ripple animation keyframe
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to {
+          transform: scale(6);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

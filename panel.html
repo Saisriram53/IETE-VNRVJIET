@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Panel | IETE Student Chapter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <img
+            class="college-logo"
+            src="assets/vnrvjiet-logo.png"
+            alt="VNR VJIET logo"
+          />
+          <div class="brand-text">
+            <h1>IETE Student Chapter</h1>
+            <div class="dept">VNR VJIET — Department of ECE</div>
+          </div>
+        </div>
+        <nav class="main-nav" id="main-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="panel.html" style="color: var(--accent); font-weight: bold"
+            >Panel</a
+          >
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-controls">
+          <button
+            id="theme-toggle"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            🌗
+          </button>
+          <img class="iete-logo" src="assets/iete-logo.jpeg" alt="IETE logo" />
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="panel" class="container">
+        <div class="container-inner">
+          <h3>Executive Panel</h3>
+          <p>
+            Our chapter is led by motivated students who work together to
+            organize events and drive technical excellence.
+          </p>
+
+          <!-- Circular Carousel Container -->
+          <div class="carousel-container">
+            <div class="carousel-circle" id="carousel-circle">
+              <!-- Leadership Team -->
+              <div
+                class="carousel-item active"
+                data-category="Leadership"
+                data-name="Sameer"
+                data-position="Chairperson"
+                data-image="Panel/Sameer-Chairperson.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Leadership"
+                data-name="Soumya"
+                data-position="Vice Chair"
+                data-image="Panel/Soumya-Vice Chair.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Leadership"
+                data-name="Pranay"
+                data-position="President"
+                data-image="Panel/Pranay- President.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Leadership"
+                data-name="Aditya"
+                data-position="Vice President"
+                data-image="Panel/Aditya-Vice President.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Leadership"
+                data-name="Krishna Vamsi"
+                data-position="General Secretary"
+                data-image="Panel/Krishna Vamsi- General Secretary.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Leadership"
+                data-name="Pradeepa"
+                data-position="Treasurer"
+                data-image="Panel/Pradeepa-Treasurer.jpg"
+              ></div>
+
+              <!-- Technical Team -->
+              <div
+                class="carousel-item"
+                data-category="Technical Team"
+                data-name="Amrutha"
+                data-position="Technical Head"
+                data-image="Panel/Amrutha-Techincal Head.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Technical Team"
+                data-name="NagaVeda"
+                data-position="Technical Head"
+                data-image="Panel/NagaVeda-Technical Head.jpg"
+              ></div>
+
+              <!-- Events Team -->
+              <div
+                class="carousel-item"
+                data-category="Events Team"
+                data-name="Abhinav"
+                data-position="Event Head"
+                data-image="Panel/Abhinav-Event Head.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Events Team"
+                data-name="Rushitha"
+                data-position="Event Head"
+                data-image="Panel/Rushitha-Event Head.jpg"
+              ></div>
+
+              <!-- Documentation Team -->
+              <div
+                class="carousel-item"
+                data-category="Documentation Team"
+                data-name="Aishwarya"
+                data-position="Document Head"
+                data-image="Panel/Aishwarya-Document Head.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Documentation Team"
+                data-name="Varun"
+                data-position="Document Head"
+                data-image="Panel/Varun-Document Head.jpg"
+              ></div>
+
+              <!-- Design Team -->
+              <div
+                class="carousel-item"
+                data-category="Design Team"
+                data-name="Anusha"
+                data-position="Design Head"
+                data-image="Panel/Anusha-Design Head.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Design Team"
+                data-name="Nikhila"
+                data-position="Design Head"
+                data-image="Panel/Nikhila-Design Head.jpg"
+              ></div>
+
+              <!-- Social Media Team -->
+              <div
+                class="carousel-item"
+                data-category="Social Media Team"
+                data-name="Chinmayi"
+                data-position="Social Media Head"
+                data-image="Panel/Chinmayi-Social Media HEad.jpg"
+              ></div>
+              <div
+                class="carousel-item"
+                data-category="Social Media Team"
+                data-name="Hanika"
+                data-position="Social Media Head"
+                data-image="Panel/Hanika-Social Media Head.jpg"
+              ></div>
+
+              <!-- Inventory Team -->
+              <div
+                class="carousel-item"
+                data-category="Inventory Team"
+                data-name="Jayanth"
+                data-position="Inventory Head"
+                data-image="Panel/Jayanth- Inventory Head.jpg"
+              ></div>
+            </div>
+
+            <!-- Center Info Display -->
+            <div class="carousel-center">
+              <div class="member-display">
+                <img
+                  id="center-image"
+                  src="Panel/Sameer-Chairperson.jpg"
+                  alt="Member Photo"
+                />
+                <h4 id="center-name">Sameer</h4>
+                <p id="center-position">Chairperson</p>
+                <p id="center-category">Leadership</p>
+              </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="carousel-controls">
+              <button
+                class="carousel-btn prev-btn"
+                onclick="rotateCarousel(-1)"
+              >
+                ‹
+              </button>
+              <button class="carousel-btn next-btn" onclick="rotateCarousel(1)">
+                ›
+              </button>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+              <p>Scroll or use arrow keys to navigate</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- ...existing footer... -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          &copy; <span id="year"></span> IETE Student Chapter — VNR VJIET ECE
+        </div>
+        <div class="small-muted">
+          Built for students • Add social links to the footer when available
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IETE Event Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(0,0,0,0.8);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header h1 {
+            color: #00d4ff;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #9aa0a6;
+        }
+        
+        .main-content {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .title h2 {
+            font-size: 3rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+        
+        .title p {
+            font-size: 1.2rem;
+            color: #9aa0a6;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        .gallery-card.workshop {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gallery-card.talk {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .gallery-card.project {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .gallery-card.social {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .card-content {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-title {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: bold;
+        }
+        
+        .card-description {
+            color: rgba(255,255,255,0.9);
+            margin: 0 0 1rem 0;
+            font-size: 1rem;
+        }
+        
+        .card-date {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #9aa0a6;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #9aa0a6;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>IETE Student Chapter</h1>
+        <p>VNR VJIET — Department of ECE</p>
+    </header>
+
+    <main class="main-content">
+        <div class="title">
+            <h2>Event Gallery</h2>
+            <p>Explore our vibrant collection of workshops, talks, and project exhibitions</p>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Republic Day 2025 -->
+            <div class="gallery-card social">
+                <div class="card-content">
+                    <div class="card-icon">🇮🇳</div>
+                    <h3 class="card-title">Republic Day Celebration 2025</h3>
+                    <p class="card-description">IETE Student Chapter celebrating Republic Day with patriotic fervor</p>
+                    <span class="card-date">January 26, 2025</span>
+                </div>
+            </div>
+            
+            <!-- Embedded Systems Workshop -->
+            <div class="gallery-card workshop">
+                <div class="card-content">
+                    <div class="card-icon">🔧</div>
+                    <h3 class="card-title">Embedded Systems Workshop</h3>
+                    <p class="card-description">Hands-on Arduino Workshop with IoT projects</p>
+                    <span class="card-date">September 15, 2024</span>
+                </div>
+            </div>
+            
+            <!-- 5G Technology Seminar -->
+            <div class="gallery-card talk">
+                <div class="card-content">
+                    <div class="card-icon">📡</div>
+                    <h3 class="card-title">5G Technology Seminar</h3>
+                    <p class="card-description">Future of Wireless Communication</p>
+                    <span class="card-date">October 8, 2024</span>
+                </div>
+            </div>
+            
+            <!-- Project Expo -->
+            <div class="gallery-card project">
+                <div class="card-content">
+                    <div class="card-icon">🏆</div>
+                    <h3 class="card-title">Annual Project Showcase</h3>
+                    <p class="card-description">Student Innovation Showcase</p>
+                    <span class="card-date">November 30, 2024</span>
+                </div>
+            </div>
+            
+            <!-- PCB Design Workshop -->
+            <div class="gallery-card workshop">
+                <div class="card-content">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">PCB Design Workshop</h3>
+                    <p class="card-description">Circuit Design & Manufacturing using KiCad</p>
+                    <span class="card-date">August 22, 2024</span>
+                </div>
+            </div>
+            
+            <!-- Tech Quiz Night -->
+            <div class="gallery-card social">
+                <div class="card-content">
+                    <div class="card-icon">🧠</div>
+                    <h3 class="card-title">Tech Quiz Night</h3>
+                    <p class="card-description">Electronics & Computing Quiz Competition</p>
+                    <span class="card-date">December 15, 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Photos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">12</span>
+                <span class="stat-label">Events</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">350+</span>
+                <span class="stat-label">Participants</span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 IETE Student Chapter — VNR VJIET ECE</p>
+    </footer>
+
+    <script>
+        // Add hover sound effect (optional)
+        document.querySelectorAll('.gallery-card').forEach(card => {
+            card.addEventListener('click', function() {
+                console.log('Clicked on:', this.querySelector('.card-title').textContent);
+            });
+        });
+    </script>
+</body>
+</html>

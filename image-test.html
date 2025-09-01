@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Test</title>
+    <style>
+        body { 
+            background: black; 
+            color: white; 
+            padding: 50px; 
+            font-family: Arial; 
+        }
+        img { 
+            max-width: 500px; 
+            border: 3px solid red; 
+            margin: 20px 0;
+        }
+        .test-box {
+            background: blue;
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 IMAGE TEST PAGE</h1>
+    
+    <div class="test-box">
+        If you can see this blue box, the HTML is loading correctly.
+    </div>
+    
+    <h2>Testing Republic Day Image:</h2>
+    <p>Image path: assets/republic-day-2025.webp</p>
+    
+    <img src="assets/republic-day-2025.webp" alt="Republic Day 2025" 
+         onload="document.getElementById('status').innerHTML='✅ IMAGE LOADED SUCCESSFULLY!'"
+         onerror="document.getElementById('status').innerHTML='❌ IMAGE FAILED TO LOAD'">
+    
+    <div id="status" style="font-size: 24px; font-weight: bold; margin: 20px 0;">
+        ⏳ Testing image...
+    </div>
+    
+    <h2>Testing Other Images:</h2>
+    <img src="assets/iete-logo.jpeg" alt="IETE Logo">
+    <img src="assets/vnrvjiet-logo.png" alt="VNRVJIET Logo">
+    
+    <p><a href="gallery-working.html" style="color: #00d4ff;">← Back to Working Gallery</a></p>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Events | IETE Student Chapter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img class="college-logo" src="assets/vnrvjiet-logo.png" alt="VNR VJIET logo" />
+        <div class="brand-text">
+          <h1>IETE Student Chapter</h1>
+          <div class="dept">VNR VJIET — Department of ECE</div>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html" style="color:var(--accent);font-weight:bold;">Events</a>
+        <a href="panel.html">Panel</a>
+        <a href="gallery.html"> Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌗</button>
+        <img class="iete-logo" src="assets/iete-logo.jpeg" alt="IETE logo" />
+      </div>
+    </div>
+  </header>
+  <main>
+    <section id="events" class="container bg-light">
+      <div class="container-inner">
+        <div class="events-header">
+          <h3>Upcoming Events</h3>
+          <div class="events-controls">
+            <input id="events-search" type="search" placeholder="Search events..." aria-label="Search events" />
+            <select id="events-filter" aria-label="Filter events">
+              <option value="all">All</option>
+              <option value="workshop">Workshops</option>
+              <option value="talk">Talks</option>
+              <option value="expo">Expo</option>
+            </select>
+          </div>
+        </div>
+        <div id="events-grid" class="events-grid" aria-live="polite"></div>
+        <div class="event-item upcoming">
+          <div class="gallery-date">Sep 2025</div>
+          <h4>Department Fest - Electroverse</h4>
+          <p>A celebration of innovation and technology for all branches. Join us for a variety of technical and fun events!</p>
+        </div>
+        <div class="event-item upcoming">
+          <div class="gallery-date">Sep 2025</div>
+          <h4>VLSI Workshop</h4>
+          <p>Hands-on workshop on VLSI design and applications. Open to all students interested in electronics and chip design.</p>
+        </div>
+        <div class="event-item upcoming">
+          <div class="gallery-date">Sep 2025</div>
+          <h4>Career Guidance</h4>
+          <p>Interactive session with passed out seniors sharing career tips, industry insights, and guidance for your future.</p>
+        </div>
+        <div class="event-item upcoming">
+          <div class="gallery-date">Sep 2025</div>
+          <h4>24h Hackathon</h4>
+          <p>Compete in a 24-hour hackathon in both software and hardware domains. Open to all branches. Showcase your skills and creativity!</p>
+        </div>
+        <div class="event-item upcoming">
+          <div class="gallery-date">Sep 2025</div>
+          <h4>Tech Quiz</h4>
+          <p>Feed your curiosity with our tech quiz. Test your knowledge and win exciting prizes!</p>
+        </div>
+        <div class="event-item upcoming">
+          <div class="gallery-date">Sep 2025</div>
+          <h4>Fun Events</h4>
+          <p>Enjoy activities like Treasure Hunt, Meme Contest, and more! Relax and have fun with your friends.</p>
+        </div>
+        <hr>
+        <div class="past-events">
+          <h3>Past Events (2018-19)</h3>
+           <h3>Past Events (2018-19 & 2019-20)</h3>
+          <div class="event-item">
+            <h4>Republic Day Parade (Jan 26)</h4>
+            <p>The IETE Student Forum-VNR VJIET, in collaboration with various student chapters and clubs, organized a parade to highlight societal challenges in India. The IETE Student Chapter focused on the theme "Tribute to Indian Army," with members marching, displaying banners, and sharing messages about the sacrifices and bravery of soldiers. Faculty coordinators led the team, emphasizing the importance of recognizing and honoring the contributions of the armed forces.</p>
+          </div>
+          <div class="event-item">
+            <h4>National Mathematics Day (Dec 22, 2018)</h4>
+            <p>Celebrated in partnership with the Health and Safety department to honor Sir Ramanujam. Events included a poster presentation on the importance of mathematics in engineering and a multi-round quiz contest. Students showcased math applications, solved problems, and participated in creative challenges. The event inspired students to appreciate the role of mathematics in engineering.</p>
+          </div>
+          <div class="event-item">
+            <h4>Teachers’ Day (Sep 5, 2017)</h4>
+            <p>The IETE team celebrated Teachers’ Day by gifting plants to the dean, coordinator, and ECE faculty, expressing gratitude for their dedication and support.</p>
+          </div>
+            <div class="event-item">
+              <h4>Quiz & Technical Presentation (Jan 31, 2019)</h4>
+              <p>Team IETE conducted a quiz to help students develop communication, interaction, and confidence. The event included a technical presentation and problem-solving session, encouraging qualities like time management, content delivery, and overcoming stage fear. Dr. Y. Padma Sai, HOD of ECE, delivered a lecture on the growth and future of electronics, followed by student presentations on trending technologies. Judges provided guidance, and the event concluded with suggestions for different domains, motivating students to gain knowledge and experience.</p>
+            </div>
+            <div class="event-item">
+              <h4>National Mathematics Day (2019-20)</h4>
+              <p>Students presented posters and slides on the importance and applications of mathematics in engineering. Topics included the use of matrices, Laplace and Fourier transforms, calculus, and the contributions of mathematicians like Ramanujan and Shakuntala Devi. Presentations covered practical applications such as Mobius strips, image processing, and engineering mathematics in various fields. The event concluded with awards for outstanding presentations and guidance from faculty.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- ...existing footer... -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>&copy; <span id="year"></span> IETE Student Chapter — VNR VJIET ECE</div>
+      <div class="small-muted">Built for students • Add social links to the footer when available</div>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="scripts.js"></script>
+</body>
+</html>
