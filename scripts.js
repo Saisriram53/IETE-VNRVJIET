@@ -3,9 +3,12 @@
 // sticky header, theme toggle (persisted), search/filter, countdown timer, reveal animations, circular carousel.
 
 const events = [
-  { id: 'evt-embedded', date: '2025-09-25', label: 'workshop', title: 'Embedded Systems Workshop', summary: 'Hands-on session covering microcontrollers, sensors and project building.', details: 'A full-day hands-on workshop where participants will build a small embedded project using Arduino/STM32 platforms. Materials will be provided.' },
-  { id: 'evt-5g', date: '2025-10-08', label: 'talk', title: 'Technical Talk: 5G and Beyond', summary: 'Industry expert talk on evolution of wireless communications and career paths.', details: 'An invited speaker will discuss 5G use-cases and career opportunities.' },
-  { id: 'evt-expo', date: '2025-11-30', label: 'expo', title: 'Project Expo', summary: 'Student project showcase — demos, posters and awards.', details: 'Showcase your projects. Winners receive prizes.' }
+  { id: 'evt-fest', date: '2025-09-15', label: 'expo', title: 'Department Fest - Electroverse', summary: 'A celebration of innovation and technology for all branches. Join us for a variety of technical and fun events!', details: 'A celebration of innovation and technology for all branches. Join us for a variety of technical and fun events!' },
+  { id: 'evt-vlsi', date: '2025-09-18', label: 'workshop', title: 'VLSI Workshop', summary: 'Hands-on workshop on VLSI design and applications. Open to all students interested in electronics and chip design.', details: 'Hands-on workshop on VLSI design and applications. Open to all students interested in electronics and chip design.' },
+  { id: 'evt-career', date: '2025-09-20', label: 'talk', title: 'Career Guidance', summary: 'Interactive session with passed out seniors sharing career tips, industry insights, and guidance for your future.', details: 'Interactive session with passed out seniors sharing career tips, industry insights, and guidance for your future.' },
+  { id: 'evt-hackathon', date: '2025-09-22', label: 'expo', title: '24h Hackathon', summary: 'Compete in a 24-hour hackathon in both software and hardware domains. Open to all branches. Showcase your skills and creativity!', details: 'Compete in a 24-hour hackathon in both software and hardware domains. Open to all branches. Showcase your skills and creativity!' },
+  { id: 'evt-quiz', date: '2025-09-25', label: 'expo', title: 'Tech Quiz', summary: 'Feed your curiosity with our tech quiz. Test your knowledge and win exciting prizes!', details: 'Feed your curiosity with our tech quiz. Test your knowledge and win exciting prizes!' },
+  { id: 'evt-fun', date: '2025-09-28', label: 'expo', title: 'Fun Events', summary: 'Enjoy activities like Treasure Hunt, Meme Contest, and more! Relax and have fun with your friends.', details: 'Enjoy activities like Treasure Hunt, Meme Contest, and more! Relax and have fun with your friends.' }
 ];
 
 /* ---------- Circular Carousel for Panel ---------- */
@@ -122,6 +125,169 @@ function showToast(message, timeout = 2600){
   setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=> t.remove(), 300); }, timeout);
 }
 
+/* ---------- Notification Banner System ---------- */
+const NotificationSystem = {
+  // Configuration for notifications
+  notifications: [
+    // Example notifications - replace with real data
+    {
+      id: 'urgent-2025-01',
+      type: 'urgent',
+      title: 'Important: Workshop Registration Deadline Extended',
+      message: 'VLSI Workshop registration deadline extended to September 30th. Limited seats available!',
+      link: { text: 'Register Now', url: 'events.html' },
+      active: true,
+      showUntil: '2025-09-30'
+    },
+    {
+      id: 'info-2025-02', 
+      type: 'info',
+      title: 'New Event Added',
+      message: 'Career Guidance session with alumni on October 5th. Free for all students.',
+      link: { text: 'View Details', url: 'events.html' },
+      active: true,
+      showUntil: '2025-10-05'
+    }
+  ],
+
+  init() {
+    this.createNotificationContainer();
+    this.showActiveNotifications();
+  },
+
+  createNotificationContainer() {
+    if (document.getElementById('notification-container')) return;
+    
+    const container = document.createElement('div');
+    container.id = 'notification-container';
+    container.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      pointer-events: none;
+    `;
+    document.body.appendChild(container);
+  },
+
+  showActiveNotifications() {
+    const container = document.getElementById('notification-container');
+    const now = new Date().toISOString().split('T')[0];
+    
+    this.notifications.forEach(notification => {
+      if (!notification.active || notification.showUntil < now) return;
+      if (this.isDismissed(notification.id)) return;
+      
+      this.createNotificationBanner(notification, container);
+    });
+  },
+
+  createNotificationBanner(notification, container) {
+    const banner = document.createElement('div');
+    banner.className = `notification-banner notification-${notification.type}`;
+    banner.style.cssText = `
+      background: ${notification.type === 'urgent' ? 'linear-gradient(135deg, #ff6b6b, #ee5a24)' : 'linear-gradient(135deg, #0077be, #005fa3)'};
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      pointer-events: auto;
+      position: relative;
+    `;
+
+    banner.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 15px; flex: 1;">
+        <div style="font-size: 18px;">
+          ${notification.type === 'urgent' ? '🚨' : 'ℹ️'}
+        </div>
+        <div>
+          <strong>${notification.title}</strong>
+          <div style="margin-top: 4px; opacity: 0.9;">${notification.message}</div>
+        </div>
+        ${notification.link ? `
+          <a href="${notification.link.url}" style="
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.2s ease;
+          " onmouseover="this.style.background='rgba(255,255,255,0.3)'"
+             onmouseout="this.style.background='rgba(255,255,255,0.2)'"
+          >${notification.link.text}</a>
+        ` : ''}
+      </div>
+      <button onclick="NotificationSystem.dismissNotification('${notification.id}', this.parentElement)" 
+              style="
+                background: none; 
+                border: none; 
+                color: white; 
+                font-size: 20px; 
+                cursor: pointer; 
+                padding: 0 5px; 
+                opacity: 0.7;
+                transition: opacity 0.2s ease;
+              "
+              onmouseover="this.style.opacity='1'"
+              onmouseout="this.style.opacity='0.7'"
+              title="Dismiss notification">×</button>
+    `;
+
+    container.appendChild(banner);
+    
+    // Animate in
+    requestAnimationFrame(() => {
+      banner.style.transform = 'translateY(0)';
+    });
+
+    // Auto-dismiss after 10 seconds for info notifications
+    if (notification.type === 'info') {
+      setTimeout(() => {
+        if (banner.parentElement) {
+          this.dismissNotification(notification.id, banner);
+        }
+      }, 10000);
+    }
+  },
+
+  dismissNotification(id, element) {
+    // Mark as dismissed in localStorage
+    const dismissedNotifications = JSON.parse(localStorage.getItem('dismissedNotifications') || '[]');
+    if (!dismissedNotifications.includes(id)) {
+      dismissedNotifications.push(id);
+      localStorage.setItem('dismissedNotifications', JSON.stringify(dismissedNotifications));
+    }
+
+    // Animate out and remove
+    element.style.transform = 'translateY(-100%)';
+    setTimeout(() => {
+      if (element.parentElement) {
+        element.parentElement.removeChild(element);
+      }
+    }, 300);
+  },
+
+  isDismissed(id) {
+    const dismissedNotifications = JSON.parse(localStorage.getItem('dismissedNotifications') || '[]');
+    return dismissedNotifications.includes(id);
+  },
+
+  // Method to add new notification (for admin use)
+  addNotification(notification) {
+    notification.id = `notification-${Date.now()}`;
+    this.notifications.unshift(notification);
+    this.showActiveNotifications();
+  }
+};
+
 /* ---------- Render events ---------- */
 function renderEvents(filter = 'all', search = ''){
   const grid = document.getElementById('events-grid'); if (!grid) return;
@@ -132,7 +298,6 @@ function renderEvents(filter = 'all', search = ''){
   list.forEach(ev => {
     const el = document.createElement('article'); el.className = 'event';
     el.innerHTML = `
-      <div class="event-date">${formatDate(ev.date)}</div>
       <h4>${ev.title}</h4>
       <p>${ev.summary}</p>
       <div style="margin-top:12px;display:flex;gap:8px">
@@ -149,7 +314,6 @@ function renderEvents(filter = 'all', search = ''){
 
 function findEventById(id){ return events.find(e=>e.id===id); }
 
-function formatDate(iso){ const d = new Date(iso); return d.toLocaleDateString(undefined,{day:'2-digit',month:'short',year:'numeric'}); }
 
 /* ---------- Details modal ---------- */
 const detailModal = (()=>{
@@ -184,6 +348,49 @@ function setupThemeToggle(){ const btn = document.getElementById('theme-toggle')
 
 /* ---------- Search & filter ---------- */
 function setupEventControls(){ const search = document.getElementById('events-search'); const filter = document.getElementById('events-filter'); if(!search || !filter) return; const apply = ()=> renderEvents(filter.value, search.value); search.addEventListener('input', apply); filter.addEventListener('change', apply); }
+
+/* ---------- About stats updater (sync from events) ---------- */
+function updateAboutStatsFromEvents(){
+  // Only run on About page where stats exist
+  const statsGrid = document.querySelector('.stats-grid');
+  if (!statsGrid) return;
+
+  // Count events by label from the global events array
+  const counts = events.reduce((acc, ev)=>{
+    const key = (ev.label || 'other').toLowerCase();
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+
+  // Map labels to human-readable stat labels on About page
+  const labelMap = {
+    workshop: 'Workshops Held',
+    talk: 'Industry Talks'
+  };
+
+  // Update counters for workshops and talks only (leave Active Members untouched)
+  const statBlocks = Array.from(statsGrid.querySelectorAll('.stat'));
+  statBlocks.forEach(block => {
+    const labelEl = block.querySelector('.stat-label');
+    const valueEl = block.querySelector('.stat-value');
+    if (!labelEl || !valueEl) return;
+    const label = labelEl.textContent.trim();
+
+    // Find which event label this stat corresponds to
+    const match = Object.entries(labelMap).find(([, human]) => human === label);
+    if (!match) return; // skip Active Members or other stats
+
+    const [eventKey] = match;
+    const newVal = counts[eventKey] || 0;
+    // Set data-target for counter animation and reset current text if zero
+    valueEl.setAttribute('data-target', String(newVal));
+    // If current text is greater than new target, reset to 0 to let animation grow up
+    const cur = parseInt(valueEl.textContent.replace(/[^0-9]/g,''),10) || 0;
+    if (cur !== newVal) {
+      valueEl.textContent = '0';
+    }
+  });
+}
 
 /* ---------- Countdown ---------- */
 function setupCountdown(){ const el = document.getElementById('countdown'); if(!el) return; function getNext(){ const now = Date.now(); const future = events.map(e=> new Date(e.date).getTime()).filter(t=>t>now).sort((a,b)=>a-b)[0]; return future || null; }
@@ -515,11 +722,287 @@ function setupParallax(){
   });
 }
 
+/* ---------- Realistic Star Field with Parallax Effect ---------- */
+class StarField {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.stars = [];
+    this.shootingStars = [];
+    this.mouse = { x: 0, y: 0 };
+    this.scrollY = 0;
+    this.animationId = null;
+    this.time = 0;
+    
+    this.config = {
+      starCount: 200,
+      layers: [
+        { count: 60, speed: 0.2, size: [0.8, 1.5], opacity: [0.4, 0.7], parallaxSpeed: 0.1 },
+        { count: 80, speed: 0.4, size: [1.2, 2.5], opacity: [0.6, 0.9], parallaxSpeed: 0.3 },
+        { count: 60, speed: 0.8, size: [2, 4], opacity: [0.8, 1], parallaxSpeed: 0.5 }
+      ],
+      starColors: [
+        'rgba(255, 255, 255, ',
+        'rgba(255, 248, 220, ',
+        'rgba(135, 206, 235, ',
+        'rgba(255, 182, 193, ',
+        'rgba(255, 255, 224, '
+      ],
+      shootingStarChance: 0.002,
+      twinkleSpeed: 0.02
+    };
+    
+    this.setupCanvas();
+    this.createStars();
+    this.bindEvents();
+    this.animate();
+  }
+  
+  setupCanvas() {
+    const updateSize = () => {
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
+      this.createStars(); // Recreate stars when resizing
+    };
+    
+    updateSize();
+    window.addEventListener('resize', updateSize);
+  }
+  
+  createStars() {
+    this.stars = [];
+    
+    this.config.layers.forEach((layer, layerIndex) => {
+      for (let i = 0; i < layer.count; i++) {
+        const baseSize = layer.size[0] + Math.random() * (layer.size[1] - layer.size[0]);
+        this.stars.push({
+          x: Math.random() * this.canvas.width,
+          y: Math.random() * this.canvas.height,
+          originalX: Math.random() * this.canvas.width,
+          originalY: Math.random() * this.canvas.height,
+          size: baseSize,
+          baseSize: baseSize,
+          layer: layerIndex,
+          speed: layer.speed,
+          parallaxSpeed: layer.parallaxSpeed,
+          color: this.config.starColors[Math.floor(Math.random() * this.config.starColors.length)],
+          opacity: layer.opacity[0] + Math.random() * (layer.opacity[1] - layer.opacity[0]),
+          baseOpacity: layer.opacity[0] + Math.random() * (layer.opacity[1] - layer.opacity[0]),
+          twinklePhase: Math.random() * Math.PI * 2,
+          twinkleSpeed: this.config.twinkleSpeed * (0.8 + Math.random() * 0.4)
+        });
+      }
+    });
+  }
+  
+  createShootingStar() {
+    const side = Math.random() < 0.5 ? 'left' : 'top';
+    let startX, startY, endX, endY;
+    
+    if (side === 'left') {
+      startX = -50;
+      startY = Math.random() * this.canvas.height * 0.6;
+      endX = this.canvas.width + 50;
+      endY = startY + Math.random() * 200 + 100;
+    } else {
+      startX = Math.random() * this.canvas.width * 0.6;
+      startY = -50;
+      endX = startX + Math.random() * 200 + 100;
+      endY = this.canvas.height + 50;
+    }
+    
+    this.shootingStars.push({
+      x: startX,
+      y: startY,
+      endX: endX,
+      endY: endY,
+      progress: 0,
+      speed: 0.015 + Math.random() * 0.01,
+      size: 1 + Math.random() * 2,
+      tailLength: 30 + Math.random() * 20,
+      opacity: 0.8 + Math.random() * 0.2
+    });
+  }
+  
+  bindEvents() {
+    this.canvas.addEventListener('mousemove', (e) => {
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+    });
+    
+    // Track scroll position for parallax
+    window.addEventListener('scroll', () => {
+      this.scrollY = window.pageYOffset;
+    });
+  }
+  
+  updateStars() {
+    this.time += 0.016; // ~60fps
+    
+    this.stars.forEach(star => {
+      // Twinkling effect
+      star.twinklePhase += star.twinkleSpeed;
+      const twinkle = Math.sin(star.twinklePhase) * 0.3;
+      star.opacity = Math.max(0.2, star.baseOpacity + twinkle);
+      star.size = star.baseSize * (1 + twinkle * 0.2);
+      
+      // Parallax effect based on scroll and mouse
+      const mouseInfluenceX = (this.mouse.x - this.canvas.width / 2) * star.parallaxSpeed * 0.0002;
+      const mouseInfluenceY = (this.mouse.y - this.canvas.height / 2) * star.parallaxSpeed * 0.0002;
+      const scrollInfluence = this.scrollY * star.parallaxSpeed * 0.0005;
+      
+      star.x = star.originalX + mouseInfluenceX * this.canvas.width - scrollInfluence;
+      star.y = star.originalY + mouseInfluenceY * this.canvas.height + scrollInfluence * 0.5;
+      
+      // Wrap around screen
+      if (star.x < -10) star.x = this.canvas.width + 10;
+      if (star.x > this.canvas.width + 10) star.x = -10;
+      if (star.y < -10) star.y = this.canvas.height + 10;
+      if (star.y > this.canvas.height + 10) star.y = -10;
+    });
+    
+    // Update shooting stars
+    this.shootingStars = this.shootingStars.filter(shootingStar => {
+      shootingStar.progress += shootingStar.speed;
+      shootingStar.x = shootingStar.x + (shootingStar.endX - shootingStar.x) * shootingStar.speed;
+      shootingStar.y = shootingStar.y + (shootingStar.endY - shootingStar.y) * shootingStar.speed;
+      return shootingStar.progress < 1;
+    });
+    
+    // Randomly create shooting stars
+    if (Math.random() < this.config.shootingStarChance) {
+      this.createShootingStar();
+    }
+  }
+  
+  drawStar(star) {
+    this.ctx.save();
+    
+    // Create realistic star shape with cross pattern
+    const gradient = this.ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.size * 3);
+    gradient.addColorStop(0, star.color + star.opacity + ')');
+    gradient.addColorStop(0.8, star.color + (star.opacity * 0.3) + ')');
+    gradient.addColorStop(1, star.color + '0)');
+    
+    this.ctx.fillStyle = gradient;
+    
+    // Draw star core
+    this.ctx.beginPath();
+    this.ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+    this.ctx.fill();
+    
+    // Draw star spikes for larger stars
+    if (star.size > 1.5) {
+      this.ctx.strokeStyle = star.color + (star.opacity * 0.8) + ')';
+      this.ctx.lineWidth = 0.5;
+      this.ctx.beginPath();
+      
+      // Horizontal spike
+      this.ctx.moveTo(star.x - star.size * 2, star.y);
+      this.ctx.lineTo(star.x + star.size * 2, star.y);
+      
+      // Vertical spike
+      this.ctx.moveTo(star.x, star.y - star.size * 2);
+      this.ctx.lineTo(star.x, star.y + star.size * 2);
+      
+      this.ctx.stroke();
+    }
+    
+    this.ctx.restore();
+  }
+  
+  drawShootingStar(shootingStar) {
+    this.ctx.save();
+    
+    const gradient = this.ctx.createLinearGradient(
+      shootingStar.x - shootingStar.tailLength,
+      shootingStar.y - shootingStar.tailLength,
+      shootingStar.x,
+      shootingStar.y
+    );
+    
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 0)');
+    gradient.addColorStop(0.7, `rgba(255, 255, 255, ${shootingStar.opacity * 0.6})`);
+    gradient.addColorStop(1, `rgba(255, 255, 255, ${shootingStar.opacity})`);
+    
+    this.ctx.strokeStyle = gradient;
+    this.ctx.lineWidth = shootingStar.size;
+    this.ctx.lineCap = 'round';
+    
+    this.ctx.beginPath();
+    this.ctx.moveTo(shootingStar.x - shootingStar.tailLength, shootingStar.y - shootingStar.tailLength);
+    this.ctx.lineTo(shootingStar.x, shootingStar.y);
+    this.ctx.stroke();
+    
+    // Draw bright head
+    this.ctx.fillStyle = `rgba(255, 255, 255, ${shootingStar.opacity})`;
+    this.ctx.beginPath();
+    this.ctx.arc(shootingStar.x, shootingStar.y, shootingStar.size, 0, Math.PI * 2);
+    this.ctx.fill();
+    
+    this.ctx.restore();
+  }
+  
+  animate() {
+    // Create subtle dark background
+    this.ctx.fillStyle = 'rgba(5, 10, 25, 1)';
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    this.updateStars();
+    
+    // Draw stars by layers (back to front)
+    this.config.layers.forEach((_, layerIndex) => {
+      this.stars
+        .filter(star => star.layer === layerIndex)
+        .forEach(star => this.drawStar(star));
+    });
+    
+    // Draw shooting stars on top
+    this.shootingStars.forEach(shootingStar => this.drawShootingStar(shootingStar));
+    
+    this.animationId = requestAnimationFrame(() => this.animate());
+  }
+  
+  destroy() {
+    if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
+    }
+  }
+}
+
+function initStarField() {
+  // Create canvas element
+  const canvas = document.createElement('canvas');
+  canvas.id = 'star-canvas';
+  canvas.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: transparent;
+  `;
+  
+  // Insert as first child of body
+  document.body.insertBefore(canvas, document.body.firstChild);
+  
+  // Initialize star field system
+  const starField = new StarField(canvas);
+  
+  // Store reference for cleanup
+  window.starField = starField;
+}
+
 /* ---------- Advanced Gallery Functions ---------- */
 
 /* ---------- Init ---------- */
 window.addEventListener('DOMContentLoaded', ()=>{
+  initStarField(); // Initialize realistic star field background
+  NotificationSystem.init(); // Initialize notification system
   renderEvents();
+  updateAboutStatsFromEvents();
   detailModal.init();
   rsvpModal.init();
   setupSmoothScroll();
