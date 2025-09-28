@@ -129,25 +129,7 @@ function showToast(message, timeout = 2600){
 const NotificationSystem = {
   // Configuration for notifications
   notifications: [
-    // Example notifications - replace with real data
-    {
-      id: 'urgent-2025-01',
-      type: 'urgent',
-      title: 'Important: Workshop Registration Deadline Extended',
-      message: 'VLSI Workshop registration deadline extended to September 30th. Limited seats available!',
-      link: { text: 'Register Now', url: 'events.html' },
-      active: true,
-      showUntil: '2025-09-30'
-    },
-    {
-      id: 'info-2025-02', 
-      type: 'info',
-      title: 'New Event Added',
-      message: 'Career Guidance session with alumni on October 5th. Free for all students.',
-      link: { text: 'View Details', url: 'events.html' },
-      active: true,
-      showUntil: '2025-10-05'
-    }
+    // No active notifications - add via admin panel as needed
   ],
 
   init() {
