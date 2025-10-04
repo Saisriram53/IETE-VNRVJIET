@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://saisriram53.github.io/IETE-VNRVJIET/sitemap.xml
+
+# Disallow admin and test pages from indexing
+Disallow: /admin.html
+Disallow: /basic.html
+
+# Allow all other pages
+Allow: /index.html
+Allow: /about.html
+Allow: /events.html
+Allow: /gallery.html
+Allow: /contact.html
+Allow: /panel.html
+Allow: /electroverse/
+
+# Crawl delay (optional - be respectful to server resources)
+Crawl-delay: 1
