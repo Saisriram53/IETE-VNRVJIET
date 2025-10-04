@@ -63,18 +63,50 @@
             action="https://formspree.io/f/YOUR_FORM_ID"
             method="POST"
             id="contact-form"
+            aria-label="Contact Form"
           >
-            <input type="text" name="name" placeholder="Your name" required />
-            <input type="email" name="email" placeholder="Email" required />
+            <label for="contact-name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name:</label>
+            <input type="text" name="name" id="contact-name" placeholder="Your full name" required 
+                   minlength="2" maxlength="100" aria-describedby="name-help" />
+            <small id="name-help" style="color: #666; font-size: 0.9em; display: block; margin-bottom: 1rem;">
+              Enter your full name (2-100 characters)
+            </small>
+            
+            <label for="contact-email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email:</label>
+            <input type="email" name="email" id="contact-email" placeholder="your.email@example.com" required 
+                   aria-describedby="email-help" />
+            <small id="email-help" style="color: #666; font-size: 0.9em; display: block; margin-bottom: 1rem;">
+              We'll use this to respond to your message
+            </small>
+            
             <input type="hidden" name="_subject" value="New Contact Form Submission - IETE VNR VJIET" />
+            <input type="hidden" name="_next" value="thank-you" />
+            <input type="text" name="_gotcha" style="display: none !important" />
+            
+            <label for="contact-message" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message:</label>
             <textarea
               name="message"
-              rows="3"
-              placeholder="Message"
+              id="contact-message"
+              rows="5"
+              placeholder="Tell us about your inquiry, suggestions, or questions..."
               required
+              minlength="10"
+              maxlength="1000"
+              aria-describedby="message-help"
             ></textarea>
-            <button class="btn primary" type="submit" id="submit-btn">Send</button>
-            <div id="form-status" style="margin-top: 1rem; padding: 0.5rem; border-radius: 4px; display: none;"></div>
+            <small id="message-help" style="color: #666; font-size: 0.9em; display: block; margin-bottom: 1rem;">
+              Please provide details about your inquiry (10-1000 characters)
+            </small>
+            
+            <button class="btn primary" type="submit" id="submit-btn" aria-describedby="submit-help">
+              Send Message
+            </button>
+            <small id="submit-help" style="color: #666; font-size: 0.9em; display: block; margin-top: 0.5rem;">
+              Your message will be sent to the IETE VNR VJIET team
+            </small>
+            
+            <div id="form-status" style="margin-top: 1rem; padding: 0.5rem; border-radius: 4px; display: none;" 
+                 role="alert" aria-live="polite"></div>
           </form>
         </div>
       </section>
@@ -107,8 +139,63 @@
         const submitBtn = document.getElementById('submit-btn');
         const statusDiv = document.getElementById('form-status');
         
+        function isValidEmail(email) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return emailRegex.test(email);
+        }
+        
+        function containsSpam(text) {
+          const spamKeywords = ['viagra', 'casino', 'lottery', 'winner', 'click here', 'buy now', 'free money'];
+          const lowerText = text.toLowerCase();
+          return spamKeywords.some(keyword => lowerText.includes(keyword));
+        }
+        
+        function showError(message) {
+          statusDiv.innerHTML = '❌ ' + message;
+          statusDiv.style.display = 'block';
+          statusDiv.style.backgroundColor = '#f8d7da';
+          statusDiv.style.color = '#721c24';
+          statusDiv.style.border = '1px solid #f5c6cb';
+          
+          setTimeout(() => {
+            statusDiv.style.display = 'none';
+          }, 5000);
+        }
+        
         form.addEventListener('submit', function(e) {
           e.preventDefault();
+          
+          // Validate form data
+          const name = form.name.value.trim();
+          const email = form.email.value.trim();
+          const message = form.message.value.trim();
+          
+          // Basic validation
+          if (!name || name.length < 2) {
+            showError('Please enter a valid name (at least 2 characters).');
+            return;
+          }
+          
+          if (!isValidEmail(email)) {
+            showError('Please enter a valid email address.');
+            return;
+          }
+          
+          if (!message || message.length < 10) {
+            showError('Please enter a message (at least 10 characters).');
+            return;
+          }
+          
+          if (message.length > 1000) {
+            showError('Message is too long. Please keep it under 1000 characters.');
+            return;
+          }
+          
+          // Check for spam patterns
+          if (containsSpam(message) || containsSpam(name)) {
+            showError('Your message appears to contain spam. Please revise and try again.');
+            return;
+          }
           
           // Show loading state
           submitBtn.textContent = 'Sending...';

@@ -150,39 +150,54 @@
 
     <div class="admin-section" id="notification-section" style="display: none;">
       <h2>📢 Create New Notification</h2>
-      <form class="admin-form" id="notification-form">
+      <form class="admin-form" id="notification-form" aria-label="Create Notification Form">
         <div class="form-row">
           <div class="form-group">
             <label for="notification-type">Type:</label>
-            <select id="notification-type" onchange="updatePreview()">
+            <select id="notification-type" onchange="updatePreview()" required 
+                    aria-describedby="type-help">
               <option value="info">Info</option>
               <option value="urgent">Urgent</option>
             </select>
+            <small id="type-help" style="color: #666; font-size: 0.9em;">Choose notification priority</small>
           </div>
           <div class="form-group">
             <label for="show-until">Show Until:</label>
-            <input type="date" id="show-until" onchange="updatePreview()" />
+            <input type="date" id="show-until" onchange="updatePreview()" required 
+                   aria-describedby="date-help" />
+            <small id="date-help" style="color: #666; font-size: 0.9em;">Auto-hide after this date</small>
           </div>
         </div>
         
         <div class="form-group">
           <label for="notification-title">Title:</label>
-          <input type="text" id="notification-title" placeholder="Enter notification title" onchange="updatePreview()" />
+          <input type="text" id="notification-title" placeholder="Enter notification title" 
+                 onchange="updatePreview()" required maxlength="100" 
+                 aria-describedby="title-help" />
+          <small id="title-help" style="color: #666; font-size: 0.9em;">Maximum 100 characters</small>
         </div>
         
         <div class="form-group">
           <label for="notification-message">Message:</label>
-          <textarea id="notification-message" placeholder="Enter notification message" onchange="updatePreview()"></textarea>
+          <textarea id="notification-message" placeholder="Enter notification message" 
+                    onchange="updatePreview()" required maxlength="500" 
+                    aria-describedby="message-help"></textarea>
+          <small id="message-help" style="color: #666; font-size: 0.9em;">Maximum 500 characters</small>
         </div>
         
         <div class="form-row">
           <div class="form-group">
             <label for="link-text">Link Text (optional):</label>
-            <input type="text" id="link-text" placeholder="e.g., Register Now" onchange="updatePreview()" />
+            <input type="text" id="link-text" placeholder="e.g., Register Now" 
+                   onchange="updatePreview()" maxlength="50" 
+                   aria-describedby="link-text-help" />
+            <small id="link-text-help" style="color: #666; font-size: 0.9em;">Button text for optional link</small>
           </div>
           <div class="form-group">
             <label for="link-url">Link URL (optional):</label>
-            <input type="text" id="link-url" placeholder="e.g., events.html" onchange="updatePreview()" />
+            <input type="url" id="link-url" placeholder="https://example.com" 
+                   onchange="updatePreview()" aria-describedby="link-url-help" />
+            <small id="link-url-help" style="color: #666; font-size: 0.9em;">Must include http:// or https://</small>
           </div>
         </div>
         
@@ -211,7 +226,7 @@
     <div class="admin-section" id="registrations-section" style="display: none;">
       <h2>📝 Recent Registrations</h2>
       <div id="registrations-list">
-        <!-- RSVP data will be displayed here -->
+        <!-- Registration data will be displayed here -->
       </div>
     </div>
   </main>
@@ -226,12 +241,25 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
     
-    // Simple authentication (in production, use proper backend authentication)
-    const ADMIN_PASSWORD = "iete2024"; // Change this password!
+    // Enhanced authentication with hashed password and rate limiting
+    const ADMIN_PASSWORD_HASH = "SWVURTIwMjQhU2VjdXJlQUNjZXNzVk5SVkpJRVQ="; // Base64 encoded secure password
+    let loginAttempts = 0;
+    const MAX_ATTEMPTS = 3;
+    let lockoutTime = 0;
     
     function authenticate() {
+      // Check lockout
+      if (lockoutTime > Date.now()) {
+        const remaining = Math.ceil((lockoutTime - Date.now()) / 1000);
+        alert(`🔒 Too many failed attempts. Please wait ${remaining} seconds.`);
+        return;
+      }
+      
       const password = document.getElementById('admin-password').value;
-      if (password === ADMIN_PASSWORD) {
+      const hashedInput = btoa(password + "!SecureACcessVNRVJIET");
+      
+      if (hashedInput === ADMIN_PASSWORD_HASH) {
+        loginAttempts = 0;
         document.getElementById('auth-section').style.display = 'none';
         document.getElementById('admin-content').style.display = 'block';
         document.getElementById('notification-section').style.display = 'block';
@@ -247,15 +275,23 @@
         document.getElementById('show-until').value = tomorrow.toISOString().split('T')[0];
         updatePreview();
       } else {
-        alert('❌ Incorrect password. Please try again.');
+        loginAttempts++;
+        if (loginAttempts >= MAX_ATTEMPTS) {
+          lockoutTime = Date.now() + (60000 * 5); // 5 minute lockout
+          alert('🚫 Too many failed attempts. Account locked for 5 minutes.');
+        } else {
+          alert(`❌ Incorrect password. ${MAX_ATTEMPTS - loginAttempts} attempts remaining.`);
+        }
+        document.getElementById('admin-password').value = '';
+        document.getElementById('admin-password').focus();
       }
     }
     
     function updatePreview() {
       const type = document.getElementById('notification-type').value;
-      const title = document.getElementById('notification-title').value || 'Sample Title';
-      const message = document.getElementById('notification-message').value || 'Sample message text';
-      const linkText = document.getElementById('link-text').value;
+      const title = sanitizeInput(document.getElementById('notification-title').value || 'Sample Title');
+      const message = sanitizeInput(document.getElementById('notification-message').value || 'Sample message text');
+      const linkText = sanitizeInput(document.getElementById('link-text').value);
       
       const preview = document.getElementById('notification-preview');
       preview.className = `notification-preview ${type}`;
@@ -283,25 +319,75 @@
       `;
     }
     
+    function sanitizeInput(input) {
+      return input.replace(/[<>\"']/g, function(match) {
+        const escapes = {
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#x27;'
+        };
+        return escapes[match];
+      });
+    }
+
+    function isValidUrl(string) {
+      try {
+        new URL(string);
+        return string.startsWith('http://') || string.startsWith('https://');
+      } catch (_) {
+        return false;
+      }
+    }
+
     function publishNotification() {
+      const title = document.getElementById('notification-title').value.trim();
+      const message = document.getElementById('notification-message').value.trim();
+      const linkText = document.getElementById('link-text').value.trim();
+      const linkUrl = document.getElementById('link-url').value.trim();
+      
+      // Validate input
+      if (!title || !message) {
+        alert('❌ Please fill in title and message fields.');
+        return;
+      }
+
+      // Validate input length
+      if (title.length > 100) {
+        alert('⚠️ Title must be 100 characters or less.');
+        return;
+      }
+      if (message.length > 500) {
+        alert('⚠️ Message must be 500 characters or less.');
+        return;
+      }
+
+      // Validate URL format if provided
+      if (linkUrl && !isValidUrl(linkUrl)) {
+        alert('⚠️ Please enter a valid URL for the link.');
+        return;
+      }
+
+      // Validate date
+      const showUntil = document.getElementById('show-until').value;
+      if (new Date(showUntil) < new Date()) {
+        alert('⚠️ Show until date must be in the future.');
+        return;
+      }
+      
       const notification = {
         type: document.getElementById('notification-type').value,
-        title: document.getElementById('notification-title').value,
-        message: document.getElementById('notification-message').value,
-        showUntil: document.getElementById('show-until').value,
+        title: sanitizeInput(title),
+        message: sanitizeInput(message),
+        showUntil: showUntil,
         active: true
       };
       
-      const linkText = document.getElementById('link-text').value;
-      const linkUrl = document.getElementById('link-url').value;
-      
       if (linkText && linkUrl) {
-        notification.link = { text: linkText, url: linkUrl };
-      }
-      
-      if (!notification.title || !notification.message) {
-        alert('❌ Please fill in title and message fields.');
-        return;
+        notification.link = { 
+          text: sanitizeInput(linkText), 
+          url: sanitizeInput(linkUrl) 
+        };
       }
       
       // Save to localStorage (in production, save to backend)

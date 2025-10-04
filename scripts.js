@@ -2,13 +2,539 @@
 // Features: dynamic events, smooth scrolling, active nav, modal details, RSVP/save, toast notifications,
 // sticky header, theme toggle (persisted), search/filter, countdown timer, reveal animations, circular carousel.
 
+// Security enhancements
+(function() {
+  'use strict';
+  
+  // HTTPS enforcement (for production)
+  if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+    location.replace('https:' + window.location.href.substring(window.location.protocol.length));
+  }
+  
+  // Content Security Policy helper
+  function sanitizeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  
+  // Make sanitizeHTML available globally
+  window.sanitizeHTML = sanitizeHTML;
+  
+  // Disable right-click context menu on production
+  if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+    document.addEventListener('contextmenu', e => e.preventDefault());
+  }
+})();
+
 const events = [
-  { id: 'evt-fest', date: '2025-09-15', label: 'expo', title: 'Department Fest - Electroverse', summary: 'A celebration of innovation and technology for all branches. Join us for a variety of technical and fun events!', details: 'A celebration of innovation and technology for all branches. Join us for a variety of technical and fun events!' },
-  { id: 'evt-vlsi', date: '2025-09-18', label: 'workshop', title: 'VLSI Workshop', summary: 'Hands-on workshop on VLSI design and applications. Open to all students interested in electronics and chip design.', details: 'Hands-on workshop on VLSI design and applications. Open to all students interested in electronics and chip design.' },
-  { id: 'evt-career', date: '2025-09-20', label: 'talk', title: 'Career Guidance', summary: 'Interactive session with passed out seniors sharing career tips, industry insights, and guidance for your future.', details: 'Interactive session with passed out seniors sharing career tips, industry insights, and guidance for your future.' },
-  { id: 'evt-hackathon', date: '2025-09-22', label: 'expo', title: '24h Hackathon', summary: 'Compete in a 24-hour hackathon in both software and hardware domains. Open to all branches. Showcase your skills and creativity!', details: 'Compete in a 24-hour hackathon in both software and hardware domains. Open to all branches. Showcase your skills and creativity!' },
-  { id: 'evt-quiz', date: '2025-09-25', label: 'expo', title: 'Tech Quiz', summary: 'Feed your curiosity with our tech quiz. Test your knowledge and win exciting prizes!', details: 'Feed your curiosity with our tech quiz. Test your knowledge and win exciting prizes!' },
-  { id: 'evt-fun', date: '2025-09-28', label: 'expo', title: 'Fun Events', summary: 'Enjoy activities like Treasure Hunt, Meme Contest, and more! Relax and have fun with your friends.', details: 'Enjoy activities like Treasure Hunt, Meme Contest, and more! Relax and have fun with your friends.' }
+  {
+    id: 'electroverse-main',
+    date: '2025-10-22',
+    label: 'expo',
+    title: 'ELECTROVERSE - Department Fest of ECE',
+    summary: 'The flagship 3-day department fest by IETE Student Chapter featuring hackathons, workshops, competitions, and technical events from Oct 22-24, 2025.',
+    details: `
+      <div class="event-details">
+        <h3>🎉 ELECTROVERSE - Department Fest of ECE</h3>
+        <p><strong>Organized by:</strong> IETE Student Chapter</p>
+        <p><strong>Duration:</strong> 3 Days (22-24 October 2025)</p>
+        <p><strong>Objective:</strong> Enhance awareness about IETE chapter and kickstart the legacy of our department fest</p>
+        
+        <h4>📅 Event Schedule Overview:</h4>
+        <ul>
+          <li><strong>Day 1 (Oct 22):</strong> Inauguration, Arduino Workshop, Quiz Round 1 & Fun Fiesta</li>
+          <li><strong>Day 2 (Oct 23):</strong> 24hr HackVerse begins, VLSI Workshop, Treasure Hunt, Quiz Round 2</li>
+          <li><strong>Day 3 (Oct 24):</strong> Career Guidance, TechRGue Debate, Gaming, Valedictory</li>
+        </ul>
+        
+        <h4>🌟 Major Events:</h4>
+        <ul>
+          <li>HackVerse (24hr Hackathon) - Oct 23-24</li>
+          <li>Arduino Workshop with TinkerCAD</li>
+          <li>VLSI Workshop</li>
+          <li>Think-a-Bit (Tech Quiz)</li>
+          <li>TechRGue (Tech Debate)</li>
+          <li>Career Guidance Workshop</li>
+          <li>Fun Fiesta & Gaming</li>
+          <li>Online Meme Contest</li>
+        </ul>
+      </div>
+    `
+  },
+  {
+    id: 'day1-inauguration',
+    date: '2025-10-22',
+    label: 'ceremony',
+    title: 'Inauguration Ceremony',
+    summary: 'Official opening ceremony of ELECTROVERSE 2025 - Department Fest of ECE.',
+    details: `
+      <div class="event-details">
+        <h3>🎊 Inauguration Ceremony</h3>
+        <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
+        <p><strong>Time:</strong> 9:30 AM - 11:00 AM</p>
+        <p><strong>Duration:</strong> 1.5 hours</p>
+        
+        <p>Join us for the grand opening of ELECTROVERSE 2025! The ceremony will officially launch our 3-day department fest with speeches from dignitaries, overview of events, and the lighting of the ceremonial lamp.</p>
+      </div>
+    `
+  },
+  {
+    id: 'arduino-workshop',
+    date: '2025-10-22',
+    label: 'workshop',
+    title: 'Arduino Workshop with TinkerCAD',
+    summary: 'Comprehensive hands-on workshop covering Arduino basics with TinkerCAD simulation - Theory and practical sessions.',
+    details: `
+      <div class="event-details">
+        <h3>🔧 Arduino Workshop with TinkerCAD</h3>
+        <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
+        <p><strong>Session 1 (Theory):</strong> 11:00 AM - 1:00 PM</p>
+        <p><strong>Session 2 (Hands-on):</strong> 1:40 PM - 2:40 PM</p>
+        
+        <h4>📋 Session 1: Theory + Demonstrations (11:00 AM – 1:00 PM)</h4>
+        <ul>
+          <li><strong>11:00 – 11:10 AM:</strong> Welcome & Introduction</li>
+          <li><strong>11:10 – 11:50 AM:</strong> Basics of Circuits in Tinkercad
+            <ul>
+              <li>Interface overview</li>
+              <li>Demo: LED + resistor, switch, series/parallel LEDs</li>
+            </ul>
+          </li>
+          <li><strong>11:50 – 12:50 PM:</strong> Arduino in Tinkercad
+            <ul>
+              <li>Introduction to Arduino UNO</li>
+              <li>Demo 1: Blink LED</li>
+              <li>Demo 2: Traffic light simulation</li>
+              <li>Demo 3: LDR-based street light</li>
+            </ul>
+          </li>
+          <li><strong>12:50 – 1:00 PM:</strong> Q&A Session</li>
+        </ul>
+        
+        <h4>🛠️ Session 2: Hands-On Practice (1:40 PM – 2:40 PM)</h4>
+        <ul>
+          <li><strong>1:40 – 2:30 PM:</strong> Group Project (50 mins)
+            <ul>
+              <li>Build a Smart Traffic Light System in Tinkercad using Arduino</li>
+              <li>Trainers guide groups as they work</li>
+            </ul>
+          </li>
+          <li><strong>2:30 – 2:40 PM:</strong> Wrap-Up
+            <ul>
+              <li>Groups showcase their circuits</li>
+              <li>Trainers summarize learning & thank participants</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    `
+  },
+  {
+    id: 'hackverse-24hr',
+    date: '2025-10-23',
+    label: 'hackathon',
+    title: 'HackVerse - 24hr Hackathon',
+    summary: 'The ultimate 24-hour hackathon challenge spanning Day 2 and Day 3 with multiple rounds, presentations, and jury evaluation.',
+    details: `
+      <div class="event-details">
+        <h3>💻 HackVerse - 24hr Hackathon</h3>
+        <p><strong>Duration:</strong> 24 hours continuous</p>
+        <p><strong>Start:</strong> October 23, 2025 at 10:00 AM (Day 2)</p>
+        <p><strong>End:</strong> October 24, 2025 at 1:00 PM (Day 3)</p>
+        
+        <h4>📝 Pre-Event Activities:</h4>
+        <ul>
+          <li><strong>Oct 12-18:</strong> Online submission of PPTs for chosen Problem Statements</li>
+          <li><strong>Oct 20:</strong> Shortlisting of top teams by Student Jury</li>
+        </ul>
+        
+        <h4>🚀 Day 2 Schedule (Oct 23):</h4>
+        <ul>
+          <li><strong>9:00 AM:</strong> Offline Registration (ID Card, room allocation, confirmation)</li>
+          <li><strong>10:00 AM:</strong> 🎯 Hackathon Officially Begins</li>
+          <li><strong>12:00 PM:</strong> Round 1 Presentation (Progress review by seniors)</li>
+          <li><strong>1:00 - 1:40 PM:</strong> Lunch Break</li>
+          <li><strong>1:40 - 6:00 PM:</strong> Intensive Work Hours (volunteers available for support)</li>
+          <li><strong>6:00 - 6:30 PM:</strong> Snack Break</li>
+          <li><strong>6:30 - 8:30 PM:</strong> Round 2 Presentation (Progress review)</li>
+          <li><strong>8:30 - 10:00 PM:</strong> Dinner</li>
+          <li><strong>10:30 PM - 12:00 AM:</strong> 🎭 BlindFold Pictionary Fun Event</li>
+        </ul>
+        
+        <h4>🌙 Day 3 Schedule (Oct 24):</h4>
+        <ul>
+          <li><strong>12:00 AM onwards:</strong> Resume Work</li>
+          <li><strong>2:30 - 3:30 AM:</strong> Fun Activity (keep participants active)</li>
+          <li><strong>6:30 - 8:00 AM:</strong> Fresh Up & Breakfast</li>
+          <li><strong>8:00 - 10:00 AM:</strong> Final Fine-tuning</li>
+          <li><strong>10:00 AM:</strong> ⏰ Hackathon Ends</li>
+          <li><strong>10:00 AM - 1:00 PM:</strong> 🏆 Final Jury Round</li>
+        </ul>
+      </div>
+    `
+  },
+  {
+    id: 'think-a-bit-quiz',
+    date: '2025-10-22',
+    label: 'competition',
+    title: 'Think-a-Bit (Tech Quiz)',
+    summary: 'Two-round technical quiz competition testing knowledge in Technology, Entertainment, Sports, and General Knowledge.',
+    details: `
+      <div class="event-details">
+        <h3>🧠 Think-a-Bit (Tech Quiz Competition)</h3>
+        <p><strong>Round 1:</strong> October 22, 2025 (Day 1) - 2:40 PM - 4:40 PM</p>
+        <p><strong>Round 2:</strong> October 23, 2025 (Day 2) - 1:40 PM - 4:40 PM</p>
+        <p><strong>Team Size:</strong> 3-4 members per team</p>
+        
+        <h4>📝 ROUND 1: PRELIMINARY/WRITTEN ROUND</h4>
+        <p><strong>Format:</strong> Two written papers with mixed knowledge areas</p>
+        <ul>
+          <li><strong>Paper 1:</strong> Technology + Entertainment (30 questions)</li>
+          <li><strong>Paper 2:</strong> Sports + General Knowledge (30 questions)</li>
+          <li><strong>Time:</strong> 20 minutes per paper (1.5 hours total)</li>
+          <li><strong>Bonus Section:</strong> 3 optional questions per paper (+2 correct, -1 incorrect)</li>
+        </ul>
+        
+        <p><strong>Marking Scheme:</strong></p>
+        <ul>
+          <li>Regular questions: +1 correct, 0 incorrect</li>
+          <li>Bonus questions: +2 correct, -1 incorrect</li>
+        </ul>
+        
+        <p><strong>Qualification:</strong> Top 30% teams advance to Round 2</p>
+        
+        <h4>🏆 ROUND 2: FINAL/PPT ROUND</h4>
+        <p>Four exciting sub-rounds testing different skills:</p>
+        
+        <ol>
+          <li><strong>Round Robin</strong>
+            <ul>
+              <li>20 seconds per question</li>
+              <li>+1 for correct, 0 for incorrect</li>
+              <li>Questions rotate clockwise if passed</li>
+            </ul>
+          </li>
+          
+          <li><strong>Rapid Fire</strong>
+            <ul>
+              <li>5 questions per team, 10 seconds each</li>
+              <li>+2 for correct, 0 for incorrect</li>
+            </ul>
+          </li>
+          
+          <li><strong>Bonus Round</strong>
+            <ul>
+              <li>4 multi-part questions</li>
+              <li>+3 all correct, +2 partial, -1 incorrect</li>
+            </ul>
+          </li>
+          
+          <li><strong>Buzzer Round</strong>
+            <ul>
+              <li>10 questions, 10 seconds each</li>
+              <li>+1 correct, -1 incorrect</li>
+              <li>First to buzz gets to answer</li>
+            </ul>
+          </li>
+        </ol>
+        
+        <p><strong>Tie-Breaker:</strong> Higher Bonus Round score, then more Buzzer Round correct answers</p>
+      </div>
+    `
+  },
+  {
+    id: 'techrogue-debate',
+    date: '2025-10-24',
+    label: 'competition',
+    title: 'TechRGue (Tech Debate)',
+    summary: 'Technical debate competition where participants argue for or against technology-related statements.',
+    details: `
+      <div class="event-details">
+        <h3>🗣️ TechRGue (Tech Debate Competition)</h3>
+        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
+        <p><strong>Time:</strong> 1:40 PM - 3:40 PM (Simultaneous with Gaming)</p>
+        
+        <h4>📋 Registration Process:</h4>
+        <ul>
+          <li>Choose one tech-related statement from provided list</li>
+          <li>Select your stance: Supporting OR Opposing</li>
+          <li>Teams/pairs formed based on topic and stance</li>
+        </ul>
+        
+        <h4>👥 Judging Panel:</h4>
+        <ul>
+          <li><strong>Technical Judge:</strong> Faculty member (technical evaluation)</li>
+          <li><strong>Communication Judge:</strong> English/Language faculty (delivery assessment)</li>
+        </ul>
+        
+        <h4>🎯 Evaluation Criteria:</h4>
+        <ul>
+          <li><strong>Technical Understanding:</strong> Depth of knowledge on the topic</li>
+          <li><strong>Communication & Delivery:</strong> Clarity, confidence, presentation skills</li>
+          <li><strong>Relevance & Logic:</strong> Argument structure and reasoning</li>
+        </ul>
+        
+        <h4>📋 Registration Form Fields:</h4>
+        <ul>
+          <li>Name, Year, Branch & Section</li>
+          <li>Mobile Number</li>
+          <li>Topic selection from statement list</li>
+          <li>Stance preference (For/Against)</li>
+          <li>Queries/Doubts section</li>
+        </ul>
+        
+        <p><strong>🏆 Results:</strong> Winners selected by judges based on consolidated scores, certificates/prizes awarded</p>
+      </div>
+    `
+  },
+  {
+    id: 'vlsi-workshop',
+    date: '2025-10-23',
+    label: 'workshop',
+    title: 'VLSI Workshop',
+    summary: 'Comprehensive workshop on VLSI design and applications for non-hackathon participants.',
+    details: `
+      <div class="event-details">
+        <h3>🔬 VLSI Workshop</h3>
+        <p><strong>Date:</strong> October 23, 2025 (Day 2)</p>
+        <p><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
+        <p><strong>Duration:</strong> 3 hours</p>
+        <p><strong>Target Audience:</strong> Non-hackathon participants</p>
+        
+        <p>Dive deep into the world of Very Large Scale Integration (VLSI) technology. This workshop covers fundamental concepts, design methodologies, and practical applications in modern electronics.</p>
+        
+        <h4>📚 Topics Covered:</h4>
+        <ul>
+          <li>Introduction to VLSI Technology</li>
+          <li>Digital Circuit Design</li>
+          <li>Layout Design Principles</li>
+          <li>Simulation and Testing</li>
+          <li>Industry Applications</li>
+          <li>Career Opportunities in VLSI</li>
+        </ul>
+        
+        <p><strong>Note:</strong> This workshop runs parallel to the HackVerse hackathon, providing an excellent alternative for students interested in semiconductor design.</p>
+      </div>
+    `
+  },
+  {
+    id: 'career-guidance',
+    date: '2025-10-24',
+    label: 'workshop',
+    title: 'Career Guidance Workshop',
+    summary: 'Professional guidance session with industry experts and alumni sharing career insights and opportunities.',
+    details: `
+      <div class="event-details">
+        <h3>🎯 Career Guidance Workshop</h3>
+        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
+        <p><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
+        <p><strong>Duration:</strong> 3 hours</p>
+        
+        <p>Interactive session featuring industry professionals and successful alumni sharing valuable career insights, tips, and guidance for your future in electronics and communication engineering.</p>
+        
+        <h4>🎤 What to Expect:</h4>
+        <ul>
+          <li>Industry trends and opportunities</li>
+          <li>Career paths in ECE</li>
+          <li>Skills development guidance</li>
+          <li>Interview preparation tips</li>
+          <li>Higher studies advice</li>
+          <li>Networking opportunities</li>
+          <li>Q&A with experts</li>
+        </ul>
+        
+        <p><strong>Speakers:</strong> Industry professionals, successful alumni, and career counselors</p>
+      </div>
+    `
+  },
+  {
+    id: 'fun-fiesta',
+    date: '2025-10-22',
+    label: 'entertainment',
+    title: 'Fun Fiesta',
+    summary: 'Exciting collection of fun games and activities including Spin the Wheel, Ring Toss, Darts, Memory Cards, and Blindfolded Pictionary.',
+    details: `
+      <div class="event-details">
+        <h3>🎡 Fun Fiesta</h3>
+        <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
+        <p><strong>Time:</strong> 2:40 PM - 4:40 PM (Parallel with Quiz Round 1)</p>
+        
+        <h4>🎮 Game Stations:</h4>
+        
+        <div class="game-station">
+          <h5>🎡 1. Spin the Wheel</h5>
+          <p>Test your luck! Spin the wheel for instant prizes or fun challenges. Each participant gets one spin per turn.</p>
+        </div>
+        
+        <div class="game-station">
+          <h5>🎯 2. Ring Toss</h5>
+          <p>Aim and throw! Try to land rings over bottles/cones. Each participant gets 3-5 rings. Score points based on successful tosses.</p>
+        </div>
+        
+        <div class="game-station">
+          <h5>🎯 3. Darts</h5>
+          <p>Precision challenge! Each participant gets 3 throws at the dartboard. Prizes awarded based on total score achieved.</p>
+        </div>
+        
+        <div class="game-station">
+          <h5>🧠 4. Memory Cards</h5>
+          <p>Memory test! Flip cards to find matching pairs. Can be played solo or with 2 players. Score points for each successful match.</p>
+        </div>
+        
+        <div class="game-station">
+          <h5>🎨 5. Blindfolded Pictionary</h5>
+          <p>Drawing challenge! One person draws blindfolded while team members guess the word. 1 minute time limit per round.</p>
+        </div>
+        
+        <h4>🏆 Rewards System:</h4>
+        <ul>
+          <li>Instant small prizes (candies, pens, badges)</li>
+          <li>Point accumulation system</li>
+          <li>Leaderboard tracking</li>
+          <li>Big prizes for top performers</li>
+          <li>Lucky draw at the end</li>
+        </ul>
+      </div>
+    `
+  },
+  {
+    id: 'meme-contest',
+    date: '2025-10-22',
+    label: 'competition',
+    title: 'Online Meme Contest',
+    summary: 'Creative online meme competition focusing on core domain topics with multiple submission formats.',
+    details: `
+      <div class="event-details">
+        <h3>😂 Online Meme Contest</h3>
+        <p><strong>Duration:</strong> Throughout the fest (submit anytime)</p>
+        <p><strong>Submission:</strong> Via Google Form</p>
+        <p><strong>Open to:</strong> Everyone</p>
+        
+        <h4>📋 Contest Categories:</h4>
+        
+        <div class="contest-category">
+          <h5>🖼️ ONLINE MEME CONTEST</h5>
+          <ul>
+            <li><strong>Format:</strong> Image or Video</li>
+            <li><strong>Theme:</strong> Core domain topics (ECE/Technology)</li>
+            <li><strong>Submission:</strong> Google Form upload</li>
+          </ul>
+        </div>
+        
+        <div class="contest-category">
+          <h5>🎵 SONG OR MOVIE GUESSING</h5>
+          <p>Light-hearted activity during breaks between main events to keep audience engaged.</p>
+        </div>
+        
+        <div class="contest-category">
+          <h5>🎭 MEME BACK (Feedback Activity)</h5>
+          <ul>
+            <li>Optional add-on in feedback Google Form</li>
+            <li>Express feedback using meme dialogues</li>
+            <li>Upload short clips of meme-based feedback</li>
+          </ul>
+        </div>
+        
+        <h4>📜 Contest Rules:</h4>
+        <ul>
+          <li><strong>Content Focus:</strong> Core domain topics only</li>
+          <li><strong>Language:</strong> No adult (18+) language allowed</li>
+          <li><strong>Respect:</strong> Content must not offend management</li>
+          <li><strong>Originality:</strong> Original creations preferred</li>
+        </ul>
+        
+        <p><strong>🏆 Judging:</strong> Based on creativity, relevance to domain, and humor quotient</p>
+      </div>
+    `
+  },
+  {
+    id: 'treasure-hunt',
+    date: '2025-10-23',
+    label: 'competition',
+    title: 'Treasure Hunt',
+    summary: 'Exciting campus-wide treasure hunt running simultaneously with Think-a-Bit Round 2.',
+    details: `
+      <div class="event-details">
+        <h3>🗺️ Treasure Hunt</h3>
+        <p><strong>Date:</strong> October 23, 2025 (Day 2)</p>
+        <p><strong>Time:</strong> 1:40 PM - 4:40 PM</p>
+        <p><strong>Format:</strong> Simultaneous with Think-a-Bit Round 2</p>
+        
+        <p>Navigate through exciting clues and challenges across the campus in this thrilling treasure hunt adventure. Work as a team to solve puzzles, find hidden objects, and reach the final treasure!</p>
+        
+        <h4>🎯 Hunt Features:</h4>
+        <ul>
+          <li>Multiple clue stations across campus</li>
+          <li>Technical and logical puzzles</li>
+          <li>Team-based challenges</li>
+          <li>Time-bound excitement</li>
+          <li>Surprise elements at each stage</li>
+        </ul>
+        
+        <p><strong>Team Size:</strong> 3-4 members recommended</p>
+        <p><strong>🏆 Prizes:</strong> Exciting rewards for fastest and most creative teams</p>
+      </div>
+    `
+  },
+  {
+    id: 'gaming-event',
+    date: '2025-10-24',
+    label: 'entertainment',
+    title: 'Gaming Tournament',
+    summary: 'Competitive gaming tournament running alongside TechRGue debate competition.',
+    details: `
+      <div class="event-details">
+        <h3>🎮 Gaming Tournament</h3>
+        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
+        <p><strong>Time:</strong> 1:40 PM - 3:40 PM</p>
+        <p><strong>Format:</strong> Simultaneous with TechRGue</p>
+        
+        <p>Compete in exciting gaming tournaments featuring popular games. Show off your gaming skills and compete for prizes!</p>
+        
+        <h4>🏆 Tournament Features:</h4>
+        <ul>
+          <li>Multiple gaming categories</li>
+          <li>Individual and team competitions</li>
+          <li>Elimination rounds</li>
+          <li>Live commentary and audience participation</li>
+          <li>Prizes for winners and runners-up</li>
+        </ul>
+        
+        <p><strong>Registration:</strong> On-spot registration available</p>
+        <p><strong>Equipment:</strong> Gaming setups provided</p>
+      </div>
+    `
+  },
+  {
+    id: 'valedictory',
+    date: '2025-10-24',
+    label: 'ceremony',
+    title: 'Valedictory Ceremony',
+    summary: 'Grand closing ceremony of ELECTROVERSE 2025 with prize distribution and closing remarks.',
+    details: `
+      <div class="event-details">
+        <h3>🏆 Valedictory Ceremony</h3>
+        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
+        <p><strong>Time:</strong> 3:40 PM - 5:00 PM</p>
+        <p><strong>Duration:</strong> 1 hour 20 minutes</p>
+        
+        <p>Join us for the grand finale of ELECTROVERSE 2025! Celebrate the success of our 3-day department fest with prize distribution, recognition of winners, and closing remarks.</p>
+        
+        <h4>🎊 Ceremony Highlights:</h4>
+        <ul>
+          <li>Prize distribution for all competitions</li>
+          <li>Recognition of outstanding participants</li>
+          <li>Vote of thanks</li>
+          <li>Closing remarks by dignitaries</li>
+          <li>Group photographs</li>
+          <li>Feedback collection</li>
+        </ul>
+        
+        <p><strong>🎉 Celebration:</strong> A fitting end to an amazing 3-day journey of learning, competition, and fun!</p>
+      </div>
+    `
+  }
 ];
 
 /* ---------- Circular Carousel for Panel ---------- */
@@ -302,7 +828,7 @@ function renderEvents(filter = 'all', search = ''){
       <p>${ev.summary}</p>
       <div style="margin-top:12px;display:flex;gap:8px">
         <button class="btn ghost btn-details" data-id="${ev.id}">Details</button>
-        <button class="btn primary btn-rsvp" data-id="${ev.id}">RSVP</button>
+        <button class="btn primary btn-rsvp" data-id="${ev.id}">Register</button>
       </div>
     `;
     grid.appendChild(el);
@@ -331,7 +857,7 @@ const rsvpModal = (()=>{
   let el, form, titleEl, closeBtn;
   function init(){ el = document.getElementById('rsvp-modal'); if(!el) return; form = el.querySelector('form'); titleEl = el.querySelector('.modal-title'); closeBtn = el.querySelector('.modal-close'); el.addEventListener('click', (e)=>{ if (e.target===el) close(); }); closeBtn.addEventListener('click', close); form.addEventListener('submit', onSubmit); }
   let currentEventId = null;
-  function open(ev){ if(!el) return; currentEventId = ev.id; titleEl.textContent = 'RSVP — '+ ev.title; el.classList.add('open'); el.querySelector('input[name="name"]').focus(); }
+  function open(ev){ if(!el) return; currentEventId = ev.id; titleEl.textContent = 'Register — '+ ev.title; el.classList.add('open'); el.querySelector('input[name="name"]').focus(); }
   function close(){ if(!el) return; el.classList.remove('open'); }
   function onSubmit(e){ e.preventDefault(); const data = Object.fromEntries(new FormData(e.target)); data.eventId = currentEventId; saveRSVP(data); close(); }
   return { init, open, close };
@@ -339,7 +865,7 @@ const rsvpModal = (()=>{
 
 function openRSVPModal(ev){ rsvpModal.open(ev); }
 
-function saveRSVP(data){ const key = 'iete_rsvps'; const arr = JSON.parse(localStorage.getItem(key) || '[]'); arr.push({...data, timestamp: new Date().toISOString()}); localStorage.setItem(key, JSON.stringify(arr)); showToast('RSVP saved — check email for details (demo)'); }
+function saveRSVP(data){ const key = 'iete_rsvps'; const arr = JSON.parse(localStorage.getItem(key) || '[]'); arr.push({...data, timestamp: new Date().toISOString()}); localStorage.setItem(key, JSON.stringify(arr)); showToast('Registration saved — check email for details (demo)'); }
 
 /* ---------- Sticky header and theme toggle ---------- */
 function setupStickyHeader(){ const header = document.getElementById('site-header'); if(!header) return; const offset = 60; window.addEventListener('scroll', ()=>{ if(window.scrollY>offset) header.classList.add('small'); else header.classList.remove('small'); }); }
