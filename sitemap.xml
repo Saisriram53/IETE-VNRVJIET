@@ -1,56 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
   
   <url>
     <loc>https://iete-vnrvjiet.vercel.app/</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-10-05T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://iete-vnrvjiet.vercel.app/assets/iete-logo.jpeg</image:loc>
+      <image:title>IETE Student Chapter Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://iete-vnrvjiet.vercel.app/assets/vnrvjiet-logo.png</image:loc>
+      <image:title>VNR VJIET College Logo</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://iete-vnrvjiet.vercel.app/home.html</loc>
+    <lastmod>2025-10-05T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://iete-vnrvjiet.vercel.app/about.html</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-10-05T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://iete-vnrvjiet.vercel.app/events.html</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-10-05T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://iete-vnrvjiet.vercel.app/gallery.html</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-10-05T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://iete-vnrvjiet.vercel.app/assets/Math%20Day%2019-20.jpg</image:loc>
+      <image:title>Math Day Event 2019-20</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://iete-vnrvjiet.vercel.app/assets/TechVision%2019-20.jpg</image:loc>
+      <image:title>TechVision Event 2019-20</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://iete-vnrvjiet.vercel.app/assets/Republic%20Day%2018-19.jpg</image:loc>
+      <image:title>Republic Day Celebration 2018-19</image:title>
+    </image:image>
   </url>
   
   <url>
     <loc>https://iete-vnrvjiet.vercel.app/contact.html</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-10-05T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://iete-vnrvjiet.vercel.app/panel.html</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-10-05T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://iete-vnrvjiet.vercel.app/electroverse/</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-10-05T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://iete-vnrvjiet.vercel.app/assets/iete-logo.jpeg</image:loc>
+      <image:title>ELECTROVERSE 2025 Event Logo</image:title>
+    </image:image>
   </url>
   
 </urlset>
