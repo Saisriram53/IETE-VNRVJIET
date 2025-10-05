@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://saisriram53.github.io/IETE-VNRVJIET/sitemap.xml
+Sitemap: https://iete-vnrvjiet.vercel.app/sitemap.xml
 
 # Disallow admin and test pages from indexing
 Disallow: /admin.html
