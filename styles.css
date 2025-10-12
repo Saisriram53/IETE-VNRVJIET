@@ -942,6 +942,28 @@ section:nth-of-type(even) {
     height: 40px;
     font-size: 1.2rem;
   }
+  
+  /* Additional mobile optimizations */
+  .hero {
+    padding: 32px 16px;
+  }
+  
+  .hero-copy h2 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+  
+  .hero-copy p {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 24px 16px;
+  }
+  
+  section {
+    padding: 48px 0;
+  }
 }
 
 /* Animated Gallery Styles */
@@ -1540,6 +1562,69 @@ main {
   
   .stat-value {
     font-size: 28px;
+  }
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 480px) {
+  .brand-text h1 {
+    font-size: 12px;
+  }
+  
+  .dept {
+    font-size: 10px;
+  }
+  
+  .college-logo {
+    height: 38px;
+  }
+  
+  .hero-copy h2 {
+    font-size: 22px;
+  }
+  
+  .hero-copy p {
+    font-size: 13px;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .stat-value {
+    font-size: 24px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  .container {
+    padding: 20px 12px;
+  }
+  
+  section {
+    padding: 36px 0;
+  }
+  
+  .logo-card img {
+    height: 100px;
+  }
+  
+  .countdown {
+    font-size: 12px;
+    padding: 6px 10px;
   }
 }
 
