@@ -1418,37 +1418,8 @@ main {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/* Hamburger Menu Button */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  padding: 0.5rem;
-  z-index: 1001;
-  background: transparent;
-  border: none;
-}
 
-.hamburger span {
-  width: 28px;
-  height: 3px;
-  background: var(--text);
-  transition: all 0.3s ease;
-  border-radius: 2px;
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(7px, 7px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
+/* Old Hamburger Menu styles removed - now using .mobile-menu-toggle */
 
 @media (max-width: 700px) {
   .brand {
@@ -1467,49 +1438,7 @@ main {
     height: 42px;
   }
   
-  .hamburger {
-    display: flex;
-  }
-  
-  .main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(15px);
-    flex-direction: column;
-    padding: 6rem 2rem 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-    justify-content: flex-start;
-    gap: 0;
-  }
-  
-  .main-nav.active {
-    transform: translateX(0);
-  }
-  
-  .main-nav a {
-    padding: 1rem 1.5rem;
-    margin: 0.5rem 0;
-    text-align: left;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .main-nav a:hover {
-    background: rgba(30, 144, 255, 0.1);
-    border-color: var(--accent);
-  }
-  
-  .header-controls img {
-    display: none;
-  }
+  /* Old hamburger and main-nav styles removed - now using improved mobile nav at @media (max-width: 768px) */
   
   .hero-inner {
     grid-template-columns: 1fr;
