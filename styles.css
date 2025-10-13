@@ -2736,10 +2736,10 @@ section,
   }
 
   .main-nav.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0s 0s;
   }
 
@@ -2759,7 +2759,7 @@ section,
   }
 
   .mobile-menu-toggle {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -2770,6 +2770,8 @@ section,
     background: transparent;
     border: none;
     gap: 5px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .mobile-menu-toggle span {
@@ -2778,6 +2780,7 @@ section,
     height: 3px;
     background: var(--text);
     transition: all 0.3s ease;
+    border-radius: 2px;
   }
 
   .mobile-menu-toggle.active span:nth-child(1) {

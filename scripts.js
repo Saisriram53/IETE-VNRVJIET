@@ -11,18 +11,34 @@
     const hamburger = document.getElementById('mobile-menu-toggle');
     const mainNav = document.getElementById('main-nav');
     
-    console.log('Mobile menu initialized:', { hamburger, mainNav });
+    console.log('Mobile menu initialized:', { 
+      hamburger, 
+      mainNav,
+      hamburgerExists: !!hamburger,
+      navExists: !!mainNav 
+    });
     
     if (hamburger && mainNav) {
+      console.log('Adding click listener to hamburger');
+      
       // Toggle menu on hamburger click
       hamburger.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         console.log('Hamburger clicked!');
+        
+        const wasActive = mainNav.classList.contains('active');
         hamburger.classList.toggle('active');
         mainNav.classList.toggle('active');
         document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-        console.log('Menu active:', mainNav.classList.contains('active'));
+        
+        console.log('Menu state changed:', {
+          wasActive,
+          isNowActive: mainNav.classList.contains('active'),
+          navClasses: mainNav.className,
+          hamburgerClasses: hamburger.className,
+          computedStyle: window.getComputedStyle(mainNav).transform
+        });
       });
       
       // Close menu when clicking on a link
