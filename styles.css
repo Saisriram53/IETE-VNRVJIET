@@ -2741,59 +2741,67 @@ section,
 /* Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
   :root {
-    --header-height: 60px;
+    --header-height: 64px;
   }
 
   body {
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.6;
   }
 
-  /* Header Mobile Styles */
+  /* Header Mobile Styles - Cleaner & More Spacious */
   .site-header {
-    padding: 8px 16px;
+    padding: 10px 16px;
+    backdrop-filter: blur(10px);
   }
 
   .header-inner {
-    gap: 12px;
-    padding: 0 8px;
+    gap: 16px;
+    padding: 0;
   }
 
   .brand {
-    gap: 8px;
+    gap: 10px;
+    flex: 1;
   }
 
   .college-logo {
-    height: 40px;
+    height: 42px;
   }
 
   .iete-logo {
-    height: 50px;
+    height: 52px;
   }
 
   .brand-text h1 {
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.3;
   }
 
   .dept {
-    font-size: 11px;
+    font-size: 11.5px;
+    margin-top: 2px;
   }
 
-  /* Mobile Navigation */
+  /* Mobile Navigation - Improved */
   .main-nav {
     position: fixed;
     top: var(--header-height);
     left: 0;
     right: 0;
-    background: var(--card);
+    background: linear-gradient(180deg, rgba(15, 19, 22, 0.98), rgba(15, 19, 22, 0.95));
+    backdrop-filter: blur(20px);
     flex-direction: column;
-    gap: 0;
-    padding: 16px;
+    gap: 4px;
+    padding: 20px;
     margin: 0;
     transform: translateY(-100%);
     opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     z-index: 130;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
   }
 
   .main-nav.active {
@@ -2803,17 +2811,31 @@ section,
 
   .main-nav a {
     width: 100%;
-    padding: 12px 16px;
-    border-radius: 6px;
+    padding: 14px 18px;
+    border-radius: 8px;
     text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .main-nav a:hover {
+    background: rgba(30, 144, 255, 0.1);
+    transform: translateX(4px);
   }
 
   .mobile-menu-toggle {
     display: flex;
+    padding: 10px;
+  }
+
+  .mobile-menu-toggle span {
+    width: 26px;
+    height: 3px;
   }
 
   .mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(6px, 6px);
   }
 
   .mobile-menu-toggle.active span:nth-child(2) {
@@ -2821,193 +2843,420 @@ section,
   }
 
   .mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(6px, -6px);
   }
 
-  /* Main Content */
+  /* Main Content - Better Spacing */
   main {
     padding-top: var(--header-height);
   }
 
   section {
-    padding: 32px 0;
+    padding: 40px 0;
+  }
+
+  section::before {
+    width: 95%;
   }
 
   .container-inner {
-    padding: 0 16px;
+    padding: 0 20px;
+    max-width: 100%;
   }
 
-  /* Hero Section */
+  /* Hero Section - Cleaner Layout */
   .hero {
-    padding: 32px 16px;
+    padding: 40px 20px;
   }
 
   .hero-inner {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 32px;
+    text-align: center;
   }
 
   .hero-copy h2 {
-    font-size: 24px;
-    line-height: 1.2;
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 16px;
   }
 
   .hero-copy p {
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
   }
 
   .hero-actions {
     flex-direction: column;
     gap: 12px;
+    align-items: stretch;
   }
 
   .hero-actions .btn {
     width: 100%;
+    padding: 14px 24px;
+    font-size: 15px;
   }
 
-  /* Section Headers */
+  /* Section Headers - Better Typography */
+  .section-header {
+    margin-bottom: 28px;
+  }
+
   .section-header .section-title,
   .section-title {
-    font-size: 20px;
+    font-size: 24px;
+    margin-bottom: 10px;
+    line-height: 1.3;
   }
 
   .section-subtitle {
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.5;
   }
 
-  /* Stats Grid */
+  /* Stats Grid - Improved Layout */
   .stats-grid {
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
   }
 
   .stat {
     width: 100%;
+    padding: 20px;
+    border-radius: 14px;
   }
 
   .stat-value {
-    font-size: 28px;
+    font-size: 32px;
+    margin-bottom: 8px;
   }
 
-  /* Gallery Grid */
+  .stat-label {
+    font-size: 14px;
+  }
+
+  /* Gallery Grid - Better Spacing */
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
-  /* Event Cards */
+  .gallery-item {
+    border-radius: 12px;
+    padding: 8px;
+  }
+
+  /* Event Cards - Enhanced Mobile View */
+  .event,
   .event-card,
   .timeline-event {
-    padding: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 12px;
   }
 
-  /* Panel/Team Grid */
+  .event h4,
+  .event-card h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .event p,
+  .event-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .event .btn,
+  .event-card .btn {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+
+  /* Panel/Team Grid - Better Mobile Layout */
   .panel-grid,
   .team-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 
   .panel-member,
   .team-member {
-    padding: 12px;
+    padding: 16px;
+    border-radius: 12px;
   }
 
   .panel-member img,
   .team-member img {
     width: 100px;
     height: 100px;
+    margin-bottom: 12px;
   }
 
-  /* Forms */
+  .panel-member h4,
+  .team-member h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .panel-member p,
+  .team-member p {
+    font-size: 13px;
+  }
+
+  /* Forms - Touch-Friendly */
   .form-group {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
   }
 
   input,
   textarea,
   select {
-    font-size: 14px;
-    padding: 10px 12px;
+    font-size: 15px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 120px;
   }
 
   .btn {
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 12px 24px;
+    font-size: 15px;
+    border-radius: 8px;
+    font-weight: 600;
   }
 
-  /* Footer */
+  /* Modals - Full Screen on Mobile */
+  .modal {
+    padding: 16px;
+  }
+
+  .modal-content {
+    max-width: 100%;
+    margin: 20px 0;
+    border-radius: 16px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+
+  .modal-body {
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  /* Carousel - Mobile Optimized */
+  .carousel-container {
+    height: 450px;
+    max-width: 95vw;
+  }
+  
+  .carousel-circle {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .carousel-item {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .carousel-center {
+    min-width: 180px;
+    padding: 1.5rem;
+  }
+  
+  #center-image {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .carousel-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+
+  /* Circular Carousel */
+  .circular-carousel {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .featured-photo {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .orbit-item {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .animated-photo-gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .photo-container {
+    height: 240px;
+  }
+
+  /* Footer - Stacked Layout */
   footer {
-    padding: 32px 16px;
+    padding: 40px 20px;
   }
 
   .footer-content {
     flex-direction: column;
-    gap: 24px;
+    gap: 28px;
     text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+
+  .footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    font-size: 14px;
+  }
+
+  /* Tables - Responsive */
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 10px 8px;
+  }
+
+  /* Buttons - Better Touch Targets */
+  button,
+  .btn,
+  a.btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Images - Responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Hide decorative elements on mobile */
+  .satellite-bg {
+    display: none;
   }
 }
 
 /* Small Mobile Devices (max-width: 480px) */
 @media (max-width: 480px) {
   :root {
-    --header-height: 56px;
+    --header-height: 58px;
   }
 
   body {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .site-header {
-    padding: 6px 12px;
+    padding: 8px 14px;
   }
 
   .college-logo {
-    height: 36px;
+    height: 38px;
   }
 
   .iete-logo {
-    height: 44px;
+    height: 46px;
   }
 
   .brand-text h1 {
-    font-size: 12px;
-  }
-
-  .dept {
-    font-size: 10px;
-  }
-
-  .hero-copy h2 {
-    font-size: 20px;
-  }
-
-  .hero-copy p {
     font-size: 13px;
   }
 
+  .dept {
+    font-size: 10.5px;
+  }
+
+  .hero-copy h2 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .hero-copy p {
+    font-size: 14px;
+  }
+
   .section-title {
-    font-size: 18px;
+    font-size: 22px;
+  }
+
+  .container-inner {
+    padding: 0 18px;
   }
 
   .gallery-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 14px;
   }
 
   .panel-grid,
   .team-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 
   .stat-value {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .btn {
-    padding: 8px 16px;
-    font-size: 13px;
+    padding: 11px 20px;
+    font-size: 14px;
+  }
+
+  /* Improved mobile spacing */
+  section {
+    padding: 36px 0;
+  }
+
+  .event,
+  .event-card {
+    padding: 18px;
+  }
+
+  .modal-content {
+    border-radius: 14px;
   }
 }
 
