@@ -2682,6 +2682,8 @@ section,
   .site-header {
     padding: 10px 16px;
     backdrop-filter: blur(10px);
+    position: relative !important;
+    z-index: 100 !important;
   }
 
   .header-inner {
@@ -2718,10 +2720,10 @@ section,
     top: 64px !important;
     left: 0 !important;
     right: 0 !important;
-    bottom: auto !important;
-    width: 100% !important;
-    height: auto !important;
-    max-height: calc(100vh - 64px) !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 64px) !important;
+    max-height: none !important;
     background: rgba(255, 0, 0, 0.95) !important; /* RED FOR TESTING */
     backdrop-filter: blur(20px) !important;
     flex-direction: column !important;
@@ -2729,9 +2731,10 @@ section,
     padding: 20px !important;
     margin: 0 !important;
     gap: 8px !important;
-    z-index: 9999 !important;
+    z-index: 999999 !important;
     overflow-y: auto !important;
-    border: 5px solid yellow !important; /* YELLOW BORDER FOR TESTING */
+    border: 10px solid yellow !important; /* THICK YELLOW BORDER FOR TESTING */
+    box-shadow: 0 0 50px 20px rgba(255, 255, 0, 0.8) !important; /* GLOWING YELLOW SHADOW */
   }
 
   .main-nav.active {
