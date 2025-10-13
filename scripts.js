@@ -2,76 +2,64 @@
 // Features: dynamic events, smooth scrolling, active nav, modal details, RSVP/save, toast notifications,
 // sticky header, theme toggle (persisted), search/filter, countdown timer, reveal animations, circular carousel.
 
-// Mobile Navigation Menu
+// Mobile Navigation Menu - SIMPLIFIED
 (function() {
   'use strict';
   
+  console.log('=== Mobile Menu Script Loading ===');
+  
   // Initialize mobile menu when DOM is ready
   document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing mobile menu...');
+    console.log('DOM loaded!');
     
     const hamburger = document.getElementById('mobile-menu-toggle');
     const mainNav = document.getElementById('main-nav');
     
-    console.log('Mobile menu elements:', { 
-      hamburger: hamburger,
-      mainNav: mainNav,
-      hamburgerExists: !!hamburger,
-      navExists: !!mainNav 
-    });
+    console.log('Hamburger element:', hamburger);
+    console.log('Main nav element:', mainNav);
     
     if (!hamburger) {
-      console.error('Hamburger button not found! Looking for id="mobile-menu-toggle"');
+      console.error('❌ HAMBURGER NOT FOUND! Check if id="mobile-menu-toggle" exists in HTML');
       return;
     }
     
     if (!mainNav) {
-      console.error('Main nav not found! Looking for id="main-nav"');
+      console.error('❌ MAIN NAV NOT FOUND! Check if id="main-nav" exists in HTML');
       return;
     }
     
-    console.log('Both elements found! Adding click listener...');
+    console.log('✅ Both elements found!');
     
     // Toggle menu on hamburger click
     hamburger.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       
-      console.log('=== HAMBURGER CLICKED ===');
+      console.log('🍔 HAMBURGER CLICKED!');
       
-      const wasActive = mainNav.classList.contains('active');
-      console.log('Was active before click:', wasActive);
-      
-      // Toggle classes
+      // Toggle the active class
       hamburger.classList.toggle('active');
       mainNav.classList.toggle('active');
       
       const isActive = mainNav.classList.contains('active');
-      console.log('Is active after toggle:', isActive);
-      console.log('Nav classes:', mainNav.className);
-      console.log('Hamburger classes:', hamburger.className);
+      console.log('Menu is now:', isActive ? 'OPEN ✅' : 'CLOSED ❌');
+      console.log('Nav classList:', mainNav.classList.toString());
+      
+      // Check computed display
+      const displayStyle = window.getComputedStyle(mainNav).display;
+      console.log('Computed display:', displayStyle);
       
       // Prevent body scroll when menu is open
       document.body.style.overflow = isActive ? 'hidden' : '';
-      
-      // Log computed styles
-      const navStyles = window.getComputedStyle(mainNav);
-      console.log('Computed styles:', {
-        display: navStyles.display,
-        transform: navStyles.transform,
-        opacity: navStyles.opacity,
-        visibility: navStyles.visibility,
-        pointerEvents: navStyles.pointerEvents
-      });
     });
     
-    console.log('Click listener added successfully!');
+    console.log('✅ Click listener added to hamburger!');
     
     // Close menu when clicking on a link
     const navLinks = mainNav.querySelectorAll('a');
-    console.log('Found', navLinks.length, 'nav links');
+    console.log('Found', navLinks.length, 'navigation links');
     
-    navLinks.forEach(link => {
+    navLinks.forEach(function(link) {
       link.addEventListener('click', function() {
         console.log('Nav link clicked, closing menu');
         hamburger.classList.remove('active');
@@ -93,7 +81,7 @@
       }
     });
     
-    console.log('Mobile menu initialization complete!');
+    console.log('✅ Mobile menu fully initialized!');
   });
 })();
 
