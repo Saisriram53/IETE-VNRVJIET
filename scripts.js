@@ -84,6 +84,7 @@ const events = [
     label: 'expo',
     title: 'ELECTROVERSE - Department Fest of ECE',
     summary: 'The flagship 3-day department fest by IETE Student Chapter featuring hackathons, workshops, competitions, and technical events from Oct 22-24, 2025.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdVEWfS5Zl4HoBJcSG-t0X2fdG-On6XvR1T5TLD4gsBUjIcAw/viewform?usp=dialog',
     details: `
       <div class="event-details">
         <h3>🎉 ELECTROVERSE - Department Fest of ECE</h3>
@@ -91,24 +92,34 @@ const events = [
         <p><strong>Duration:</strong> 3 Days (22-24 October 2025)</p>
         <p><strong>Objective:</strong> Enhance awareness about IETE chapter and kickstart the legacy of our department fest</p>
         
+        <div style="margin: 20px 0; padding: 15px; background: rgba(0, 83, 156, 0.1); border-left: 4px solid var(--accent); border-radius: 8px;">
+          <p style="margin: 0; font-weight: 600;">📋 Get your ELECTROVERSE Pass!</p>
+          <p style="margin: 8px 0 0 0; font-size: 0.95em;">Register for the fest pass to access all events throughout the 3-day celebration.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVEWfS5Zl4HoBJcSG-t0X2fdG-On6XvR1T5TLD4gsBUjIcAw/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 12px; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">🎫 Register for Fest Pass</a>
+        </div>
+        
         <h4>📅 Event Schedule Overview:</h4>
         <ul>
-          <li><strong>Day 1 (Oct 22):</strong> Inauguration, Arduino Workshop, Quiz Round 1 & Fun Fiesta</li>
-          <li><strong>Day 2 (Oct 23):</strong> 24hr HackVerse begins, VLSI Workshop, Treasure Hunt, Quiz Round 2</li>
+          <li><strong>Day 1 (Oct 22):</strong> Inauguration, Arduino Workshop, Quiz Round 1 & Entertainment</li>
+          <li><strong>Day 2 (Oct 23):</strong> 24hr HackVerse begins, Treasure Hunt, Quiz Round 2</li>
           <li><strong>Day 3 (Oct 24):</strong> Career Guidance, TechRGue Debate, Gaming, Valedictory</li>
         </ul>
         
-        <h4>🌟 Major Events:</h4>
+        <h4>🌟 Major Events Under ELECTROVERSE:</h4>
         <ul>
+          <li>Inauguration Ceremony - Oct 22, 9:30 AM</li>
+          <li>Arduino Workshop with TinkerCAD - Oct 22, 11:00 AM</li>
+          <li>Think-a-Bit (Tech Quiz) - Round 1 (Oct 22), Round 2 (Oct 23)</li>
           <li>HackVerse (24hr Hackathon) - Oct 23-24</li>
-          <li>Arduino Workshop with TinkerCAD</li>
-          <li>VLSI Workshop</li>
-          <li>Think-a-Bit (Tech Quiz)</li>
-          <li>TechRGue (Tech Debate)</li>
-          <li>Career Guidance Workshop</li>
-          <li>Fun Fiesta & Gaming</li>
-          <li>Online Meme Contest</li>
+          <li>TechRGue (Tech Debate) - Oct 24</li>
+          <li>Career Guidance Workshop - Oct 24</li>
+          <li>Treasure Hunt - Oct 23</li>
+          <li>Gaming Tournament - Oct 24</li>
+          <li>Online Meme Contest - Throughout the fest</li>
+          <li>Valedictory Ceremony - Oct 24, 3:40 PM</li>
         </ul>
+        
+        <p style="margin-top: 20px; font-style: italic; color: var(--muted);">Note: Individual event registrations are available below. The fest pass gives you access to attend all events.</p>
       </div>
     `
   },
@@ -349,36 +360,6 @@ const events = [
     `
   },
   {
-    id: 'vlsi-workshop',
-    date: '2025-10-23',
-    label: 'workshop',
-    title: 'VLSI Workshop',
-    summary: 'Comprehensive workshop on VLSI design and applications for non-hackathon participants.',
-    details: `
-      <div class="event-details">
-        <h3>🔬 VLSI Workshop</h3>
-        <p><strong>Date:</strong> October 23, 2025 (Day 2)</p>
-        <p><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
-        <p><strong>Duration:</strong> 3 hours</p>
-        <p><strong>Target Audience:</strong> Non-hackathon participants</p>
-        
-        <p>Dive deep into the world of Very Large Scale Integration (VLSI) technology. This workshop covers fundamental concepts, design methodologies, and practical applications in modern electronics.</p>
-        
-        <h4>📚 Topics Covered:</h4>
-        <ul>
-          <li>Introduction to VLSI Technology</li>
-          <li>Digital Circuit Design</li>
-          <li>Layout Design Principles</li>
-          <li>Simulation and Testing</li>
-          <li>Industry Applications</li>
-          <li>Career Opportunities in VLSI</li>
-        </ul>
-        
-        <p><strong>Note:</strong> This workshop runs parallel to the HackVerse hackathon, providing an excellent alternative for students interested in semiconductor design.</p>
-      </div>
-    `
-  },
-  {
     id: 'career-guidance',
     date: '2025-10-24',
     label: 'workshop',
@@ -410,56 +391,6 @@ const events = [
         </ul>
         
         <p><strong>Speakers:</strong> Industry professionals, successful alumni, and career counselors</p>
-      </div>
-    `
-  },
-  {
-    id: 'fun-fiesta',
-    date: '2025-10-22',
-    label: 'entertainment',
-    title: 'Fun Fiesta',
-    summary: 'Exciting collection of fun games and activities including Spin the Wheel, Ring Toss, Darts, Memory Cards, and Blindfolded Pictionary.',
-    details: `
-      <div class="event-details">
-        <h3>🎡 Fun Fiesta</h3>
-        <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
-        <p><strong>Time:</strong> 2:40 PM - 4:40 PM (Parallel with Quiz Round 1)</p>
-        
-        <h4>🎮 Game Stations:</h4>
-        
-        <div class="game-station">
-          <h5>🎡 1. Spin the Wheel</h5>
-          <p>Test your luck! Spin the wheel for instant prizes or fun challenges. Each participant gets one spin per turn.</p>
-        </div>
-        
-        <div class="game-station">
-          <h5>🎯 2. Ring Toss</h5>
-          <p>Aim and throw! Try to land rings over bottles/cones. Each participant gets 3-5 rings. Score points based on successful tosses.</p>
-        </div>
-        
-        <div class="game-station">
-          <h5>🎯 3. Darts</h5>
-          <p>Precision challenge! Each participant gets 3 throws at the dartboard. Prizes awarded based on total score achieved.</p>
-        </div>
-        
-        <div class="game-station">
-          <h5>🧠 4. Memory Cards</h5>
-          <p>Memory test! Flip cards to find matching pairs. Can be played solo or with 2 players. Score points for each successful match.</p>
-        </div>
-        
-        <div class="game-station">
-          <h5>🎨 5. Blindfolded Pictionary</h5>
-          <p>Drawing challenge! One person draws blindfolded while team members guess the word. 1 minute time limit per round.</p>
-        </div>
-        
-        <h4>🏆 Rewards System:</h4>
-        <ul>
-          <li>Instant small prizes (candies, pens, badges)</li>
-          <li>Point accumulation system</li>
-          <li>Leaderboard tracking</li>
-          <li>Big prizes for top performers</li>
-          <li>Lucky draw at the end</li>
-        </ul>
       </div>
     `
   },
@@ -897,15 +828,13 @@ function renderEvents(filter = 'all', search = ''){
     el.innerHTML = `
       <h4>${ev.title}</h4>
       <p>${ev.summary}</p>
-      <div style="margin-top:12px;display:flex;gap:8px">
-        <button class="btn ghost btn-details" data-id="${ev.id}">Details</button>
+      <div style="margin-top:12px;">
         ${registerButton}
       </div>
     `;
     grid.appendChild(el);
   });
-  // bind buttons
-  grid.querySelectorAll('.btn-details').forEach(b=> b.addEventListener('click', e=> openDetailModal(findEventById(b.dataset.id))));
+  // bind register buttons only
   grid.querySelectorAll('.btn-rsvp').forEach(b=> b.addEventListener('click', e=> openRSVPModal(findEventById(b.dataset.id))));
 }
 
