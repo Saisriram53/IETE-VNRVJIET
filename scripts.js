@@ -208,12 +208,17 @@ const events = [
     label: 'hackathon',
     title: 'HackVerse - 24hr Hackathon',
     summary: 'The ultimate 24-hour hackathon challenge spanning Day 2 and Day 3 with multiple rounds, presentations, and jury evaluation.',
+    registrationLink: 'https://unstop.com/o/GpqxyzX?lb=logged_out_user&utm_medium=Share&utm_source=WhatsApp',
     details: `
       <div class="event-details">
         <h3>💻 HackVerse - 24hr Hackathon</h3>
         <p><strong>Duration:</strong> 24 hours continuous</p>
         <p><strong>Start:</strong> October 23, 2025 at 10:00 AM (Day 2)</p>
         <p><strong>End:</strong> October 24, 2025 at 1:00 PM (Day 3)</p>
+        
+        <div style="margin: 20px 0;">
+          <a href="https://unstop.com/o/GpqxyzX?lb=logged_out_user&utm_medium=Share&utm_source=WhatsApp" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">🚀 Register for HackVerse on Unstop</a>
+        </div>
         
         <h4>📝 Pre-Event Activities:</h4>
         <ul>
