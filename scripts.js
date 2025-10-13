@@ -44,13 +44,28 @@
       const isActive = mainNav.classList.contains('active');
       console.log('Menu is now:', isActive ? 'OPEN ✅' : 'CLOSED ❌');
       console.log('Nav classList:', mainNav.classList.toString());
+      console.log('Nav className:', mainNav.className);
       
       // Check computed display
-      const displayStyle = window.getComputedStyle(mainNav).display;
-      console.log('Computed display:', displayStyle);
+      const computedStyle = window.getComputedStyle(mainNav);
+      console.log('Computed display:', computedStyle.display);
+      console.log('Computed position:', computedStyle.position);
+      console.log('Computed z-index:', computedStyle.zIndex);
+      console.log('Computed background:', computedStyle.backgroundColor);
+      
+      // Force style check
+      console.log('Element style.display:', mainNav.style.display);
       
       // Prevent body scroll when menu is open
       document.body.style.overflow = isActive ? 'hidden' : '';
+      
+      // Manual visibility test
+      if (isActive) {
+        console.log('🟢 Menu should be VISIBLE now with RED background and YELLOW border!');
+        console.log('Element position:', mainNav.getBoundingClientRect());
+      } else {
+        console.log('🔴 Menu should be HIDDEN now');
+      }
     });
     
     console.log('✅ Click listener added to hamburger!');

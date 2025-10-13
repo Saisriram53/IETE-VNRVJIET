@@ -2722,15 +2722,16 @@ section,
     width: 100% !important;
     height: auto !important;
     max-height: calc(100vh - 64px) !important;
-    background: rgba(15, 19, 22, 0.98) !important;
+    background: rgba(255, 0, 0, 0.95) !important; /* RED FOR TESTING */
     backdrop-filter: blur(20px) !important;
     flex-direction: column !important;
     display: none !important;
     padding: 20px !important;
     margin: 0 !important;
     gap: 8px !important;
-    z-index: 130 !important;
+    z-index: 9999 !important;
     overflow-y: auto !important;
+    border: 5px solid yellow !important; /* YELLOW BORDER FOR TESTING */
   }
 
   .main-nav.active {
