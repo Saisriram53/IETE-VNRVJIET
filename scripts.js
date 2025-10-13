@@ -8,63 +8,92 @@
   
   // Initialize mobile menu when DOM is ready
   document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing mobile menu...');
+    
     const hamburger = document.getElementById('mobile-menu-toggle');
     const mainNav = document.getElementById('main-nav');
     
-    console.log('Mobile menu initialized:', { 
-      hamburger, 
-      mainNav,
+    console.log('Mobile menu elements:', { 
+      hamburger: hamburger,
+      mainNav: mainNav,
       hamburgerExists: !!hamburger,
       navExists: !!mainNav 
     });
     
-    if (hamburger && mainNav) {
-      console.log('Adding click listener to hamburger');
-      
-      // Toggle menu on hamburger click
-      hamburger.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('Hamburger clicked!');
-        
-        const wasActive = mainNav.classList.contains('active');
-        hamburger.classList.toggle('active');
-        mainNav.classList.toggle('active');
-        document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-        
-        console.log('Menu state changed:', {
-          wasActive,
-          isNowActive: mainNav.classList.contains('active'),
-          navClasses: mainNav.className,
-          hamburgerClasses: hamburger.className,
-          computedStyle: window.getComputedStyle(mainNav).transform
-        });
-      });
-      
-      // Close menu when clicking on a link
-      const navLinks = mainNav.querySelectorAll('a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          hamburger.classList.remove('active');
-          mainNav.classList.remove('active');
-          document.body.style.overflow = '';
-        });
-      });
-      
-      // Close menu when clicking outside
-      document.addEventListener('click', function(event) {
-        const isClickInsideNav = mainNav.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
-        
-        if (!isClickInsideNav && !isClickOnHamburger && mainNav.classList.contains('active')) {
-          hamburger.classList.remove('active');
-          mainNav.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      });
-    } else {
-      console.error('Mobile menu elements not found!', { hamburger, mainNav });
+    if (!hamburger) {
+      console.error('Hamburger button not found! Looking for id="mobile-menu-toggle"');
+      return;
     }
+    
+    if (!mainNav) {
+      console.error('Main nav not found! Looking for id="main-nav"');
+      return;
+    }
+    
+    console.log('Both elements found! Adding click listener...');
+    
+    // Toggle menu on hamburger click
+    hamburger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      console.log('=== HAMBURGER CLICKED ===');
+      
+      const wasActive = mainNav.classList.contains('active');
+      console.log('Was active before click:', wasActive);
+      
+      // Toggle classes
+      hamburger.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      
+      const isActive = mainNav.classList.contains('active');
+      console.log('Is active after toggle:', isActive);
+      console.log('Nav classes:', mainNav.className);
+      console.log('Hamburger classes:', hamburger.className);
+      
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isActive ? 'hidden' : '';
+      
+      // Log computed styles
+      const navStyles = window.getComputedStyle(mainNav);
+      console.log('Computed styles:', {
+        display: navStyles.display,
+        transform: navStyles.transform,
+        opacity: navStyles.opacity,
+        visibility: navStyles.visibility,
+        pointerEvents: navStyles.pointerEvents
+      });
+    });
+    
+    console.log('Click listener added successfully!');
+    
+    // Close menu when clicking on a link
+    const navLinks = mainNav.querySelectorAll('a');
+    console.log('Found', navLinks.length, 'nav links');
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        console.log('Nav link clicked, closing menu');
+        hamburger.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = mainNav.contains(event.target);
+      const isClickOnHamburger = hamburger.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickOnHamburger && mainNav.classList.contains('active')) {
+        console.log('Clicked outside, closing menu');
+        hamburger.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    console.log('Mobile menu initialization complete!');
   });
 })();
 
