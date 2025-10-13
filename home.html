@@ -281,5 +281,18 @@
     `;
     document.head.appendChild(style);
   </script>
+  
+  <!-- INLINE TEST SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const btn = document.getElementById('mobile-menu-toggle');
+      const nav = document.getElementById('main-nav');
+      if (btn && nav) {
+        btn.addEventListener('click', function() {
+          nav.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
