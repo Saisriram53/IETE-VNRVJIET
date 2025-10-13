@@ -127,12 +127,17 @@ const events = [
     label: 'workshop',
     title: 'Arduino Workshop with TinkerCAD',
     summary: 'Comprehensive hands-on workshop covering Arduino basics with TinkerCAD simulation - Theory and practical sessions.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSc1D39oG2nxRu9WzPyOYW9-QOgOuVz3iICr9K4iXJL5mv5jYw/viewform?usp=dialog',
     details: `
       <div class="event-details">
         <h3>🔧 Arduino Workshop with TinkerCAD</h3>
         <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
         <p><strong>Session 1 (Theory):</strong> 11:00 AM - 1:00 PM</p>
         <p><strong>Session 2 (Hands-on):</strong> 1:40 PM - 2:40 PM</p>
+        
+        <div style="margin: 20px 0;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1D39oG2nxRu9WzPyOYW9-QOgOuVz3iICr9K4iXJL5mv5jYw/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register Now</a>
+        </div>
         
         <h4>📋 Session 1: Theory + Demonstrations (11:00 AM – 1:00 PM)</h4>
         <ul>
@@ -222,12 +227,17 @@ const events = [
     label: 'competition',
     title: 'Think-a-Bit (Tech Quiz)',
     summary: 'Two-round technical quiz competition testing knowledge in Technology, Entertainment, Sports, and General Knowledge.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeX9mrtObyv4N8Iq-Z1hKxObJJFQDx_05S8Rl6cHYe98KBelQ/viewform?usp=dialog',
     details: `
       <div class="event-details">
         <h3>🧠 Think-a-Bit (Tech Quiz Competition)</h3>
         <p><strong>Round 1:</strong> October 22, 2025 (Day 1) - 2:40 PM - 4:40 PM</p>
         <p><strong>Round 2:</strong> October 23, 2025 (Day 2) - 1:40 PM - 4:40 PM</p>
         <p><strong>Team Size:</strong> 3-4 members per team</p>
+        
+        <div style="margin: 20px 0;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeX9mrtObyv4N8Iq-Z1hKxObJJFQDx_05S8Rl6cHYe98KBelQ/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register for Quiz</a>
+        </div>
         
         <h4>📝 ROUND 1: PRELIMINARY/WRITTEN ROUND</h4>
         <p><strong>Format:</strong> Two written papers with mixed knowledge areas</p>
@@ -366,12 +376,17 @@ const events = [
     label: 'workshop',
     title: 'Career Guidance Workshop',
     summary: 'Professional guidance session with industry experts and alumni sharing career insights and opportunities.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSe7sXqW8o1LOKHKNehpOh9wEcHRrI2YNd3SYolpaHYVdSRINg/viewform?usp=dialog',
     details: `
       <div class="event-details">
         <h3>🎯 Career Guidance Workshop</h3>
         <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
         <p><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
         <p><strong>Duration:</strong> 3 hours</p>
+        
+        <div style="margin: 20px 0;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7sXqW8o1LOKHKNehpOh9wEcHRrI2YNd3SYolpaHYVdSRINg/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register for Career Guidance</a>
+        </div>
         
         <p>Interactive session featuring industry professionals and successful alumni sharing valuable career insights, tips, and guidance for your future in electronics and communication engineering.</p>
         
@@ -865,12 +880,18 @@ function renderEvents(filter = 'all', search = ''){
   if (list.length === 0) { grid.innerHTML = '<div class="card">No events found.</div>'; return; }
   list.forEach(ev => {
     const el = document.createElement('article'); el.className = 'event';
+    
+    // Check if event has a registration link
+    const registerButton = ev.registrationLink 
+      ? `<a href="${ev.registrationLink}" target="_blank" class="btn primary" style="text-decoration: none;">Register</a>`
+      : `<button class="btn primary btn-rsvp" data-id="${ev.id}">Register</button>`;
+    
     el.innerHTML = `
       <h4>${ev.title}</h4>
       <p>${ev.summary}</p>
       <div style="margin-top:12px;display:flex;gap:8px">
         <button class="btn ghost btn-details" data-id="${ev.id}">Details</button>
-        <button class="btn primary btn-rsvp" data-id="${ev.id}">Register</button>
+        ${registerButton}
       </div>
     `;
     grid.appendChild(el);
