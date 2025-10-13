@@ -824,33 +824,108 @@ const NotificationSystem = {
 
 /* ---------- Render events ---------- */
 function renderEvents(filter = 'all', search = ''){
-  const grid = document.getElementById('events-grid'); if (!grid) return;
+  const grid = document.getElementById('events-grid'); 
+  if (!grid) return;
+  
   const q = search.trim().toLowerCase();
   grid.innerHTML = '';
-  const list = events.filter(ev => (filter === 'all' || ev.label === filter) && (q === '' || (ev.title+ev.summary).toLowerCase().includes(q)));
-  if (list.length === 0) { grid.innerHTML = '<div class="card">No events found.</div>'; return; }
-  list.forEach(ev => {
-    const el = document.createElement('article'); el.className = 'event';
-    
-    // Check if event should show registration button
-    let registerButton = '';
-    if (!ev.noRegistration) {
-      // Check if event has a registration link
-      registerButton = ev.registrationLink 
-        ? `<a href="${ev.registrationLink}" target="_blank" class="btn primary" style="text-decoration: none;">Register</a>`
-        : `<button class="btn primary btn-rsvp" data-id="${ev.id}">Register</button>`;
-    }
-    
-    el.innerHTML = `
-      <h4>${ev.title}</h4>
-      <p>${ev.summary}</p>
-      <div style="margin-top:12px;">
-        ${registerButton}
+  
+  // Find the main ELECTROVERSE event
+  const mainFest = events.find(ev => ev.id === 'electroverse-main');
+  
+  // Get all other events (sub-events)
+  const subEvents = events.filter(ev => 
+    ev.id !== 'electroverse-main' && 
+    (filter === 'all' || ev.label === filter) && 
+    (q === '' || (ev.title+ev.summary).toLowerCase().includes(q))
+  );
+  
+  if (!mainFest && subEvents.length === 0) { 
+    grid.innerHTML = '<div class="card">No events found.</div>'; 
+    return; 
+  }
+  
+  // Render main ELECTROVERSE fest card
+  if (mainFest && (filter === 'all' || mainFest.label === filter) && (q === '' || (mainFest.title+mainFest.summary).toLowerCase().includes(q))) {
+    const mainEl = document.createElement('div');
+    mainEl.className = 'main-fest-card';
+    mainEl.innerHTML = `
+      <div class="fest-header">
+        <span class="fest-badge">🎉 MAIN DEPARTMENT FEST</span>
+        <h2>${mainFest.title}</h2>
+        <p class="fest-dates">October 22-24, 2025 | 3 Days of Innovation & Excellence</p>
+      </div>
+      <div class="fest-description">
+        <p>${mainFest.summary}</p>
+      </div>
+      <div class="fest-actions">
+        <a href="${mainFest.registrationLink}" target="_blank" class="btn primary btn-large" style="text-decoration: none;">
+          🎫 Get Your Fest Pass
+        </a>
+        <button class="btn ghost btn-expand" data-id="${mainFest.id}">
+          View Full Details
+        </button>
+      </div>
+      <div class="fest-divider">
+        <span>ALL EVENTS UNDER ELECTROVERSE</span>
       </div>
     `;
-    grid.appendChild(el);
-  });
-  // bind register buttons only
+    grid.appendChild(mainEl);
+  }
+  
+  // Render sub-events in a nested container
+  if (subEvents.length > 0) {
+    const subEventsContainer = document.createElement('div');
+    subEventsContainer.className = 'sub-events-container';
+    
+    subEvents.forEach(ev => {
+      const el = document.createElement('article'); 
+      el.className = 'event sub-event';
+      
+      // Check if event should show registration button
+      let registerButton = '';
+      if (!ev.noRegistration) {
+        registerButton = ev.registrationLink 
+          ? `<a href="${ev.registrationLink}" target="_blank" class="btn primary" style="text-decoration: none;">Register for This Event</a>`
+          : `<button class="btn primary btn-rsvp" data-id="${ev.id}">Register for This Event</button>`;
+      } else {
+        registerButton = `<span class="fest-pass-note">✓ Included with Fest Pass</span>`;
+      }
+      
+      // Add event type badge
+      const typeBadge = {
+        'workshop': '🔧 Workshop',
+        'competition': '🏆 Competition',
+        'hackathon': '💻 Hackathon',
+        'ceremony': '🎊 Ceremony',
+        'entertainment': '🎮 Entertainment',
+        'expo': '🎪 Expo',
+        'talk': '🎤 Talk'
+      }[ev.label] || '📅 Event';
+      
+      el.innerHTML = `
+        <div class="event-type-badge">${typeBadge}</div>
+        <h4>${ev.title}</h4>
+        <p>${ev.summary}</p>
+        <div style="margin-top:12px;">
+          ${registerButton}
+        </div>
+      `;
+      subEventsContainer.appendChild(el);
+    });
+    
+    grid.appendChild(subEventsContainer);
+  }
+  
+  // Bind expand button for main fest
+  const expandBtn = grid.querySelector('.btn-expand');
+  if (expandBtn) {
+    expandBtn.addEventListener('click', () => {
+      openDetailModal(mainFest);
+    });
+  }
+  
+  // bind register buttons
   grid.querySelectorAll('.btn-rsvp').forEach(b=> b.addEventListener('click', e=> openRSVPModal(findEventById(b.dataset.id))));
 }
 
@@ -861,7 +936,7 @@ function findEventById(id){ return events.find(e=>e.id===id); }
 const detailModal = (()=>{
   let el, titleEl, bodyEl, closeBtn;
   function init(){ el = document.getElementById('modal'); if(!el) return; titleEl = el.querySelector('.modal-title'); bodyEl = el.querySelector('.modal-body'); closeBtn = el.querySelector('.modal-close'); el.addEventListener('click', (e)=>{ if (e.target===el) close(); }); closeBtn.addEventListener('click', close); document.addEventListener('keydown', (e)=>{ if (e.key==='Escape') close(); }); }
-  function open(ev){ if(!el) return; titleEl.textContent = ev.title; bodyEl.textContent = ev.details; el.classList.add('open'); closeBtn.focus(); }
+  function open(ev){ if(!el) return; titleEl.textContent = ev.title; bodyEl.innerHTML = ev.details; el.classList.add('open'); closeBtn.focus(); }
   function close(){ if(!el) return; el.classList.remove('open'); }
   return { init, open, close };
 })();
