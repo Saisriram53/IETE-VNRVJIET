@@ -6,29 +6,37 @@
 (function() {
   'use strict';
   
-  console.log('=== Mobile Menu Script Loading ===');
+  console.log('🚀 ===== SCRIPTS.JS FILE IS LOADING ===== 🚀');
+  console.log('Current URL:', window.location.href);
+  console.log('Document ready state:', document.readyState);
   
   // Initialize mobile menu when DOM is ready
   document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded!');
+    console.log('✅ DOM LOADED!');
     
     const hamburger = document.getElementById('mobile-menu-toggle');
     const mainNav = document.getElementById('main-nav');
     
+    console.log('🔍 Looking for elements...');
     console.log('Hamburger element:', hamburger);
     console.log('Main nav element:', mainNav);
     
     if (!hamburger) {
       console.error('❌ HAMBURGER NOT FOUND! Check if id="mobile-menu-toggle" exists in HTML');
+      console.log('All elements with class mobile-menu-toggle:', document.querySelectorAll('.mobile-menu-toggle'));
       return;
     }
     
     if (!mainNav) {
       console.error('❌ MAIN NAV NOT FOUND! Check if id="main-nav" exists in HTML');
+      console.log('All nav elements:', document.querySelectorAll('nav'));
       return;
     }
     
     console.log('✅ Both elements found!');
+    console.log('Hamburger ID:', hamburger.id);
+    console.log('Main nav ID:', mainNav.id);
+    console.log('Main nav classes:', mainNav.className);
     
     // Toggle menu on hamburger click
     hamburger.addEventListener('click', function(e) {
