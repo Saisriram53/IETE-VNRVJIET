@@ -1163,6 +1163,29 @@ section:nth-of-type(even) {
     grid-template-columns: 1fr !important;
     padding: 16px;
   }
+  
+  /* Mobile countdown styles */
+  .countdown-title {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  
+  .countdown-flip {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .flip-number {
+    min-width: 60px;
+    font-size: 32px;
+    padding: 12px 8px;
+  }
+  
+  .flip-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
 }
 
 /* Animated Gallery Styles */
@@ -1789,6 +1812,84 @@ main {
 }
 
 /* countdown */
+.countdown-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.countdown-flip {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.flip-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.flip-number {
+  background: linear-gradient(180deg, rgba(0, 83, 156, 0.3) 0%, rgba(0, 83, 156, 0.15) 100%);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 20px 16px;
+  min-width: 80px;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--accent);
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 83, 156, 0.3);
+  transition: all 0.3s ease;
+}
+
+.flip-number::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 83, 156, 0.2);
+  transform: translateY(-50%);
+}
+
+.flip-number.flip {
+  animation: flipAnimation 0.6s ease-in-out;
+}
+
+@keyframes flipAnimation {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+    background: linear-gradient(180deg, rgba(0, 83, 156, 0.5) 0%, rgba(0, 83, 156, 0.25) 100%);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.flip-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Old countdown style - keeping for backwards compatibility */
 .countdown {
   background: rgba(255, 255, 255, 0.02);
   padding: 8px 12px;

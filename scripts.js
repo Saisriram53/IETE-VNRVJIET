@@ -1012,9 +1012,53 @@ function updateAboutStatsFromEvents(){
 }
 
 /* ---------- Countdown ---------- */
-function setupCountdown(){ const el = document.getElementById('countdown'); if(!el) return; function getNext(){ const now = Date.now(); const future = events.map(e=> new Date(e.date).getTime()).filter(t=>t>now).sort((a,b)=>a-b)[0]; return future || null; }
-  function tick(){ const next = getNext(); if(!next) { el.textContent = 'No upcoming events'; return; } const diff = next - Date.now(); if(diff<=0) { el.textContent = 'Starting now'; return; } const days = Math.floor(diff/86400000); const hrs = Math.floor((diff%86400000)/3600000); const mins = Math.floor((diff%3600000)/60000); const secs = Math.floor((diff%60000)/1000); el.textContent = `Next event in — ${days}d ${hrs}h ${mins}m ${secs}s`; }
-  tick(); setInterval(tick,1000);
+function setupCountdown() {
+  const daysEl = document.getElementById('flip-days');
+  const hoursEl = document.getElementById('flip-hours');
+  const minutesEl = document.getElementById('flip-minutes');
+  const secondsEl = document.getElementById('flip-seconds');
+  
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+  
+  // Set ELECTROVERSE date: October 22, 2025
+  const electroverseDate = new Date('2025-10-22T09:30:00').getTime();
+  
+  function updateFlipCard(element, newValue) {
+    const currentValue = element.textContent;
+    if (currentValue !== newValue) {
+      element.classList.add('flip');
+      setTimeout(() => {
+        element.textContent = newValue;
+        element.classList.remove('flip');
+      }, 300);
+    }
+  }
+  
+  function tick() {
+    const now = Date.now();
+    const diff = electroverseDate - now;
+    
+    if (diff <= 0) {
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00';
+      secondsEl.textContent = '00';
+      return;
+    }
+    
+    const days = Math.floor(diff / 86400000);
+    const hrs = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    
+    updateFlipCard(daysEl, String(days).padStart(2, '0'));
+    updateFlipCard(hoursEl, String(hrs).padStart(2, '0'));
+    updateFlipCard(minutesEl, String(mins).padStart(2, '0'));
+    updateFlipCard(secondsEl, String(secs).padStart(2, '0'));
+  }
+  
+  tick();
+  setInterval(tick, 1000);
 }
 
 /* ---------- Smooth scroll & active nav ---------- */
