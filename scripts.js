@@ -128,15 +128,21 @@ const events = [
     date: '2025-10-22',
     label: 'ceremony',
     title: 'Inauguration Ceremony',
-    summary: 'Official opening ceremony of ELECTROVERSE 2025 - Department Fest of ECE.',
+    summary: 'Official opening ceremony of ELECTROVERSE 2025 - Department Fest of ECE. Part of the main fest - register for the fest pass above.',
+    noRegistration: true,
     details: `
       <div class="event-details">
         <h3>🎊 Inauguration Ceremony</h3>
         <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
         <p><strong>Time:</strong> 9:30 AM - 11:00 AM</p>
         <p><strong>Duration:</strong> 1.5 hours</p>
+        <p><strong>Access:</strong> Included with ELECTROVERSE Fest Pass</p>
         
         <p>Join us for the grand opening of ELECTROVERSE 2025! The ceremony will officially launch our 3-day department fest with speeches from dignitaries, overview of events, and the lighting of the ceremonial lamp.</p>
+        
+        <p style="margin-top: 15px; padding: 12px; background: rgba(0, 83, 156, 0.1); border-radius: 8px;">
+          <strong>📋 Note:</strong> This is a fest event. Get your ELECTROVERSE Fest Pass to attend!
+        </p>
       </div>
     `
   },
@@ -507,13 +513,15 @@ const events = [
     date: '2025-10-24',
     label: 'ceremony',
     title: 'Valedictory Ceremony',
-    summary: 'Grand closing ceremony of ELECTROVERSE 2025 with prize distribution and closing remarks.',
+    summary: 'Grand closing ceremony of ELECTROVERSE 2025 with prize distribution and closing remarks. Part of the main fest.',
+    noRegistration: true,
     details: `
       <div class="event-details">
         <h3>🏆 Valedictory Ceremony</h3>
         <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
         <p><strong>Time:</strong> 3:40 PM - 5:00 PM</p>
         <p><strong>Duration:</strong> 1 hour 20 minutes</p>
+        <p><strong>Access:</strong> Included with ELECTROVERSE Fest Pass</p>
         
         <p>Join us for the grand finale of ELECTROVERSE 2025! Celebrate the success of our 3-day department fest with prize distribution, recognition of winners, and closing remarks.</p>
         
@@ -528,6 +536,10 @@ const events = [
         </ul>
         
         <p><strong>🎉 Celebration:</strong> A fitting end to an amazing 3-day journey of learning, competition, and fun!</p>
+        
+        <p style="margin-top: 15px; padding: 12px; background: rgba(0, 83, 156, 0.1); border-radius: 8px;">
+          <strong>📋 Note:</strong> This is a fest event. Get your ELECTROVERSE Fest Pass to attend!
+        </p>
       </div>
     `
   }
@@ -820,10 +832,14 @@ function renderEvents(filter = 'all', search = ''){
   list.forEach(ev => {
     const el = document.createElement('article'); el.className = 'event';
     
-    // Check if event has a registration link
-    const registerButton = ev.registrationLink 
-      ? `<a href="${ev.registrationLink}" target="_blank" class="btn primary" style="text-decoration: none;">Register</a>`
-      : `<button class="btn primary btn-rsvp" data-id="${ev.id}">Register</button>`;
+    // Check if event should show registration button
+    let registerButton = '';
+    if (!ev.noRegistration) {
+      // Check if event has a registration link
+      registerButton = ev.registrationLink 
+        ? `<a href="${ev.registrationLink}" target="_blank" class="btn primary" style="text-decoration: none;">Register</a>`
+        : `<button class="btn primary btn-rsvp" data-id="${ev.id}">Register</button>`;
+    }
     
     el.innerHTML = `
       <h4>${ev.title}</h4>
