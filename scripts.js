@@ -1646,3 +1646,57 @@ window.addEventListener('DOMContentLoaded', ()=>{
     setTimeout(directGalleryFix, 1000);
   }
 });
+
+// ========================================
+// MOBILE MENU TOGGLE FUNCTIONALITY
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+  
+  if (mobileMenuToggle && mainNav) {
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', function() {
+      mobileMenuToggle.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      
+      // Prevent body scroll when menu is open
+      if (mainNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Close menu when clicking on a nav link
+    const navLinks = mainNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = mainNav.contains(event.target);
+      const isClickOnToggle = mobileMenuToggle.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickOnToggle && mainNav.classList.contains('active')) {
+        mobileMenuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Close menu on window resize to desktop size
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        mobileMenuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+});
