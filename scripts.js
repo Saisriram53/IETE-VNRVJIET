@@ -8,7 +8,7 @@
   
   // Initialize mobile menu when DOM is ready
   document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.getElementById('hamburger');
+    const hamburger = document.getElementById('mobile-menu-toggle');
     const mainNav = document.getElementById('main-nav');
     
     if (hamburger && mainNav) {
