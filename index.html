@@ -222,21 +222,14 @@
   
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   
-  <!-- INLINE TEST SCRIPT -->
+  <!-- Mobile Menu Toggle -->
   <script>
-    console.log('🧪 INLINE TEST SCRIPT RUNNING');
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('🧪 INLINE: DOM Ready');
       const btn = document.getElementById('mobile-menu-toggle');
       const nav = document.getElementById('main-nav');
-      console.log('🧪 INLINE: Button =', btn);
-      console.log('🧪 INLINE: Nav =', nav);
       if (btn && nav) {
         btn.addEventListener('click', function() {
-          console.log('🧪 INLINE: BUTTON CLICKED!');
           nav.classList.toggle('active');
-          console.log('🧪 INLINE: Nav classes =', nav.className);
-          console.log('🧪 INLINE: Display =', window.getComputedStyle(nav).display);
         });
       }
     });
