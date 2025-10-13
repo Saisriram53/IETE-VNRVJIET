@@ -888,9 +888,8 @@ function renderEvents(filter = 'all', search = ''){
         registerButton = ev.registrationLink 
           ? `<a href="${ev.registrationLink}" target="_blank" class="btn primary" style="text-decoration: none;">Register for This Event</a>`
           : `<button class="btn primary btn-rsvp" data-id="${ev.id}">Register for This Event</button>`;
-      } else {
-        registerButton = `<span class="fest-pass-note">✓ Included with Fest Pass</span>`;
       }
+      // If noRegistration is true, registerButton stays empty (no button shown)
       
       // Add event type badge
       const typeBadge = {
@@ -907,9 +906,7 @@ function renderEvents(filter = 'all', search = ''){
         <div class="event-type-badge">${typeBadge}</div>
         <h4>${ev.title}</h4>
         <p>${ev.summary}</p>
-        <div style="margin-top:12px;">
-          ${registerButton}
-        </div>
+        ${registerButton ? `<div style="margin-top:12px;">${registerButton}</div>` : ''}
       `;
       subEventsContainer.appendChild(el);
     });
