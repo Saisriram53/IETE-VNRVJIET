@@ -2756,6 +2756,8 @@ section,
   .mobile-menu-toggle {
     display: flex;
     padding: 10px;
+    z-index: 150;
+    position: relative;
   }
 
   .mobile-menu-toggle span {

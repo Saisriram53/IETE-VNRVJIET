@@ -11,12 +11,18 @@
     const hamburger = document.getElementById('mobile-menu-toggle');
     const mainNav = document.getElementById('main-nav');
     
+    console.log('Mobile menu initialized:', { hamburger, mainNav });
+    
     if (hamburger && mainNav) {
       // Toggle menu on hamburger click
-      hamburger.addEventListener('click', function() {
+      hamburger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Hamburger clicked!');
         hamburger.classList.toggle('active');
         mainNav.classList.toggle('active');
         document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+        console.log('Menu active:', mainNav.classList.contains('active'));
       });
       
       // Close menu when clicking on a link
@@ -40,6 +46,8 @@
           document.body.style.overflow = '';
         }
       });
+    } else {
+      console.error('Mobile menu elements not found!', { hamburger, mainNav });
     }
   });
 })();
