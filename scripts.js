@@ -2,6 +2,48 @@
 // Features: dynamic events, smooth scrolling, active nav, modal details, RSVP/save, toast notifications,
 // sticky header, theme toggle (persisted), search/filter, countdown timer, reveal animations, circular carousel.
 
+// Mobile Navigation Menu
+(function() {
+  'use strict';
+  
+  // Initialize mobile menu when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('main-nav');
+    
+    if (hamburger && mainNav) {
+      // Toggle menu on hamburger click
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mainNav.classList.toggle('active');
+        document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+      });
+      
+      // Close menu when clicking on a link
+      const navLinks = mainNav.querySelectorAll('a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          mainNav.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        const isClickInsideNav = mainNav.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnHamburger && mainNav.classList.contains('active')) {
+          hamburger.classList.remove('active');
+          mainNav.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  });
+})();
+
 // Security enhancements
 (function() {
   'use strict';
