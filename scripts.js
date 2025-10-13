@@ -84,7 +84,7 @@ const events = [
     label: 'expo',
     title: 'ELECTROVERSE - Department Fest of ECE',
     summary: 'The flagship 3-day department fest by IETE Student Chapter featuring hackathons, workshops, competitions, and technical events from Oct 22-24, 2025.',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdVEWfS5Zl4HoBJcSG-t0X2fdG-On6XvR1T5TLD4gsBUjIcAw/viewform?usp=dialog',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdO2kiotw_Kr0kerMwK3UqNrkSN5H-10DLEgtCpfZlJ7LUQlQ/viewform?usp=dialog',
     details: `
       <div class="event-details">
         <h3>🎉 ELECTROVERSE - Department Fest of ECE</h3>
@@ -95,7 +95,7 @@ const events = [
         <div style="margin: 20px 0; padding: 15px; background: rgba(0, 83, 156, 0.1); border-left: 4px solid var(--accent); border-radius: 8px;">
           <p style="margin: 0; font-weight: 600;">📋 Get your ELECTROVERSE Pass!</p>
           <p style="margin: 8px 0 0 0; font-size: 0.95em;">Register for the fest pass to access all events throughout the 3-day celebration.</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVEWfS5Zl4HoBJcSG-t0X2fdG-On6XvR1T5TLD4gsBUjIcAw/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 12px; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">🎫 Register for Fest Pass</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdO2kiotw_Kr0kerMwK3UqNrkSN5H-10DLEgtCpfZlJ7LUQlQ/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 12px; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">🎫 Register for Fest Pass</a>
         </div>
         
         <h4>📅 Event Schedule Overview:</h4>
