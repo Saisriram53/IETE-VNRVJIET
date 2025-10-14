@@ -331,11 +331,16 @@ const events = [
     label: 'competition',
     title: 'TechRGue (Tech Debate)',
     summary: 'Technical debate competition where participants argue for or against technology-related statements.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeRKdvK2xSz-3IqRDD0NYknmfzCFYwOIYl3Tc7b5tBOoZaN9g/viewform?usp=dialog',
     details: `
       <div class="event-details">
         <h3>🗣️ TechRGue (Tech Debate Competition)</h3>
         <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
         <p><strong>Time:</strong> 1:40 PM - 3:40 PM (Simultaneous with Gaming)</p>
+        
+        <div style="margin: 20px 0;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRKdvK2xSz-3IqRDD0NYknmfzCFYwOIYl3Tc7b5tBOoZaN9g/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register for TechRGue</a>
+        </div>
         
         <h4>📋 Registration Process:</h4>
         <ul>
@@ -409,14 +414,19 @@ const events = [
     id: 'meme-contest',
     date: '2025-10-22',
     label: 'competition',
-    title: 'Online Meme Contest',
+    title: "Watt'⚡ the meme.? - Online Meme Contest",
     summary: 'Creative online meme competition focusing on core domain topics with multiple submission formats.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSegPxVm2AFgPkFHd9zji1xvjaAJ5zVStjxQRTwOHs1WQainRw/viewform?usp=dialog',
     details: `
       <div class="event-details">
-        <h3>😂 Online Meme Contest</h3>
+        <h3>😂 Watt'⚡ the meme.? - Online Meme Contest</h3>
         <p><strong>Duration:</strong> Throughout the fest (submit anytime)</p>
         <p><strong>Submission:</strong> Via Google Form</p>
         <p><strong>Open to:</strong> Everyone</p>
+        
+        <div style="margin: 20px 0;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSegPxVm2AFgPkFHd9zji1xvjaAJ5zVStjxQRTwOHs1WQainRw/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Submit Your Meme</a>
+        </div>
         
         <h4>📋 Contest Categories:</h4>
         
@@ -461,12 +471,17 @@ const events = [
     label: 'competition',
     title: 'Treasure Hunt',
     summary: 'Exciting campus-wide treasure hunt running simultaneously with Think-a-Bit Round 2.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdwDkQqVCKl7CNVsFmVhQ1yv2eDzvBHrJSD3I5c24LNdjvbgA/viewform?usp=header',
     details: `
       <div class="event-details">
         <h3>🗺️ Treasure Hunt</h3>
         <p><strong>Date:</strong> October 23, 2025 (Day 2)</p>
         <p><strong>Time:</strong> 1:40 PM - 4:40 PM</p>
         <p><strong>Format:</strong> Simultaneous with Think-a-Bit Round 2</p>
+        
+        <div style="margin: 20px 0;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdwDkQqVCKl7CNVsFmVhQ1yv2eDzvBHrJSD3I5c24LNdjvbgA/viewform?usp=header" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register for Treasure Hunt</a>
+        </div>
         
         <p>Navigate through exciting clues and challenges across the campus in this thrilling treasure hunt adventure. Work as a team to solve puzzles, find hidden objects, and reach the final treasure!</p>
         
