@@ -101,7 +101,7 @@ const events = [
         <h4>📅 Event Schedule Overview:</h4>
         <ul>
           <li><strong>Day 1 (Oct 22):</strong> Inauguration, Arduino Workshop, Quiz Round 1 & Entertainment</li>
-          <li><strong>Day 2 (Oct 23):</strong> 24hr HackVerse begins, Treasure Hunt, Quiz Round 2</li>
+          <li><strong>Day 2 (Oct 23):</strong> 12hr HackVerse, Treasure Hunt, Quiz Round 2</li>
           <li><strong>Day 3 (Oct 24):</strong> Career Guidance, TechRGue Debate, Gaming, Valedictory</li>
         </ul>
         
@@ -110,7 +110,7 @@ const events = [
           <li>Inauguration Ceremony - Oct 22, 9:30 AM</li>
           <li>Arduino Workshop with TinkerCAD - Oct 22, 11:00 AM</li>
           <li>Think-a-Bit (Tech Quiz) - Round 1 (Oct 22), Round 2 (Oct 23)</li>
-          <li>HackVerse (24hr Hackathon) - Oct 23-24</li>
+          <li>HackVerse (12hr Hackathon) - Oct 23</li>
           <li>TechRGue (Tech Debate) - Oct 24</li>
           <li>Career Guidance Workshop - Oct 24</li>
           <li>Treasure Hunt - Oct 23</li>
@@ -206,15 +206,15 @@ const events = [
     id: 'hackverse-24hr',
     date: '2025-10-23',
     label: 'hackathon',
-    title: 'HackVerse - 24hr Hackathon',
-    summary: 'The ultimate 24-hour hackathon challenge spanning Day 2 and Day 3 with multiple rounds, presentations, and jury evaluation.',
+    title: 'HackVerse - 12hr Hackathon',
+    summary: 'The ultimate 12-hour hackathon challenge on Day 2 with multiple rounds, presentations, and jury evaluation.',
     registrationLink: 'https://unstop.com/o/GpqxyzX?lb=logged_out_user&utm_medium=Share&utm_source=WhatsApp',
     details: `
       <div class="event-details">
-        <h3>💻 HackVerse - 24hr Hackathon</h3>
-        <p><strong>Duration:</strong> 24 hours continuous</p>
+        <h3>💻 HackVerse - 12hr Hackathon</h3>
+        <p><strong>Duration:</strong> 12 hours continuous</p>
         <p><strong>Start:</strong> October 23, 2025 at 10:00 AM (Day 2)</p>
-        <p><strong>End:</strong> October 24, 2025 at 1:00 PM (Day 3)</p>
+        <p><strong>End:</strong> October 23, 2025 at 10:00 PM (Day 2)</p>
         
         <div style="margin: 20px 0;">
           <a href="https://unstop.com/o/GpqxyzX?lb=logged_out_user&utm_medium=Share&utm_source=WhatsApp" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">🚀 Register for HackVerse on Unstop</a>
@@ -232,21 +232,12 @@ const events = [
           <li><strong>10:00 AM:</strong> 🎯 Hackathon Officially Begins</li>
           <li><strong>12:00 PM:</strong> Round 1 Presentation (Progress review by seniors)</li>
           <li><strong>1:00 - 1:40 PM:</strong> Lunch Break</li>
-          <li><strong>1:40 - 6:00 PM:</strong> Intensive Work Hours (volunteers available for support)</li>
-          <li><strong>6:00 - 6:30 PM:</strong> Snack Break</li>
-          <li><strong>6:30 - 8:30 PM:</strong> Round 2 Presentation (Progress review)</li>
-          <li><strong>8:30 - 10:00 PM:</strong> Dinner</li>
-          <li><strong>10:30 PM - 12:00 AM:</strong> 🎭 BlindFold Pictionary Fun Event</li>
-        </ul>
-        
-        <h4>🌙 Day 3 Schedule (Oct 24):</h4>
-        <ul>
-          <li><strong>12:00 AM onwards:</strong> Resume Work</li>
-          <li><strong>2:30 - 3:30 AM:</strong> Fun Activity (keep participants active)</li>
-          <li><strong>6:30 - 8:00 AM:</strong> Fresh Up & Breakfast</li>
-          <li><strong>8:00 - 10:00 AM:</strong> Final Fine-tuning</li>
-          <li><strong>10:00 AM:</strong> ⏰ Hackathon Ends</li>
-          <li><strong>10:00 AM - 1:00 PM:</strong> 🏆 Final Jury Round</li>
+          <li><strong>1:40 - 5:00 PM:</strong> Intensive Work Hours (volunteers available for support)</li>
+          <li><strong>5:00 - 5:30 PM:</strong> Snack Break</li>
+          <li><strong>5:30 - 7:30 PM:</strong> Round 2 Presentation & Final Development</li>
+          <li><strong>7:30 - 8:30 PM:</strong> Dinner Break</li>
+          <li><strong>8:30 - 10:00 PM:</strong> � Final Jury Round & Project Presentations</li>
+          <li><strong>10:00 PM:</strong> ⏰ Hackathon Ends - Results Announcement</li>
         </ul>
       </div>
     `
