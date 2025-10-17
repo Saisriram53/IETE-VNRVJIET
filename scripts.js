@@ -192,6 +192,7 @@ const events = [
     label: 'entertainment',
     title: 'Gaming Tournament',
     summary: 'Competitive gaming tournament running alongside TechRGue debate competition.',
+    noRegistration: true,
     details: `
       <div class="event-details">
         <h3>🎮 Gaming Tournament</h3>
