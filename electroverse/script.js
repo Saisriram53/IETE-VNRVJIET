@@ -545,6 +545,9 @@ const eventDetails = {
       </ol>
       
       <p><strong>🏆 Winner Determination:</strong> Cumulative score across all sub-rounds with tie-breaker rules</p>
+      
+      <h4>📝 Register Now:</h4>
+      <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeX9mrtObyv4N8Iq-Z1hKxObJJFQDx_05S8Rl6cHYe98KBelQ/viewform?usp=dialog" target="_blank" class="register-link">🔗 Quiz Registration Form</a></p>
     `
   },
   
@@ -596,6 +599,9 @@ const eventDetails = {
       </ul>
       
       <p><strong>🎯 Learning Outcomes:</strong> Master Arduino basics, understand circuit design, gain hands-on simulation experience, and build a real project!</p>
+      
+      <h4>📝 Register Now:</h4>
+      <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc1D39oG2nxRu9WzPyOYW9-QOgOuVz3iICr9K4iXJL5mv5jYw/viewform?usp=dialog" target="_blank" class="register-link">🔗 Arduino Workshop Registration Form</a></p>
     `
   },
   
@@ -785,6 +791,9 @@ const eventDetails = {
       </ul>
       
       <p><strong>🎯 Key Benefits:</strong> Get clarity on career choices, understand industry requirements, build professional networks, and create a roadmap for success!</p>
+      
+      <h4>📝 Register Now:</h4>
+      <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSe7sXqW8o1LOKHKNehpOh9wEcHRrI2YNd3SYolpaHYVdSRINg/viewform?usp=dialog" target="_blank" class="register-link">🔗 Career Guidance Registration Form</a></p>
     `
   },
   
