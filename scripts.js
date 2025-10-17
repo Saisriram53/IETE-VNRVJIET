@@ -79,170 +79,6 @@
 
 const events = [
   {
-    id: 'electroverse-main',
-    date: '2025-10-22',
-    label: 'expo',
-    title: 'ELECTROVERSE - Department Fest of ECE',
-    summary: 'The flagship 3-day department fest by IETE Student Chapter featuring hackathons, workshops, competitions, and technical events from Oct 22-24, 2025.',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdO2kiotw_Kr0kerMwK3UqNrkSN5H-10DLEgtCpfZlJ7LUQlQ/viewform?usp=dialog',
-    details: `
-      <div class="event-details">
-        <h3>🎉 ELECTROVERSE - Department Fest of ECE</h3>
-        <p><strong>Organized by:</strong> IETE Student Chapter</p>
-        <p><strong>Duration:</strong> 3 Days (22-24 October 2025)</p>
-        <p><strong>Objective:</strong> Enhance awareness about IETE chapter and kickstart the legacy of our department fest</p>
-        
-        <div style="margin: 20px 0; padding: 15px; background: rgba(0, 83, 156, 0.1); border-left: 4px solid var(--accent); border-radius: 8px;">
-          <p style="margin: 0; font-weight: 600;">📋 Get your ELECTROVERSE Pass!</p>
-          <p style="margin: 8px 0 0 0; font-size: 0.95em;">Register for the fest pass to access all events throughout the 3-day celebration.</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdO2kiotw_Kr0kerMwK3UqNrkSN5H-10DLEgtCpfZlJ7LUQlQ/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 12px; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">🎫 Register for Fest Pass</a>
-        </div>
-        
-        <h4>📅 Event Schedule Overview:</h4>
-        <ul>
-          <li><strong>Day 1 (Oct 22):</strong> Inauguration, Arduino Workshop, Quiz Round 1 & Entertainment</li>
-          <li><strong>Day 2 (Oct 23):</strong> 12hr HackVerse, Treasure Hunt, Quiz Round 2</li>
-          <li><strong>Day 3 (Oct 24):</strong> Career Guidance, TechRGue Debate, Gaming, Valedictory</li>
-        </ul>
-        
-        <h4>🌟 Major Events Under ELECTROVERSE:</h4>
-        <ul>
-          <li>Inauguration Ceremony - Oct 22, 9:30 AM</li>
-          <li>Arduino Workshop with TinkerCAD - Oct 22, 11:00 AM</li>
-          <li>Think-a-Bit (Tech Quiz) - Round 1 (Oct 22), Round 2 (Oct 23)</li>
-          <li>HackVerse (12hr Hackathon) - Oct 23</li>
-          <li>TechRGue (Tech Debate) - Oct 24</li>
-          <li>Career Guidance Workshop - Oct 24</li>
-          <li>Treasure Hunt - Oct 23</li>
-          <li>Gaming Tournament - Oct 24</li>
-          <li>Online Meme Contest - Throughout the fest</li>
-          <li>Valedictory Ceremony - Oct 24, 3:40 PM</li>
-        </ul>
-        
-        <p style="margin-top: 20px; font-style: italic; color: var(--muted);">Note: Individual event registrations are available below. The fest pass gives you access to attend all events.</p>
-      </div>
-    `
-  },
-  {
-    id: 'day1-inauguration',
-    date: '2025-10-22',
-    label: 'ceremony',
-    title: 'Inauguration Ceremony',
-    summary: 'Official opening ceremony of ELECTROVERSE 2025 - Department Fest of ECE. Part of the main fest - register for the fest pass above.',
-    noRegistration: true,
-    details: `
-      <div class="event-details">
-        <h3>🎊 Inauguration Ceremony</h3>
-        <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
-        <p><strong>Time:</strong> 9:30 AM - 11:00 AM</p>
-        <p><strong>Duration:</strong> 1.5 hours</p>
-        <p><strong>Access:</strong> Included with ELECTROVERSE Fest Pass</p>
-        
-        <p>Join us for the grand opening of ELECTROVERSE 2025! The ceremony will officially launch our 3-day department fest with speeches from dignitaries, overview of events, and the lighting of the ceremonial lamp.</p>
-        
-        <p style="margin-top: 15px; padding: 12px; background: rgba(0, 83, 156, 0.1); border-radius: 8px;">
-          <strong>📋 Note:</strong> This is a fest event. Get your ELECTROVERSE Fest Pass to attend!
-        </p>
-      </div>
-    `
-  },
-  {
-    id: 'arduino-workshop',
-    date: '2025-10-22',
-    label: 'workshop',
-    title: 'Arduino Workshop with TinkerCAD',
-    summary: 'Comprehensive hands-on workshop covering Arduino basics with TinkerCAD simulation - Theory and practical sessions.',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSc1D39oG2nxRu9WzPyOYW9-QOgOuVz3iICr9K4iXJL5mv5jYw/viewform?usp=dialog',
-    details: `
-      <div class="event-details">
-        <h3>🔧 Arduino Workshop with TinkerCAD</h3>
-        <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
-        <p><strong>Session 1 (Theory):</strong> 11:00 AM - 1:00 PM</p>
-        <p><strong>Session 2 (Hands-on):</strong> 1:40 PM - 2:40 PM</p>
-        
-        <div style="margin: 20px 0;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1D39oG2nxRu9WzPyOYW9-QOgOuVz3iICr9K4iXJL5mv5jYw/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register Now</a>
-        </div>
-        
-        <h4>📋 Session 1: Theory + Demonstrations (11:00 AM – 1:00 PM)</h4>
-        <ul>
-          <li><strong>11:00 – 11:10 AM:</strong> Welcome & Introduction</li>
-          <li><strong>11:10 – 11:50 AM:</strong> Basics of Circuits in Tinkercad
-            <ul>
-              <li>Interface overview</li>
-              <li>Demo: LED + resistor, switch, series/parallel LEDs</li>
-            </ul>
-          </li>
-          <li><strong>11:50 – 12:50 PM:</strong> Arduino in Tinkercad
-            <ul>
-              <li>Introduction to Arduino UNO</li>
-              <li>Demo 1: Blink LED</li>
-              <li>Demo 2: Traffic light simulation</li>
-              <li>Demo 3: LDR-based street light</li>
-            </ul>
-          </li>
-          <li><strong>12:50 – 1:00 PM:</strong> Q&A Session</li>
-        </ul>
-        
-        <h4>🛠️ Session 2: Hands-On Practice (1:40 PM – 2:40 PM)</h4>
-        <ul>
-          <li><strong>1:40 – 2:30 PM:</strong> Group Project (50 mins)
-            <ul>
-              <li>Build a Smart Traffic Light System in Tinkercad using Arduino</li>
-              <li>Trainers guide groups as they work</li>
-            </ul>
-          </li>
-          <li><strong>2:30 – 2:40 PM:</strong> Wrap-Up
-            <ul>
-              <li>Groups showcase their circuits</li>
-              <li>Trainers summarize learning & thank participants</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    `
-  },
-  {
-    id: 'hackverse-24hr',
-    date: '2025-10-23',
-    label: 'hackathon',
-    title: 'HackVerse - 12hr Hackathon',
-    summary: 'The ultimate 12-hour hackathon challenge on Day 2 with multiple rounds, presentations, and jury evaluation.',
-    registrationLink: 'https://unstop.com/o/GpqxyzX?lb=logged_out_user&utm_medium=Share&utm_source=WhatsApp',
-    details: `
-      <div class="event-details">
-        <h3>💻 HackVerse - 12hr Hackathon</h3>
-        <p><strong>Duration:</strong> 12 hours continuous</p>
-        <p><strong>Start:</strong> October 23, 2025 at 10:00 AM (Day 2)</p>
-        <p><strong>End:</strong> October 23, 2025 at 10:00 PM (Day 2)</p>
-        
-        <div style="margin: 20px 0;">
-          <a href="https://unstop.com/o/GpqxyzX?lb=logged_out_user&utm_medium=Share&utm_source=WhatsApp" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">🚀 Register for HackVerse on Unstop</a>
-        </div>
-        
-        <h4>📝 Pre-Event Activities:</h4>
-        <ul>
-          <li><strong>Oct 12-18:</strong> Online submission of PPTs for chosen Problem Statements</li>
-          <li><strong>Oct 20:</strong> Shortlisting of top teams by Student Jury</li>
-        </ul>
-        
-        <h4>🚀 Day 2 Schedule (Oct 23):</h4>
-        <ul>
-          <li><strong>9:00 AM:</strong> Offline Registration (ID Card, room allocation, confirmation)</li>
-          <li><strong>10:00 AM:</strong> 🎯 Hackathon Officially Begins</li>
-          <li><strong>12:00 PM:</strong> Round 1 Presentation (Progress review by seniors)</li>
-          <li><strong>1:00 - 1:40 PM:</strong> Lunch Break</li>
-          <li><strong>1:40 - 5:00 PM:</strong> Intensive Work Hours (volunteers available for support)</li>
-          <li><strong>5:00 - 5:30 PM:</strong> Snack Break</li>
-          <li><strong>5:30 - 7:30 PM:</strong> Round 2 Presentation & Final Development</li>
-          <li><strong>7:30 - 8:30 PM:</strong> Dinner Break</li>
-          <li><strong>8:30 - 10:00 PM:</strong> � Final Jury Round & Project Presentations</li>
-          <li><strong>10:00 PM:</strong> ⏰ Hackathon Ends - Results Announcement</li>
-        </ul>
-      </div>
-    `
-  },
-  {
     id: 'think-a-bit-quiz',
     date: '2025-10-22',
     label: 'competition',
@@ -317,146 +153,6 @@ const events = [
     `
   },
   {
-    id: 'techrogue-debate',
-    date: '2025-10-24',
-    label: 'competition',
-    title: 'TechRGue (Tech Debate)',
-    summary: 'Technical debate competition where participants argue for or against technology-related statements.',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeRKdvK2xSz-3IqRDD0NYknmfzCFYwOIYl3Tc7b5tBOoZaN9g/viewform?usp=dialog',
-    details: `
-      <div class="event-details">
-        <h3>🗣️ TechRGue (Tech Debate Competition)</h3>
-        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
-        <p><strong>Time:</strong> 1:40 PM - 3:40 PM (Simultaneous with Gaming)</p>
-        
-        <div style="margin: 20px 0;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRKdvK2xSz-3IqRDD0NYknmfzCFYwOIYl3Tc7b5tBOoZaN9g/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register for TechRGue</a>
-        </div>
-        
-        <h4>📋 Registration Process:</h4>
-        <ul>
-          <li>Choose one tech-related statement from provided list</li>
-          <li>Select your stance: Supporting OR Opposing</li>
-          <li>Teams/pairs formed based on topic and stance</li>
-        </ul>
-        
-        <h4>👥 Judging Panel:</h4>
-        <ul>
-          <li><strong>Technical Judge:</strong> Faculty member (technical evaluation)</li>
-          <li><strong>Communication Judge:</strong> English/Language faculty (delivery assessment)</li>
-        </ul>
-        
-        <h4>🎯 Evaluation Criteria:</h4>
-        <ul>
-          <li><strong>Technical Understanding:</strong> Depth of knowledge on the topic</li>
-          <li><strong>Communication & Delivery:</strong> Clarity, confidence, presentation skills</li>
-          <li><strong>Relevance & Logic:</strong> Argument structure and reasoning</li>
-        </ul>
-        
-        <h4>📋 Registration Form Fields:</h4>
-        <ul>
-          <li>Name, Year, Branch & Section</li>
-          <li>Mobile Number</li>
-          <li>Topic selection from statement list</li>
-          <li>Stance preference (For/Against)</li>
-          <li>Queries/Doubts section</li>
-        </ul>
-        
-        <p><strong>🏆 Results:</strong> Winners selected by judges based on consolidated scores, certificates/prizes awarded</p>
-      </div>
-    `
-  },
-  {
-    id: 'career-guidance',
-    date: '2025-10-24',
-    label: 'workshop',
-    title: 'Career Guidance Workshop',
-    summary: 'Professional guidance session with industry experts and alumni sharing career insights and opportunities.',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSe7sXqW8o1LOKHKNehpOh9wEcHRrI2YNd3SYolpaHYVdSRINg/viewform?usp=dialog',
-    details: `
-      <div class="event-details">
-        <h3>🎯 Career Guidance Workshop</h3>
-        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
-        <p><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
-        <p><strong>Duration:</strong> 3 hours</p>
-        
-        <div style="margin: 20px 0;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7sXqW8o1LOKHKNehpOh9wEcHRrI2YNd3SYolpaHYVdSRINg/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register for Career Guidance</a>
-        </div>
-        
-        <p>Interactive session featuring industry professionals and successful alumni sharing valuable career insights, tips, and guidance for your future in electronics and communication engineering.</p>
-        
-        <h4>🎤 What to Expect:</h4>
-        <ul>
-          <li>Industry trends and opportunities</li>
-          <li>Career paths in ECE</li>
-          <li>Skills development guidance</li>
-          <li>Interview preparation tips</li>
-          <li>Higher studies advice</li>
-          <li>Networking opportunities</li>
-          <li>Q&A with experts</li>
-        </ul>
-        
-        <p><strong>Speakers:</strong> Industry professionals, successful alumni, and career counselors</p>
-      </div>
-    `
-  },
-  {
-    id: 'meme-contest',
-    date: '2025-10-22',
-    label: 'competition',
-    title: "Watt'⚡ the meme.? - Online Meme Contest",
-    summary: 'Creative online meme competition focusing on core domain topics with multiple submission formats.',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSegPxVm2AFgPkFHd9zji1xvjaAJ5zVStjxQRTwOHs1WQainRw/viewform?usp=dialog',
-    details: `
-      <div class="event-details">
-        <h3>😂 Watt'⚡ the meme.? - Online Meme Contest</h3>
-        <p><strong>Duration:</strong> Throughout the fest (submit anytime)</p>
-        <p><strong>Submission:</strong> Via Google Form</p>
-        <p><strong>Open to:</strong> Everyone</p>
-        
-        <div style="margin: 20px 0;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSegPxVm2AFgPkFHd9zji1xvjaAJ5zVStjxQRTwOHs1WQainRw/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Submit Your Meme</a>
-        </div>
-        
-        <h4>📋 Contest Categories:</h4>
-        
-        <div class="contest-category">
-          <h5>🖼️ ONLINE MEME CONTEST</h5>
-          <ul>
-            <li><strong>Format:</strong> Image or Video</li>
-            <li><strong>Theme:</strong> Core domain topics (ECE/Technology)</li>
-            <li><strong>Submission:</strong> Google Form upload</li>
-          </ul>
-        </div>
-        
-        <div class="contest-category">
-          <h5>🎵 SONG OR MOVIE GUESSING</h5>
-          <p>Light-hearted activity during breaks between main events to keep audience engaged.</p>
-        </div>
-        
-        <div class="contest-category">
-          <h5>🎭 MEME BACK (Feedback Activity)</h5>
-          <ul>
-            <li>Optional add-on in feedback Google Form</li>
-            <li>Express feedback using meme dialogues</li>
-            <li>Upload short clips of meme-based feedback</li>
-          </ul>
-        </div>
-        
-        <h4>📜 Contest Rules:</h4>
-        <ul>
-          <li><strong>Content Focus:</strong> Core domain topics only</li>
-          <li><strong>Language:</strong> No adult (18+) language allowed</li>
-          <li><strong>Respect:</strong> Content must not offend management</li>
-          <li><strong>Originality:</strong> Original creations preferred</li>
-        </ul>
-        
-        <p><strong>🏆 Judging:</strong> Based on creativity, relevance to domain, and humor quotient</p>
-      </div>
-    `
-  },
-  {
     id: 'treasure-hunt',
     date: '2025-10-23',
     label: 'competition',
@@ -520,37 +216,57 @@ const events = [
     `
   },
   {
-    id: 'valedictory',
-    date: '2025-10-24',
-    label: 'ceremony',
-    title: 'Valedictory Ceremony',
-    summary: 'Grand closing ceremony of ELECTROVERSE 2025 with prize distribution and closing remarks. Part of the main fest.',
-    noRegistration: true,
+    id: 'meme-contest',
+    date: '2025-10-22',
+    label: 'competition',
+    title: "Watt'⚡ the meme.? - Online Meme Contest",
+    summary: 'Creative online meme competition focusing on core domain topics with multiple submission formats.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSegPxVm2AFgPkFHd9zji1xvjaAJ5zVStjxQRTwOHs1WQainRw/viewform?usp=dialog',
     details: `
       <div class="event-details">
-        <h3>🏆 Valedictory Ceremony</h3>
-        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
-        <p><strong>Time:</strong> 3:40 PM - 5:00 PM</p>
-        <p><strong>Duration:</strong> 1 hour 20 minutes</p>
-        <p><strong>Access:</strong> Included with ELECTROVERSE Fest Pass</p>
+        <h3>😂 Watt'⚡ the meme.? - Online Meme Contest</h3>
+        <p><strong>Duration:</strong> Throughout the fest (submit anytime)</p>
+        <p><strong>Submission:</strong> Via Google Form</p>
+        <p><strong>Open to:</strong> Everyone</p>
         
-        <p>Join us for the grand finale of ELECTROVERSE 2025! Celebrate the success of our 3-day department fest with prize distribution, recognition of winners, and closing remarks.</p>
+        <div style="margin: 20px 0;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSegPxVm2AFgPkFHd9zji1xvjaAJ5zVStjxQRTwOHs1WQainRw/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Submit Your Meme</a>
+        </div>
         
-        <h4>🎊 Ceremony Highlights:</h4>
+        <h4>📋 Contest Categories:</h4>
+        
+        <div class="contest-category">
+          <h5>🖼️ ONLINE MEME CONTEST</h5>
+          <ul>
+            <li><strong>Format:</strong> Image or Video</li>
+            <li><strong>Theme:</strong> Core domain topics (ECE/Technology)</li>
+            <li><strong>Submission:</strong> Google Form upload</li>
+          </ul>
+        </div>
+        
+        <div class="contest-category">
+          <h5>🎵 SONG OR MOVIE GUESSING</h5>
+          <p>Light-hearted activity during breaks between main events to keep audience engaged.</p>
+        </div>
+        
+        <div class="contest-category">
+          <h5>🎭 MEME BACK (Feedback Activity)</h5>
+          <ul>
+            <li>Optional add-on in feedback Google Form</li>
+            <li>Express feedback using meme dialogues</li>
+            <li>Upload short clips of meme-based feedback</li>
+          </ul>
+        </div>
+        
+        <h4>📜 Contest Rules:</h4>
         <ul>
-          <li>Prize distribution for all competitions</li>
-          <li>Recognition of outstanding participants</li>
-          <li>Vote of thanks</li>
-          <li>Closing remarks by dignitaries</li>
-          <li>Group photographs</li>
-          <li>Feedback collection</li>
+          <li><strong>Content Focus:</strong> Core domain topics only</li>
+          <li><strong>Language:</strong> No adult (18+) language allowed</li>
+          <li><strong>Respect:</strong> Content must not offend management</li>
+          <li><strong>Originality:</strong> Original creations preferred</li>
         </ul>
         
-        <p><strong>🎉 Celebration:</strong> A fitting end to an amazing 3-day journey of learning, competition, and fun!</p>
-        
-        <p style="margin-top: 15px; padding: 12px; background: rgba(0, 83, 156, 0.1); border-radius: 8px;">
-          <strong>📋 Note:</strong> This is a fest event. Get your ELECTROVERSE Fest Pass to attend!
-        </p>
+        <p><strong>🏆 Judging:</strong> Based on creativity, relevance to domain, and humor quotient</p>
       </div>
     `
   }
@@ -841,97 +557,53 @@ function renderEvents(filter = 'all', search = ''){
   const q = search.trim().toLowerCase();
   grid.innerHTML = '';
   
-  // Find the main ELECTROVERSE event
-  const mainFest = events.find(ev => ev.id === 'electroverse-main');
-  
-  // Get all other events (sub-events)
-  const subEvents = events.filter(ev => 
-    ev.id !== 'electroverse-main' && 
+  // Get all events that match filter and search
+  const filteredEvents = events.filter(ev => 
     (filter === 'all' || ev.label === filter) && 
     (q === '' || (ev.title+ev.summary).toLowerCase().includes(q))
   );
   
-  if (!mainFest && subEvents.length === 0) { 
+  if (filteredEvents.length === 0) { 
     grid.innerHTML = '<div class="card">No events found.</div>'; 
     return; 
   }
   
-  // Render main ELECTROVERSE fest card
-  if (mainFest && (filter === 'all' || mainFest.label === filter) && (q === '' || (mainFest.title+mainFest.summary).toLowerCase().includes(q))) {
-    const mainEl = document.createElement('div');
-    mainEl.className = 'main-fest-card';
-    mainEl.innerHTML = `
-      <div class="fest-header">
-        <span class="fest-badge">🎉 MAIN DEPARTMENT FEST</span>
-        <h2>${mainFest.title}</h2>
-        <p class="fest-dates">October 22-24, 2025 | 3 Days of Innovation & Excellence</p>
-      </div>
-      <div class="fest-description">
-        <p>${mainFest.summary}</p>
-      </div>
-      <div class="fest-actions">
-        <a href="${mainFest.registrationLink}" target="_blank" class="btn primary btn-large" style="text-decoration: none;">
-          🎫 Get Your Fest Pass
-        </a>
-        <button class="btn ghost btn-expand" data-id="${mainFest.id}">
-          View Full Details
-        </button>
-      </div>
-      <div class="fest-divider">
-        <span>ALL EVENTS UNDER ELECTROVERSE</span>
-      </div>
+  // Render events
+  filteredEvents.forEach(ev => {
+    const el = document.createElement('article'); 
+    el.className = 'event';
+    
+    // Check if event should show registration button
+    let registerButton = '';
+    if (!ev.noRegistration) {
+      registerButton = ev.registrationLink 
+        ? `<a href="${ev.registrationLink}" target="_blank" class="btn primary" style="text-decoration: none;">Register for This Event</a>`
+        : `<button class="btn primary btn-rsvp" data-id="${ev.id}">Register for This Event</button>`;
+    }
+    
+    // Add event type badge
+    const typeBadge = {
+      'workshop': '🔧 Workshop',
+      'competition': '🏆 Competition',
+      'hackathon': '💻 Hackathon',
+      'ceremony': '🎊 Ceremony',
+      'entertainment': '🎮 Entertainment',
+      'expo': '🎪 Expo',
+      'talk': '🎤 Talk'
+    }[ev.label] || '📅 Event';
+    
+    el.innerHTML = `
+      <div class="event-type-badge">${typeBadge}</div>
+      <h4>${ev.title}</h4>
+      <p>${ev.summary}</p>
+      ${registerButton ? `<div style="margin-top:12px;">${registerButton}</div>` : ''}
+      <button class="btn ghost btn-details" data-id="${ev.id}" style="margin-top: 8px;">View Details</button>
     `;
-    grid.appendChild(mainEl);
-  }
+    grid.appendChild(el);
+  });
   
-  // Render sub-events in a nested container
-  if (subEvents.length > 0) {
-    const subEventsContainer = document.createElement('div');
-    subEventsContainer.className = 'sub-events-container';
-    
-    subEvents.forEach(ev => {
-      const el = document.createElement('article'); 
-      el.className = 'event sub-event';
-      
-      // Check if event should show registration button
-      let registerButton = '';
-      if (!ev.noRegistration) {
-        registerButton = ev.registrationLink 
-          ? `<a href="${ev.registrationLink}" target="_blank" class="btn primary" style="text-decoration: none;">Register for This Event</a>`
-          : `<button class="btn primary btn-rsvp" data-id="${ev.id}">Register for This Event</button>`;
-      }
-      // If noRegistration is true, registerButton stays empty (no button shown)
-      
-      // Add event type badge
-      const typeBadge = {
-        'workshop': '🔧 Workshop',
-        'competition': '🏆 Competition',
-        'hackathon': '💻 Hackathon',
-        'ceremony': '🎊 Ceremony',
-        'entertainment': '🎮 Entertainment',
-        'expo': '🎪 Expo',
-        'talk': '🎤 Talk'
-      }[ev.label] || '📅 Event';
-      
-      el.innerHTML = `
-        <div class="event-type-badge">${typeBadge}</div>
-        <h4>${ev.title}</h4>
-        <p>${ev.summary}</p>
-        ${registerButton ? `<div style="margin-top:12px;">${registerButton}</div>` : ''}
-      `;
-      subEventsContainer.appendChild(el);
-    });
-    
-    grid.appendChild(subEventsContainer);
-  }
-  
-  // Bind expand button for main fest
-  const expandBtn = grid.querySelector('.btn-expand');
-  if (expandBtn) {
-    expandBtn.addEventListener('click', () => {
-      openDetailModal(mainFest);
-    });
-  }
+  // Bind detail buttons
+  grid.querySelectorAll('.btn-details').forEach(b=> b.addEventListener('click', e=> openDetailModal(findEventById(b.dataset.id))));
   
   // bind register buttons
   grid.querySelectorAll('.btn-rsvp').forEach(b=> b.addEventListener('click', e=> openRSVPModal(findEventById(b.dataset.id))));
