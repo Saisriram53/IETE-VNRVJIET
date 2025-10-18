@@ -83,162 +83,36 @@ const events = [
     date: '2025-10-22',
     label: 'expo',
     title: 'ELECTROVERSE - Department Fest of ECE',
-    summary: 'The flagship 3-day department fest by IETE Student Chapter featuring hackathons, workshops, competitions, and technical events from Oct 22-24, 2025.',
+    summary: 'The flagship 2-day department fest by IETE Student Chapter featuring competitions and technical events from Oct 22-23, 2025.',
     registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdO2kiotw_Kr0kerMwK3UqNrkSN5H-10DLEgtCpfZlJ7LUQlQ/viewform?usp=dialog',
     details: `
       <div class="event-details">
         <h3>🎉 ELECTROVERSE - Department Fest of ECE</h3>
         <p><strong>Organized by:</strong> IETE Student Chapter</p>
-        <p><strong>Duration:</strong> 3 Days (22-24 October 2025)</p>
+        <p><strong>Duration:</strong> 2 Days (22-23 October 2025)</p>
         <p><strong>Objective:</strong> Enhance awareness about IETE chapter and kickstart the legacy of our department fest</p>
         
         <div style="margin: 20px 0; padding: 15px; background: rgba(0, 83, 156, 0.1); border-left: 4px solid var(--accent); border-radius: 8px;">
           <p style="margin: 0; font-weight: 600;">📋 Get your ELECTROVERSE Pass!</p>
-          <p style="margin: 8px 0 0 0; font-size: 0.95em;">Register for the fest pass to access all events throughout the 3-day celebration.</p>
+          <p style="margin: 8px 0 0 0; font-size: 0.95em;">Register for the fest pass to access all events throughout the 2-day celebration.</p>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdO2kiotw_Kr0kerMwK3UqNrkSN5H-10DLEgtCpfZlJ7LUQlQ/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 12px; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">🎫 Register for Fest Pass</a>
         </div>
         
         <h4>📅 Event Schedule Overview:</h4>
         <ul>
-          <li><strong>Day 1 (Oct 22):</strong> Inauguration, Arduino Workshop, Quiz Round 1 & Entertainment</li>
-          <li><strong>Day 2 (Oct 23):</strong> 12hr HackVerse, Treasure Hunt, Quiz Round 2</li>
-          <li><strong>Day 3 (Oct 24):</strong> Career Guidance, TechRGue Debate, Gaming, Valedictory</li>
+          <li><strong>Day 1 (Oct 22):</strong> Think-a-Bit (Quiz) Round 1</li>
+          <li><strong>Day 2 (Oct 23):</strong> Think-a-Bit (Quiz) Round 2, Treasure Hunt, Gaming Tournament</li>
         </ul>
         
         <h4>🌟 Major Events Under ELECTROVERSE:</h4>
         <ul>
-          <li>Inauguration Ceremony - Oct 22, 9:30 AM</li>
-          <li>Arduino Workshop with TinkerCAD - Oct 22, 11:00 AM</li>
           <li>Think-a-Bit (Tech Quiz) - Round 1 (Oct 22), Round 2 (Oct 23)</li>
-          <li>HackVerse (12hr Hackathon) - Oct 23</li>
-          <li>TechRGue (Tech Debate) - Oct 24</li>
-          <li>Career Guidance Workshop - Oct 24</li>
           <li>Treasure Hunt - Oct 23</li>
-          <li>Gaming Tournament - Oct 24</li>
+          <li>Gaming Tournament - Oct 23</li>
           <li>Online Meme Contest - Throughout the fest</li>
-          <li>Valedictory Ceremony - Oct 24, 3:40 PM</li>
         </ul>
         
         <p style="margin-top: 20px; font-style: italic; color: var(--muted);">Note: Individual event registrations are available below. The fest pass gives you access to attend all events.</p>
-      </div>
-    `
-  },
-  {
-    id: 'day1-inauguration',
-    date: '2025-10-22',
-    label: 'ceremony',
-    title: 'Inauguration Ceremony',
-    summary: 'Official opening ceremony of ELECTROVERSE 2025 - Department Fest of ECE. Part of the main fest - register for the fest pass above.',
-    noRegistration: true,
-    details: `
-      <div class="event-details">
-        <h3>🎊 Inauguration Ceremony</h3>
-        <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
-        <p><strong>Time:</strong> 9:30 AM - 11:00 AM</p>
-        <p><strong>Duration:</strong> 1.5 hours</p>
-        <p><strong>Access:</strong> Included with ELECTROVERSE Fest Pass</p>
-        
-        <p>Join us for the grand opening of ELECTROVERSE 2025! The ceremony will officially launch our 3-day department fest with speeches from dignitaries, overview of events, and the lighting of the ceremonial lamp.</p>
-        
-        <p style="margin-top: 15px; padding: 12px; background: rgba(0, 83, 156, 0.1); border-radius: 8px;">
-          <strong>📋 Note:</strong> This is a fest event. Get your ELECTROVERSE Fest Pass to attend!
-        </p>
-      </div>
-    `
-  },
-  {
-    id: 'arduino-workshop',
-    date: '2025-10-22',
-    label: 'workshop',
-    title: 'Arduino Workshop with TinkerCAD',
-    summary: 'Comprehensive hands-on workshop covering Arduino basics with TinkerCAD simulation - Theory and practical sessions.',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSc1D39oG2nxRu9WzPyOYW9-QOgOuVz3iICr9K4iXJL5mv5jYw/viewform?usp=dialog',
-    details: `
-      <div class="event-details">
-        <h3>🔧 Arduino Workshop with TinkerCAD</h3>
-        <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
-        <p><strong>Session 1 (Theory):</strong> 11:00 AM - 1:00 PM</p>
-        <p><strong>Session 2 (Hands-on):</strong> 1:40 PM - 2:40 PM</p>
-        
-        <div style="margin: 20px 0;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1D39oG2nxRu9WzPyOYW9-QOgOuVz3iICr9K4iXJL5mv5jYw/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register Now</a>
-        </div>
-        
-        <h4>📋 Session 1: Theory + Demonstrations (11:00 AM – 1:00 PM)</h4>
-        <ul>
-          <li><strong>11:00 – 11:10 AM:</strong> Welcome & Introduction</li>
-          <li><strong>11:10 – 11:50 AM:</strong> Basics of Circuits in Tinkercad
-            <ul>
-              <li>Interface overview</li>
-              <li>Demo: LED + resistor, switch, series/parallel LEDs</li>
-            </ul>
-          </li>
-          <li><strong>11:50 – 12:50 PM:</strong> Arduino in Tinkercad
-            <ul>
-              <li>Introduction to Arduino UNO</li>
-              <li>Demo 1: Blink LED</li>
-              <li>Demo 2: Traffic light simulation</li>
-              <li>Demo 3: LDR-based street light</li>
-            </ul>
-          </li>
-          <li><strong>12:50 – 1:00 PM:</strong> Q&A Session</li>
-        </ul>
-        
-        <h4>🛠️ Session 2: Hands-On Practice (1:40 PM – 2:40 PM)</h4>
-        <ul>
-          <li><strong>1:40 – 2:30 PM:</strong> Group Project (50 mins)
-            <ul>
-              <li>Build a Smart Traffic Light System in Tinkercad using Arduino</li>
-              <li>Trainers guide groups as they work</li>
-            </ul>
-          </li>
-          <li><strong>2:30 – 2:40 PM:</strong> Wrap-Up
-            <ul>
-              <li>Groups showcase their circuits</li>
-              <li>Trainers summarize learning & thank participants</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    `
-  },
-  {
-    id: 'hackverse-24hr',
-    date: '2025-10-23',
-    label: 'hackathon',
-    title: 'HackVerse - 12hr Hackathon',
-    summary: 'The ultimate 12-hour hackathon challenge on Day 2 with multiple rounds, presentations, and jury evaluation.',
-    registrationLink: 'https://unstop.com/o/GpqxyzX?lb=logged_out_user&utm_medium=Share&utm_source=WhatsApp',
-    details: `
-      <div class="event-details">
-        <h3>💻 HackVerse - 12hr Hackathon</h3>
-        <p><strong>Duration:</strong> 12 hours continuous</p>
-        <p><strong>Start:</strong> October 23, 2025 at 10:00 AM (Day 2)</p>
-        <p><strong>End:</strong> October 23, 2025 at 10:00 PM (Day 2)</p>
-        
-        <div style="margin: 20px 0;">
-          <a href="https://unstop.com/o/GpqxyzX?lb=logged_out_user&utm_medium=Share&utm_source=WhatsApp" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">🚀 Register for HackVerse on Unstop</a>
-        </div>
-        
-        <h4>📝 Pre-Event Activities:</h4>
-        <ul>
-          <li><strong>Oct 12-18:</strong> Online submission of PPTs for chosen Problem Statements</li>
-          <li><strong>Oct 20:</strong> Shortlisting of top teams by Student Jury</li>
-        </ul>
-        
-        <h4>🚀 Day 2 Schedule (Oct 23):</h4>
-        <ul>
-          <li><strong>9:00 AM:</strong> Offline Registration (ID Card, room allocation, confirmation)</li>
-          <li><strong>10:00 AM:</strong> 🎯 Hackathon Officially Begins</li>
-          <li><strong>12:00 PM:</strong> Round 1 Presentation (Progress review by seniors)</li>
-          <li><strong>1:00 - 1:40 PM:</strong> Lunch Break</li>
-          <li><strong>1:40 - 5:00 PM:</strong> Intensive Work Hours (volunteers available for support)</li>
-          <li><strong>5:00 - 5:30 PM:</strong> Snack Break</li>
-          <li><strong>5:30 - 7:30 PM:</strong> Round 2 Presentation & Final Development</li>
-          <li><strong>7:30 - 8:30 PM:</strong> Dinner Break</li>
-          <li><strong>8:30 - 10:00 PM:</strong> � Final Jury Round & Project Presentations</li>
-          <li><strong>10:00 PM:</strong> ⏰ Hackathon Ends - Results Announcement</li>
-        </ul>
       </div>
     `
   },
@@ -315,93 +189,6 @@ const events = [
         <p><strong>Tie-Breaker:</strong> Higher Bonus Round score, then more Buzzer Round correct answers</p>
       </div>
     `
-  },
-  {
-    id: 'techrogue-debate',
-    date: '2025-10-24',
-    label: 'competition',
-    title: 'TechRGue (Tech Debate)',
-    summary: 'Technical debate competition where participants argue for or against technology-related statements.',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeRKdvK2xSz-3IqRDD0NYknmfzCFYwOIYl3Tc7b5tBOoZaN9g/viewform?usp=dialog',
-    details: `
-      <div class="event-details">
-        <h3>🗣️ TechRGue (Tech Debate Competition)</h3>
-        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
-        <p><strong>Time:</strong> 1:40 PM - 3:40 PM (Simultaneous with Gaming)</p>
-        
-        <div style="margin: 20px 0;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRKdvK2xSz-3IqRDD0NYknmfzCFYwOIYl3Tc7b5tBOoZaN9g/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register for TechRGue</a>
-        </div>
-        
-        <h4>📋 Registration Process:</h4>
-        <ul>
-          <li>Choose one tech-related statement from provided list</li>
-          <li>Select your stance: Supporting OR Opposing</li>
-          <li>Teams/pairs formed based on topic and stance</li>
-        </ul>
-        
-        <h4>👥 Judging Panel:</h4>
-        <ul>
-          <li><strong>Technical Judge:</strong> Faculty member (technical evaluation)</li>
-          <li><strong>Communication Judge:</strong> English/Language faculty (delivery assessment)</li>
-        </ul>
-        
-        <h4>🎯 Evaluation Criteria:</h4>
-        <ul>
-          <li><strong>Technical Understanding:</strong> Depth of knowledge on the topic</li>
-          <li><strong>Communication & Delivery:</strong> Clarity, confidence, presentation skills</li>
-          <li><strong>Relevance & Logic:</strong> Argument structure and reasoning</li>
-        </ul>
-        
-        <h4>📋 Registration Form Fields:</h4>
-        <ul>
-          <li>Name, Year, Branch & Section</li>
-          <li>Mobile Number</li>
-          <li>Topic selection from statement list</li>
-          <li>Stance preference (For/Against)</li>
-          <li>Queries/Doubts section</li>
-        </ul>
-        
-        <p><strong>🏆 Results:</strong> Winners selected by judges based on consolidated scores, certificates/prizes awarded</p>
-      </div>
-    `
-  },
-  {
-    id: 'career-guidance',
-    date: '2025-10-24',
-    label: 'workshop',
-    title: 'Career Guidance Workshop',
-    summary: 'Professional guidance session with industry experts and alumni sharing career insights and opportunities.',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSe7sXqW8o1LOKHKNehpOh9wEcHRrI2YNd3SYolpaHYVdSRINg/viewform?usp=dialog',
-    details: `
-      <div class="event-details">
-        <h3>🎯 Career Guidance Workshop</h3>
-        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
-        <p><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
-        <p><strong>Duration:</strong> 3 hours</p>
-        
-        <div style="margin: 20px 0;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7sXqW8o1LOKHKNehpOh9wEcHRrI2YNd3SYolpaHYVdSRINg/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register for Career Guidance</a>
-        </div>
-        
-        <p>Interactive session featuring industry professionals and successful alumni sharing valuable career insights, tips, and guidance for your future in electronics and communication engineering.</p>
-        
-        <h4>🎤 What to Expect:</h4>
-        <ul>
-          <li>Industry trends and opportunities</li>
-          <li>Career paths in ECE</li>
-          <li>Skills development guidance</li>
-          <li>Interview preparation tips</li>
-          <li>Higher studies advice</li>
-          <li>Networking opportunities</li>
-          <li>Q&A with experts</li>
-        </ul>
-        
-        <p><strong>Speakers:</strong> Industry professionals, successful alumni, and career counselors</p>
-      </div>
-    `
-  },
-  {
     id: 'meme-contest',
     date: '2025-10-22',
     label: 'competition',
@@ -492,16 +279,15 @@ const events = [
   },
   {
     id: 'gaming-event',
-    date: '2025-10-24',
+    date: '2025-10-23',
     label: 'entertainment',
     title: 'Gaming Tournament',
-    summary: 'Competitive gaming tournament running alongside TechRGue debate competition.',
+    summary: 'Competitive gaming tournament featuring popular games.',
     details: `
       <div class="event-details">
         <h3>🎮 Gaming Tournament</h3>
-        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
+        <p><strong>Date:</strong> October 23, 2025 (Day 2)</p>
         <p><strong>Time:</strong> 1:40 PM - 3:40 PM</p>
-        <p><strong>Format:</strong> Simultaneous with TechRGue</p>
         
         <p>Compete in exciting gaming tournaments featuring popular games. Show off your gaming skills and compete for prizes!</p>
         
@@ -518,44 +304,8 @@ const events = [
         <p><strong>Equipment:</strong> Gaming setups provided</p>
       </div>
     `
-  },
-  {
-    id: 'valedictory',
-    date: '2025-10-24',
-    label: 'ceremony',
-    title: 'Valedictory Ceremony',
-    summary: 'Grand closing ceremony of ELECTROVERSE 2025 with prize distribution and closing remarks. Part of the main fest.',
-    noRegistration: true,
-    details: `
-      <div class="event-details">
-        <h3>🏆 Valedictory Ceremony</h3>
-        <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
-        <p><strong>Time:</strong> 3:40 PM - 5:00 PM</p>
-        <p><strong>Duration:</strong> 1 hour 20 minutes</p>
-        <p><strong>Access:</strong> Included with ELECTROVERSE Fest Pass</p>
-        
-        <p>Join us for the grand finale of ELECTROVERSE 2025! Celebrate the success of our 3-day department fest with prize distribution, recognition of winners, and closing remarks.</p>
-        
-        <h4>🎊 Ceremony Highlights:</h4>
-        <ul>
-          <li>Prize distribution for all competitions</li>
-          <li>Recognition of outstanding participants</li>
-          <li>Vote of thanks</li>
-          <li>Closing remarks by dignitaries</li>
-          <li>Group photographs</li>
-          <li>Feedback collection</li>
-        </ul>
-        
-        <p><strong>🎉 Celebration:</strong> A fitting end to an amazing 3-day journey of learning, competition, and fun!</p>
-        
-        <p style="margin-top: 15px; padding: 12px; background: rgba(0, 83, 156, 0.1); border-radius: 8px;">
-          <strong>📋 Note:</strong> This is a fest event. Get your ELECTROVERSE Fest Pass to attend!
-        </p>
-      </div>
-    `
   }
 ];
-
 /* ---------- Circular Carousel for Panel ---------- */
 let currentCarouselIndex = 0;
 let carouselItems = [];
@@ -864,7 +614,7 @@ function renderEvents(filter = 'all', search = ''){
       <div class="fest-header">
         <span class="fest-badge">🎉 MAIN DEPARTMENT FEST</span>
         <h2>${mainFest.title}</h2>
-        <p class="fest-dates">October 22-24, 2025 | 3 Days of Innovation & Excellence</p>
+        <p class="fest-dates">October 22-23, 2025 | 2 Days of Innovation & Excellence</p>
       </div>
       <div class="fest-description">
         <p>${mainFest.summary}</p>
