@@ -496,12 +496,17 @@ const events = [
     label: 'entertainment',
     title: 'Gaming Tournament',
     summary: 'Competitive gaming tournament running alongside TechRGue debate competition.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdThip42vOSHo1yySlpxvlbAX3v1g_Ie87qSpkZPxXMRsTKNA/viewform?usp=dialog',
     details: `
       <div class="event-details">
         <h3>🎮 Gaming Tournament</h3>
         <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
         <p><strong>Time:</strong> 1:40 PM - 3:40 PM</p>
         <p><strong>Format:</strong> Simultaneous with TechRGue</p>
+        
+        <div style="margin: 20px 0;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdThip42vOSHo1yySlpxvlbAX3v1g_Ie87qSpkZPxXMRsTKNA/viewform?usp=dialog" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">📝 Register for Gaming Tournament</a>
+        </div>
         
         <p>Compete in exciting gaming tournaments featuring popular games. Show off your gaming skills and compete for prizes!</p>
         
@@ -514,7 +519,6 @@ const events = [
           <li>Prizes for winners and runners-up</li>
         </ul>
         
-        <p><strong>Registration:</strong> On-spot registration available</p>
         <p><strong>Equipment:</strong> Gaming setups provided</p>
       </div>
     `
