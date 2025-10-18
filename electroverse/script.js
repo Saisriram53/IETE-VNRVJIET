@@ -470,44 +470,6 @@ function initEventCardInteractions() {
 
 // Event Details Data
 const eventDetails = {
-  hackverse: {
-    title: "HackVerse - 24hr Hackathon",
-    content: `
-      <h3>💻 HackVerse - The Ultimate 24hr Hackathon</h3>
-      <p><strong>Duration:</strong> 24 hours continuous (Oct 23 10:00 AM - Oct 24 1:00 PM)</p>
-      
-      <h4>📝 Pre-Event Activities:</h4>
-      <ul>
-        <li><strong>Oct 12-18:</strong> Online submission of PPTs for chosen Problem Statements</li>
-        <li><strong>Oct 20:</strong> Shortlisting of top teams by Student Jury</li>
-      </ul>
-      
-      <h4>🚀 Day 2 Schedule (Oct 23):</h4>
-      <ul>
-        <li><strong>9:00 AM:</strong> Offline Registration (ID Card, room allocation, confirmation)</li>
-        <li><strong>10:00 AM:</strong> 🎯 Hackathon Officially Begins</li>
-        <li><strong>12:00 PM:</strong> Round 1 Presentation (Progress review by seniors)</li>
-        <li><strong>1:00 - 1:40 PM:</strong> Lunch Break</li>
-        <li><strong>1:40 - 6:00 PM:</strong> Intensive Work Hours (volunteers available for support)</li>
-        <li><strong>6:00 - 6:30 PM:</strong> Snack Break</li>
-        <li><strong>6:30 - 8:30 PM:</strong> Round 2 Presentation (Progress review)</li>
-        <li><strong>8:30 - 10:00 PM:</strong> Dinner</li>
-        <li><strong>10:30 PM - 12:00 AM:</strong> 🎭 BlindFold Pictionary Fun Event</li>
-      </ul>
-      
-      <h4>🌙 Day 3 Schedule (Oct 24):</h4>
-      <ul>
-        <li><strong>12:00 AM onwards:</strong> Resume Work</li>
-        <li><strong>2:30 - 3:30 AM:</strong> Fun Activity (keep participants active)</li>
-        <li><strong>6:30 - 8:00 AM:</strong> Fresh Up & Breakfast</li>
-        <li><strong>8:00 - 10:00 AM:</strong> Final Fine-tuning</li>
-        <li><strong>10:00 AM:</strong> ⏰ Hackathon Ends</li>
-        <li><strong>10:00 AM - 1:00 PM:</strong> 🏆 Final Jury Round</li>
-      </ul>
-      
-      <p><strong>🎯 What to Expect:</strong> Real-world problem statements, mentorship from seniors, networking opportunities, exciting prizes, and 24 hours of pure innovation!</p>
-    `
-  },
   
   quiz: {
     title: "Think-a-Bit Quiz Competition",
@@ -545,246 +507,6 @@ const eventDetails = {
       </ol>
       
       <p><strong>🏆 Winner Determination:</strong> Cumulative score across all sub-rounds with tie-breaker rules</p>
-    `
-  },
-  
-  arduino: {
-    title: "Arduino Workshop with TinkerCAD",
-    content: `
-      <h3>🔧 Arduino Workshop with TinkerCAD</h3>
-      <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
-      <p><strong>Session 1 (Theory):</strong> 11:00 AM - 1:00 PM</p>
-      <p><strong>Session 2 (Hands-on):</strong> 1:40 PM - 2:40 PM</p>
-      
-      <h4>📋 Session 1: Theory + Demonstrations (11:00 AM – 1:00 PM)</h4>
-      <ul>
-        <li><strong>11:00 – 11:10 AM:</strong> Welcome & Introduction</li>
-        <li><strong>11:10 – 11:50 AM:</strong> Basics of Circuits in Tinkercad
-          <ul>
-            <li>Interface overview and navigation</li>
-            <li>Demo: LED + resistor circuit</li>
-            <li>Switch controls and series/parallel LEDs</li>
-          </ul>
-        </li>
-        <li><strong>11:50 – 12:50 PM:</strong> Arduino in Tinkercad
-          <ul>
-            <li>Introduction to Arduino UNO</li>
-            <li>Demo 1: Basic LED Blink program</li>
-            <li>Demo 2: Traffic light simulation</li>
-            <li>Demo 3: LDR-based automatic street light</li>
-          </ul>
-        </li>
-        <li><strong>12:50 – 1:00 PM:</strong> Q&A Session</li>
-      </ul>
-      
-      <h4>🛠️ Session 2: Hands-On Practice (1:40 PM – 2:40 PM)</h4>
-      <ul>
-        <li><strong>1:40 – 2:30 PM:</strong> Group Project (50 mins)
-          <ul>
-            <li>Build a Smart Traffic Light System in Tinkercad using Arduino</li>
-            <li>Hands-on guidance from expert trainers</li>
-            <li>Team-based learning approach</li>
-          </ul>
-        </li>
-        <li><strong>2:30 – 2:40 PM:</strong> Wrap-Up
-          <ul>
-            <li>Groups showcase their completed circuits</li>
-            <li>Learning summary and key takeaways</li>
-            <li>Certificate distribution</li>
-          </ul>
-        </li>
-      </ul>
-      
-      <p><strong>🎯 Learning Outcomes:</strong> Master Arduino basics, understand circuit design, gain hands-on simulation experience, and build a real project!</p>
-    `
-  },
-  
-  debate: {
-    title: "TechRGue - Technical Debate",
-    content: `
-      <h3>🗣️ TechRGue - Technical Debate Competition</h3>
-      <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
-      <p><strong>Time:</strong> 1:40 PM - 3:40 PM (Simultaneous with Gaming)</p>
-      
-      <h4>📋 Registration Process:</h4>
-      <ul>
-        <li>Choose one tech-related statement from provided list</li>
-        <li>Select your stance: Supporting OR Opposing</li>
-        <li>Teams/pairs formed based on topic and stance</li>
-      </ul>
-      
-      <h4>👥 Judging Panel:</h4>
-      <ul>
-        <li><strong>Technical Judge:</strong> Faculty member (technical evaluation)</li>
-        <li><strong>Communication Judge:</strong> English/Language faculty (delivery assessment)</li>
-      </ul>
-      
-      <h4>🎯 Evaluation Criteria:</h4>
-      <ul>
-        <li><strong>Technical Understanding:</strong> Depth of knowledge on the topic</li>
-        <li><strong>Communication & Delivery:</strong> Clarity, confidence, presentation skills</li>
-        <li><strong>Relevance & Logic:</strong> Argument structure and reasoning</li>
-      </ul>
-      
-      <h4>📋 Registration Form Fields:</h4>
-      <ul>
-        <li>Personal details (Name, Year, Branch & Section, Mobile)</li>
-        <li>Topic selection from curated statement list</li>
-        <li>Stance preference (For/Against the statement)</li>
-        <li>Query/Doubts section for clarifications</li>
-      </ul>
-      
-      <h4>🏆 Event Flow:</h4>
-      <ol>
-        <li>Registration and team formation</li>
-        <li>Final schedule creation and sharing</li>
-        <li>Venue setup with proper audio system</li>
-        <li>Structured debate rounds with time management</li>
-        <li>Judge evaluation and score consolidation</li>
-        <li>Winner announcement and prize distribution</li>
-      </ol>
-      
-      <p><strong>🎯 Benefits:</strong> Improve public speaking, enhance technical knowledge, develop logical thinking, and win exciting prizes!</p>
-    `
-  },
-  
-  vlsi: {
-    title: "VLSI Workshop",
-    content: `
-      <h3>🔬 VLSI Workshop</h3>
-      <p><strong>Date:</strong> October 23, 2025 (Day 2)</p>
-      <p><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
-      <p><strong>Duration:</strong> 3 hours intensive session</p>
-      <p><strong>Target Audience:</strong> Non-hackathon participants and VLSI enthusiasts</p>
-      
-      <h4>📚 Comprehensive Topics Covered:</h4>
-      <ul>
-        <li><strong>Introduction to VLSI Technology</strong>
-          <ul>
-            <li>History and evolution of semiconductor technology</li>
-            <li>Moore's Law and current industry trends</li>
-            <li>Applications in modern electronics</li>
-          </ul>
-        </li>
-        <li><strong>Digital Circuit Design Fundamentals</strong>
-          <ul>
-            <li>Logic gates and Boolean algebra</li>
-            <li>Combinational and sequential circuits</li>
-            <li>Design optimization techniques</li>
-          </ul>
-        </li>
-        <li><strong>Layout Design Principles</strong>
-          <ul>
-            <li>Physical design concepts</li>
-            <li>Design rules and constraints</li>
-            <li>Parasitic effects and their mitigation</li>
-          </ul>
-        </li>
-        <li><strong>Simulation and Testing</strong>
-          <ul>
-            <li>SPICE simulation basics</li>
-            <li>Verification methodologies</li>
-            <li>Testing strategies for VLSI circuits</li>
-          </ul>
-        </li>
-        <li><strong>Industry Applications and Case Studies</strong>
-          <ul>
-            <li>Processor design and architecture</li>
-            <li>Memory systems and storage</li>
-            <li>System-on-Chip (SoC) design</li>
-          </ul>
-        </li>
-        <li><strong>Career Opportunities in VLSI</strong>
-          <ul>
-            <li>Industry landscape and job roles</li>
-            <li>Skills development roadmap</li>
-            <li>Higher studies and research opportunities</li>
-          </ul>
-        </li>
-      </ul>
-      
-      <p><strong>🎯 Workshop Benefits:</strong> Gain comprehensive VLSI knowledge, understand industry applications, explore career paths, and receive participation certificate!</p>
-      
-      <p><strong>Note:</strong> This workshop runs parallel to the HackVerse hackathon, providing an excellent alternative for students interested in semiconductor design and chip technology.</p>
-    `
-  },
-  
-  career: {
-    title: "Career Guidance Workshop",
-    content: `
-      <h3>🎯 Career Guidance Workshop</h3>
-      <p><strong>Date:</strong> October 24, 2025 (Day 3)</p>
-      <p><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
-      <p><strong>Duration:</strong> 3 hours of professional insights</p>
-      
-      <h4>🎤 What to Expect:</h4>
-      <ul>
-        <li><strong>Industry Trends and Opportunities</strong>
-          <ul>
-            <li>Current market demands in ECE</li>
-            <li>Emerging technologies and their impact</li>
-            <li>Future career prospects</li>
-          </ul>
-        </li>
-        <li><strong>Diverse Career Paths in ECE</strong>
-          <ul>
-            <li>Core electronics and hardware design</li>
-            <li>Software and embedded systems</li>
-            <li>Telecommunications and networking</li>
-            <li>Research and development opportunities</li>
-            <li>Entrepreneurship in tech</li>
-          </ul>
-        </li>
-        <li><strong>Skills Development Guidance</strong>
-          <ul>
-            <li>Technical skills roadmap</li>
-            <li>Soft skills importance</li>
-            <li>Certification recommendations</li>
-            <li>Project portfolio building</li>
-          </ul>
-        </li>
-        <li><strong>Interview Preparation Tips</strong>
-          <ul>
-            <li>Technical interview strategies</li>
-            <li>HR round preparation</li>
-            <li>Common questions and best answers</li>
-            <li>Mock interview sessions</li>
-          </ul>
-        </li>
-        <li><strong>Higher Studies Advice</strong>
-          <ul>
-            <li>Master's vs industry experience</li>
-            <li>Top universities and programs</li>
-            <li>Scholarship and funding opportunities</li>
-            <li>Research areas in ECE</li>
-          </ul>
-        </li>
-        <li><strong>Networking Opportunities</strong>
-          <ul>
-            <li>Building professional networks</li>
-            <li>LinkedIn optimization</li>
-            <li>Industry connections</li>
-            <li>Alumni network utilization</li>
-          </ul>
-        </li>
-        <li><strong>Interactive Q&A Session</strong>
-          <ul>
-            <li>One-on-one doubt clarification</li>
-            <li>Personalized career advice</li>
-            <li>Industry expert interactions</li>
-          </ul>
-        </li>
-      </ul>
-      
-      <h4>🎤 Distinguished Speakers:</h4>
-      <ul>
-        <li>Industry professionals from leading tech companies</li>
-        <li>Successful alumni working in various ECE domains</li>
-        <li>Career counselors and HR experts</li>
-        <li>Startup founders and entrepreneurs</li>
-      </ul>
-      
-      <p><strong>🎯 Key Benefits:</strong> Get clarity on career choices, understand industry requirements, build professional networks, and create a roadmap for success!</p>
     `
   },
   
@@ -931,88 +653,29 @@ const eventDetails = {
     `
   },
   
-  funfiesta: {
-    title: "Fun Fiesta Game Zone",
+  gaming: {
+    title: "Gaming Tournament",
     content: `
-      <h3>🎡 Fun Fiesta - Ultimate Game Zone</h3>
-      <p><strong>Date:</strong> October 22, 2025 (Day 1)</p>
-      <p><strong>Time:</strong> 2:40 PM - 4:40 PM (Parallel with Quiz Round 1)</p>
+      <h3>🎮 Gaming Tournament</h3>
+      <p><strong>Date:</strong> October 23, 2025 (Day 2)</p>
+      <p><strong>Time:</strong> 1:40 PM - 3:40 PM</p>
       
-      <h4>🎮 Exciting Game Stations:</h4>
+      <p>Compete in exciting gaming tournaments featuring popular games. Show off your gaming skills and compete for prizes!</p>
       
-      <div class="game-station">
-        <h5>🎡 1. Spin the Wheel</h5>
-        <ul>
-          <li><strong>Setup:</strong> Large spinning wheel with multiple prize sections</li>
-          <li><strong>Rules:</strong> One spin per ticket/turn, final result binding</li>
-          <li><strong>Prizes:</strong> Instant rewards, dare challenges, bonus points</li>
-          <li><strong>Management:</strong> Dedicated volunteer with prize inventory</li>
-        </ul>
-      </div>
-      
-      <div class="game-station">
-        <h5>🎯 2. Ring Toss Challenge</h5>
-        <ul>
-          <li><strong>Setup:</strong> 6-10 bottles arranged in strategic formation</li>
-          <li><strong>Rules:</strong> 3-5 rings per participant, marked throwing line</li>
-          <li><strong>Scoring:</strong> 1 point per successful ring toss</li>
-          <li><strong>Prizes:</strong> Tiered rewards based on accuracy (3/5 = small prize, 5/5 = big prize)</li>
-        </ul>
-      </div>
-      
-      <div class="game-station">
-        <h5>🎯 3. Precision Darts</h5>
-        <ul>
-          <li><strong>Setup:</strong> Professional dartboard with safety darts</li>
-          <li><strong>Rules:</strong> 3 throws per participant, marked distance line</li>
-          <li><strong>Scoring:</strong> Points based on dartboard zones</li>
-          <li><strong>Prizes:</strong> 50+ points = small prize, 80+ points = big prize</li>
-        </ul>
-      </div>
-      
-      <div class="game-station">
-        <h5>🧠 4. Memory Cards Challenge</h5>
-        <ul>
-          <li><strong>Setup:</strong> 12-20 cards with matching pairs in grid layout</li>
-          <li><strong>Rules:</strong> Flip 2 cards at a time to find matches</li>
-          <li><strong>Variations:</strong> Solo play or 2-player competition</li>
-          <li><strong>Prizes:</strong> 1 point per match, bonus for speed completion</li>
-        </ul>
-      </div>
-      
-      <div class="game-station">
-        <h5>🎨 5. Blindfolded Pictionary</h5>
-        <ul>
-          <li><strong>Setup:</strong> Whiteboard, markers, blindfolds, word slips</li>
-          <li><strong>Rules:</strong> Draw while blindfolded, team members guess</li>
-          <li><strong>Time Limit:</strong> 1 minute per drawing</li>
-          <li><strong>Scoring:</strong> 1 point per correct guess, team competition</li>
-        </ul>
-      </div>
-      
-      <h4>🏆 Rewards and Recognition System:</h4>
+      <h4>🏆 Tournament Features:</h4>
       <ul>
-        <li><strong>Instant Prizes:</strong> Candies, pens, badges, stickers</li>
-        <li><strong>Point Accumulation:</strong> Collect stamps/tickets for each game</li>
-        <li><strong>Leaderboard Tracking:</strong> Real-time score updates</li>
-        <li><strong>Grand Prizes:</strong> Top performers get special rewards</li>
-        <li><strong>Lucky Draw:</strong> End-of-session surprise giveaways</li>
+        <li>Multiple gaming categories</li>
+        <li>Individual and team competitions</li>
+        <li>Elimination rounds</li>
+        <li>Live commentary and audience participation</li>
+        <li>Prizes for winners and runners-up</li>
       </ul>
       
-      <h4>✨ Management and Operations:</h4>
-      <ul>
-        <li><strong>Volunteers:</strong> 1-2 dedicated volunteers per game station</li>
-        <li><strong>Flow Management:</strong> Quick reset and efficient player rotation</li>
-        <li><strong>Tracking System:</strong> Tickets/stamps to monitor participation</li>
-        <li><strong>Crowd Control:</strong> Organized queues and time management</li>
-        <li><strong>Safety Measures:</strong> First aid and safety protocols in place</li>
-      </ul>
-      
-      <p><strong>🎯 Fun Fiesta Benefits:</strong> Stress relief during technical fest, team bonding, skill challenges, instant gratification, and loads of entertainment!</p>
-      
-      <p><strong>Perfect for:</strong> Taking a break from intense competitions, networking with peers, trying your luck, and creating fun memories!</p>
+      <p><strong>Registration:</strong> On-spot registration available</p>
+      <p><strong>Equipment:</strong> Gaming setups provided</p>
     `
   }
+  
 };
 
 // DOM Elements
