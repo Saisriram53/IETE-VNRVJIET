@@ -496,6 +496,7 @@ const events = [
     label: 'entertainment',
     title: 'Gaming Tournament',
     summary: 'Competitive gaming tournament running alongside TechRGue debate competition.',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdThip42vOSHo1yySlpxvlbAX3v1g_Ie87qSpkZPxXMRsTKNA/viewform?usp=dialog',
     details: `
       <div class="event-details">
         <h3>🎮 Gaming Tournament</h3>
