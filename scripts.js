@@ -189,6 +189,8 @@ const events = [
         <p><strong>Tie-Breaker:</strong> Higher Bonus Round score, then more Buzzer Round correct answers</p>
       </div>
     `
+  },
+  {
     id: 'meme-contest',
     date: '2025-10-22',
     label: 'competition',
