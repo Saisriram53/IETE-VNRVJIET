@@ -100,8 +100,9 @@ const events = [
         
         <h4>📅 Event Schedule Overview:</h4>
         <ul>
-          <li><strong>Day 1 (Oct 22):</strong> Think-a-Bit Quiz & Gaming</li>
-          <li><strong>Day 2 (Oct 23):</strong> Treasure Hunt & Meme Contest</li>
+          <li><strong>Day 1 (Oct 22):</strong> Think-a-Bit Quiz Round 1 & Gaming Tournament</li>
+          <li><strong>Day 2 (Oct 23):</strong> Think-a-Bit Quiz Round 2 & Treasure Hunt</li>
+          <li><strong>Throughout Fest:</strong> Online Meme Contest (submit anytime)</li>
         </ul>
         
         <h4>🌟 Major Events Under ELECTROVERSE:</h4>
